@@ -24,9 +24,9 @@
   "homepage": "https://github.com/jay2noob/famapp#readme",
   "dependencies": {
     "concurrently": "^5.1.0",
+    "config": "^3.3.1",
     "express": "^4.17.1",
-    "mongoose": "^5.9.7",
-    "morgan": "^1.10.0"
+    "mongoose": "^5.9.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
