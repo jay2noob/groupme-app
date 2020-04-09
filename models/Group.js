@@ -10,7 +10,7 @@ const FamilySchema = new mongoose.Schema({
     },
     members: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'profile'
     }],
 
 });
