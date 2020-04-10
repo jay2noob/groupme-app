@@ -27,6 +27,11 @@ function DashboardNavbar() {
               <i class="fal fa-calendar-alt"></i>
             </Link>
           </li>
+          <li className="dashboard-navbar_item">
+            <Link className="dashboard-navbar_link" to="/signout">
+              <i class="fal fa-sign-out-alt"></i>
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
