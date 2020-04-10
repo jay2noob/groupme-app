@@ -8,7 +8,7 @@ const PostSchema = new mongoose.Schema({
     },
     family: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'family'
+        ref: 'group'
     },
     post: {
         type: String,
