@@ -1,0 +1,33 @@
+.dashboard-navbar {
+  background-color: #23282D;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  position: fixed;
+  width: 18%;
+  height: 100%;
+}
+
+.dashboard-navbar_ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 2rem .25rem;
+  width: 100%;
+}
+
+.dashboard-navbar_item {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.dashboard-navbar_link {
+  padding: 1.5rem;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.far,
+.fas,
+.fal {
+  font-size: 1.5rem;;
+}
