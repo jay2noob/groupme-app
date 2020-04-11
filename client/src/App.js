@@ -7,16 +7,14 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path='/'>
-            <Welcome />
-          </Route>
-          <Route exact path='/dashboard'>
-            <Dashboard />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path='/'>
+          <Welcome />
+        </Route>
+        <Route exact path='/dashboard'>
+          <Dashboard />
+        </Route>
+      </Switch>
     </Router>
   );
 }
