@@ -1,38 +1,29 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import Search from '../Search'
 import './styles.css'
 
-function DashboardNavbar() {
+function DashboardNavbar(props) {
   return (
     <nav className="dashboard-navbar">
-      <div className="dashboard-navbar_list">
-        <ul className="dashboard-navbar_ul">
-          <li className="dashboard-navbar_item">
-            <Link className="dashboard-navbar_link" to="/">
-              <i class="far fa-home"></i>
-            </Link>
-          </li>
-          <li className="dashboard-navbar_item">
-            <Link className="dashboard-navbar_link" to="/groups">
-              <i class="fas fa-users"></i>
-            </Link>
-          </li>
-          <li className="dashboard-navbar_item">
-            <Link className="dashboard-navbar_link" to="/profile">
-              <i class="fas fa-user"></i>
-            </Link>
-          </li>
-          <li className="dashboard-navbar_item">
-            <Link className="dashboard-navbar_link" to="/events">
-              <i class="fal fa-calendar-alt"></i>
-            </Link>
-          </li>
-          <li className="dashboard-navbar_item">
-            <Link className="dashboard-navbar_link" to="/signout">
-              <i class="fal fa-sign-out-alt"></i>
-            </Link>
-          </li>
-        </ul>
+      <div className="dashboard-navbar-inner">
+        <div className="dashboard-navbar-logo">
+          <Link className="dashboard-navbar-brand" to="/">
+            Dashboard
+          </Link>
+        </div>
+        <div className="dashboard-navbar-search">
+          <Search />
+        </div>
+        <div className="dashboard-navbar-list">
+          <ul className="dashboard-navbar-ul">
+            <li className="dashboard-navbar-item">
+              <Link className="dashboard-navbar-link" to="/">
+                Welcome, USERNAME
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   )
