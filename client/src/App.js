@@ -4,7 +4,7 @@ import Welcome from './pages/Welcome'
 import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 import Groups from './pages/Groups'
-import Events from './pages/Event'
+import Events from './pages/Events'
 import './App.css';
 
 function App() {

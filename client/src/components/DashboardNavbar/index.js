@@ -9,7 +9,7 @@ function DashboardNavbar(props) {
       <div className="dashboard-navbar-inner">
         <div className="dashboard-navbar-logo">
           <Link className="dashboard-navbar-brand" to="/">
-            Dashboard
+            Page Name
           </Link>
         </div>
         <div className="dashboard-navbar-search">
