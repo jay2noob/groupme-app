@@ -13,13 +13,18 @@ function SideNavbar() {
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/groups">
-              <i class="fas fa-users"></i>
+            <Link className="side-navbar_link" to="/profile">
+              <i class="fas fa-user"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/profile">
-              <i class="fas fa-user"></i>
+            <Link className="side-navbar_link" to="/create">
+              <i class="fal fa-plus"></i>
+            </Link>
+          </li>
+          <li className="side-navbar_item">
+            <Link className="side-navbar_link" to="/groups">
+              <i class="fas fa-users"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
