@@ -1,9 +1,12 @@
 .grid-cards {
   display: grid;
   grid-template-columns: 1fr;
+  max-width: 45rem;
+  margin: 0 auto;
 }
 
-.stat-card {
+
+.dashboard-stat-card {
   justify-self: center;
   text-align: center;
   display: grid;
@@ -18,15 +21,15 @@
   margin-bottom: 1rem;
 }
 
-.stat-card-content {
+.dashboard-stat-content {
   padding: 1rem;
 }
 
-.stat-card-heading {
+.dashboard-stat-heading {
   font-weight: 400;
 }
 
-.stat-card-data {
+.dashboard-stat-data {
   opacity: .5;
 }
 

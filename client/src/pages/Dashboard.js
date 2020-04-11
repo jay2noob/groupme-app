@@ -8,11 +8,14 @@ function Dashboard() {
   return (
     <Fragment>
       <header>
+
         <SideNavbar />
         <DashboardNavbar />
+
       </header>
 
       <DashboardCards />
+
     </Fragment>
   )
 }

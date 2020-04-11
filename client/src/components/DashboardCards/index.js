@@ -1,11 +1,13 @@
 import React from 'react'
-import StatCard from '../StatCard'
+import DashboardStatCard from '../DashboardStatCard'
+import DashboardProfileCard from '../DashboardProfileCard'
 import './styles.css'
 
 function DashboardCards() {
   return (
     <div className="dashboard-card-container">
-      <StatCard />
+      <DashboardProfileCard />
+      <DashboardStatCard />
     </div>
   )
 }
