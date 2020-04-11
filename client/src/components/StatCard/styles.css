@@ -1,0 +1,49 @@
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.stat-card {
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  max-width: 30rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.stat-card-content {
+  padding: 1rem;
+}
+
+.stat-card-heading {
+  font-weight: 400;
+}
+
+.stat-card-data {
+  opacity: .5;
+}
+
+@media only screen and (min-width: 30rem) {
+  .grid-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 40rem) {
+  .grid-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .grid-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
