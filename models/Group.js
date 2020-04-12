@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const FamilySchema = new mongoose.Schema({
+const GroupSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -10,9 +10,9 @@ const FamilySchema = new mongoose.Schema({
     },
     members: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'profile'
+        ref: 'user'
     }],
 
 });
 
-module.exports = Family = mongoose.model("family", FamilySchema);
+module.exports = Group = mongoose.model("group", GroupSchema);

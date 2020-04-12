@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import SideNavbar from '../components/SideNavbar'
 
- function Profile() {
+ function Events() {
   return (
     <Fragment>
       <SideNavbar />
@@ -9,4 +9,4 @@ import SideNavbar from '../components/SideNavbar'
   )
 }
 
-export default Profile
+export default Events
