@@ -4,7 +4,7 @@
 }
 
 .dashboard-profile-card {
-  width: 18rem;
+  width: 20rem;
   justify-self: center;
   text-align: center;
   display: grid;
@@ -40,7 +40,7 @@
   font-weight: 400;
 }
 
-@media only screen and (min-width: 30rem) {
+@media only screen and (min-width: 35rem) {
   .dashboard-profile-card {
     width: 25rem;
   }
