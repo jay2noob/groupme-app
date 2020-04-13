@@ -11,9 +11,23 @@ function ProfileUserCard() {
         </div>
         <div className="profile-user-content">
           <h2 className="profile-user-heading">USERNAME</h2>
-          <Link to="/edit-user">
-            <button>Edit Profile</button> 
+          <Link to="/groups">
+            <button>Invite to a group</button> 
           </Link>
+          <div className="grid-cards">
+            <div className="profile-user-stats">
+              <h3 className="profile-user-stats_heading">Posts</h3>
+              <p className="profile-user-stats_para">150</p>
+            </div>
+            <div className="profile-user-stats">
+              <h3 className="profile-user-stats_heading">Comments</h3>
+              <p className="profile-user-stats_para">300</p>
+            </div>
+            <div className="profile-user-stats">
+              <h3 className="profile-user-stats_heading">Likes</h3>
+              <p className="profile-user-stats_para">1100</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

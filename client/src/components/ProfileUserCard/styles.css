@@ -1,3 +1,10 @@
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
 .profile-user-container {
   display: grid;
   margin: 1rem auto;
@@ -17,7 +24,7 @@
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 5px;
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 
 .profile-user-img-container {
@@ -40,15 +47,31 @@
   font-weight: 400;
 }
 
+.profile-user-stats_heading {
+  font-weight: 500;
+}
+
+.profile-user-stats_para {
+  opacity: .5;
+}
+
 @media only screen and (min-width: 35rem) {
   .profile-user-card {
     width: 25rem;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media only screen and (min-width: 40rem) {
   .profile-user-card {
     width: 35rem;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
