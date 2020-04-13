@@ -9,32 +9,32 @@ function SideNavbar() {
         <ul className="side-navbar_ul">
           <li className="side-navbar_item">
             <Link className="side-navbar_link" to="/dashboard">
-              <i class="far fa-home"></i>
+              <i className="far fa-home"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
             <Link className="side-navbar_link" to="/profile">
-              <i class="fas fa-user"></i>
+              <i className="fas fa-user"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
             <Link className="side-navbar_link" to="/create">
-              <i class="fal fa-plus"></i>
+              <i className="fal fa-plus"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
             <Link className="side-navbar_link" to="/groups">
-              <i class="fas fa-users"></i>
+              <i className="fas fa-users"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
             <Link className="side-navbar_link" to="/events">
-              <i class="fal fa-calendar-alt"></i>
+              <i className="fal fa-calendar-alt"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
             <Link className="side-navbar_link" to="/signout">
-              <i class="fal fa-sign-out-alt"></i>
+              <i className="fal fa-sign-out-alt"></i>
             </Link>
           </li>
         </ul>
