@@ -10,7 +10,6 @@
   display: grid;
   position: relative;
   min-width: 10rem;
-  max-width: 30rem;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -46,14 +45,20 @@
   }
 }
 
-@media only screen and (min-width: 40rem) {
+@media only screen and (min-width: 45rem) {
   .dashboard-profile-card {
     width: 35rem;
   }
 }
 
-@media only screen and (min-width: 50rem) {
+@media only screen and (min-width: 55rem) {
   .dashboard-profile-card {
     width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 65rem) {
+  .dashboard-profile-card {
+    width: 55rem;
   }
 }

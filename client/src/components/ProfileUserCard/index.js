@@ -14,7 +14,7 @@ function ProfileUserCard() {
           <Link to="/groups">
             <button>Invite to a group</button> 
           </Link>
-          <div className="grid-cards">
+          <div className="user-grid-cards">
             <div className="profile-user-stats">
               <h3 className="profile-user-stats_heading">Posts</h3>
               <p className="profile-user-stats_para">150</p>
