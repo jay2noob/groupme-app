@@ -5,8 +5,8 @@ import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 import Groups from './pages/Groups'
 import Events from './pages/Events'
-// import Login from './pages/Login'
-// import Signup from './pages/Signup'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 import './App.css';
 
 function App() {
@@ -28,12 +28,12 @@ function App() {
         <Route exact path='/events'>
           <Events />
         </Route>
-        {/* <Route exact path='/login'>
+        <Route exact path='/login'>
           <Login />
-        </Route> */}
-        {/* <Route exact path='/signup'>
+        </Route>
+        <Route exact path='/signup'>
           <Signup />
-        </Route> */}
+        </Route>
       </Switch>
     </Router>
   );

@@ -1,44 +1,57 @@
-// import React, { useState } from "react";
-// import { Button, FormGroup, FormControl } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
+// eslint-disable-next-line//
+class LogInForm extends Component {
+    constructor() {
+        super();
 
-// export default function Login() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
+        this.state = {
+            email: "",
+            password: ""
+        };
 
-//   function validateForm() {
-//     return email.length > 0 && password.length > 0;
-//   }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//   }
+    handleChange(e) {
+        let target = e.target;
+        let value = target.value;
+        let name = target.name;
 
-//   return (
-//     <div className="Login">
-//       <form onSubmit={handleSubmit}>
-//         <FormGroup controlId="email" bsSize="large">
-//           <label>Email</label>
-//           <FormControl
-//             autoFocus
-//             type="email"
-//             value={email}
-//             onChange={e => setEmail(e.target.value)}
-//           />
-//         </FormGroup>
-//         <FormGroup controlId="password" bsSize="large">
-//           <label>Password</label>
-//           <FormControl
-//             value={password}
-//             onChange={e => setPassword(e.target.value)}
-//             type="password"
-//           />
-//         </FormGroup>
-//         <Button block bsSize="large" disabled={!validateForm()} type="submit">
-//           Login
-//         </Button>
-//       </form>
-//     </div>
-//   );
-// }
+        this.setState({
+            [name]: value 
+        });
+    }
 
+    handleSubmit(e) {
+        e.preventDefault();
+
+        console.log(this.state);
+    }
+
+    render() {
+        return (
+            <div className="FormCenter"> 
+            <form onSubmit= {this.handleSubmit} className="FormFields">
+            <div className="FormField">
+                <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
+                <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
+              </div>
+
+              <div className="FormField">
+                <label className="FormField__Label" htmlFor="password">Password</label>
+                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
+              </div>
+
+              <div className="FormField">
+                  <button className="FormField__Button mr-20">log in</button> <Link to="/Signup" className="FormField__Link">Create an account</Link>
+              </div>
+            </form>
+          </div>
+        );
+    }
+}
+
+export default LogInForm
