@@ -4,13 +4,13 @@ import './styles.css'
 
 function WelcomeNavbar() {
   return (
-    <nav className="navbar">
+    <nav className="navbar-welcome">
       <div className="navbar-inner">
         <div className="navbar-logo">
           <Link className="navbar-brand" to="/">
             Welcome
           </Link>
-        </div>>
+        </div>
       </div>
     </nav>
   )

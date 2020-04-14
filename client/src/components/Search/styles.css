@@ -17,6 +17,9 @@
   border-radius: 5px;
   padding: .5rem;
   outline: none;
+  width: 10rem !important;
+  margin-bottom: 0 !important;
+  font-size: 1rem;
 }
 
 .search-field:focus {

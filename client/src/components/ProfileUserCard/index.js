@@ -12,7 +12,7 @@ function ProfileUserCard() {
         <div className="profile-user-content">
           <h2 className="profile-user-heading">USERNAME</h2>
           <Link to="/groups">
-            <button>Invite to a group</button> 
+            <button className="btn btn-secondary">Invite to a group</button> 
           </Link>
           <div className="user-grid-cards">
             <div className="profile-user-stats">

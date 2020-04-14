@@ -1,0 +1,24 @@
+.edit-profile-img-container {
+  margin: 0 auto;
+  display: grid;
+  padding: .5rem;
+}
+
+.edit-profile-img {
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  justify-self: center;
+  width: 168px;
+  height: 168px;
+  object-fit: cover;
+  margin: 1rem 0;
+}
+
+.btn-fileupload {
+  line-height: inherit !important;
+  width: 40rem !important;
+  padding: .5rem !important;
+  margin-top: .15rem;
+  opacity: 1 !important;
+}
