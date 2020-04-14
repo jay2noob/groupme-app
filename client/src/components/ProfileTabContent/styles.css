@@ -10,6 +10,13 @@
   margin: 1rem auto;
 }
 
+.tab-btn {
+ max-width: 100% !important;
+ border-radius: 0 !important;
+ box-shadow: 0 2px 2px rgba(0,0,0,.1),0 4px 4px rgba(0,0,0,.3) !important;
+ padding: .5rem !important 
+}
+
 .profile-tab-card {
   width: 20rem;
   justify-self: center;
@@ -49,6 +56,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .profile-tab-list > li {
@@ -68,14 +76,14 @@
 
 @media only screen and (min-width: 40rem) {
   .profile-tab-card {
-    width: 35rem;
+    width: 32rem;
   }
 
 }
 
 @media only screen and (min-width: 50rem) {
   .profile-tab-card {
-    width: 45rem;
+    width: 42rem;
   }
 }
 

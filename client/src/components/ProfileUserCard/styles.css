@@ -66,7 +66,7 @@
 
 @media only screen and (min-width: 40rem) {
   .profile-user-card {
-    width: 35rem;
+    width: 32rem;
   }
 
   .user-grid-cards {
@@ -76,7 +76,7 @@
 
 @media only screen and (min-width: 50rem) {
   .profile-user-card {
-    width: 45rem;
+    width: 42rem;
   }
 }
 

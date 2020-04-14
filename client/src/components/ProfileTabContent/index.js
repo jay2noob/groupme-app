@@ -8,13 +8,13 @@ function ProfileTabContent() {
         <div className="profile-tab-heading">
           <ul className="profile-tab-list">
             <li>
-              <button>Posts</button>
+              <button className="btn btn-primary tab-btn">Posts</button>
             </li>
             <li>
-              <button>About</button>
+              <button className="btn btn-primary tab-btn">About</button>
             </li>
             <li>
-              <button>Likes</button>
+              <button className="btn btn-primary tab-btn">Likes</button>
             </li>
           </ul>
         </div>
