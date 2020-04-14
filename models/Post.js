@@ -4,23 +4,26 @@ const PostSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "user",
+    ref: "users",
   },
   family: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "group",
   },
-  post: {
+  text: {
     type: String,
   },
-  image: {
+  name: {
+    type: String,
+  },
+  avatar: {
     type: String,
   },
   likes: [
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
+        ref: "users",
       },
     },
   ],
@@ -28,7 +31,7 @@ const PostSchema = new mongoose.Schema({
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
+        ref: "users",
       },
       text: {
         type: String,
