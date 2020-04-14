@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 import Groups from './pages/Groups'
 import Events from './pages/Events'
+import EditProfile from './pages/EditProfile'
 // import Login from './pages/Login'
 // import Signup from './pages/Signup'
 import './App.css';
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path='/profile'>
           <Profile />
+        </Route>
+        <Route exact path='/edit-profile'>
+          <EditProfile />
         </Route>
         <Route exact path='/groups'>
           <Groups />
