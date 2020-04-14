@@ -17,6 +17,8 @@
   border-radius: 5px;
   padding: .5rem;
   outline: none;
+  width: 10rem;
+  font-size: 1rem;
 }
 
 .search-field:focus {

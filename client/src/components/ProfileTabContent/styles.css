@@ -1,16 +1,16 @@
-.info-grid-cards {
+.tab-grid-cards {
   display: grid;
   grid-template-columns: 1fr;
   max-width: 45rem;
   margin: 0 auto;
 }
 
-.profile-info-container {
+.profile-tab-container {
   display: grid;
   margin: 1rem auto;
 }
 
-.profile-info-card {
+.profile-tab-card {
   width: 20rem;
   justify-self: center;
   text-align: center;
@@ -25,64 +25,62 @@
   margin-bottom: 1rem;
 }
 
-.profile-info-content {
+.profile-tab-content {
   padding: 1rem;
 }
 
-.profile-info-heading {
+.profile-tab-heading {
   background-color: #EDF2F4;
   margin: 0;
 }
 
-.profile-info-basic {
+.profile-tab-basic {
   padding-bottom: 1rem;
   border-bottom: 1px solid black;;
 }
 
-.profile-info-contact {
+.profile-tab-contact {
   padding-bottom: 1rem;
   border-bottom: 1px solid black;;
 }
 
-.profile-info-list {
+.profile-tab-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   list-style-type: none;
   padding: 0;
 }
 
-.profile-info-list > li {
+.profile-tab-list > li {
   display: grid;
-  margin-bottom: 1rem;
 }
 
-.profile-info-question_span {
+.profile-tab-question_span {
   font-weight: 500;
 }
 
 @media only screen and (min-width: 35rem) {
-  .profile-info-card {
+  .profile-tab-card {
     width: 25rem;
   }
 
 }
 
 @media only screen and (min-width: 40rem) {
-  .profile-info-card {
+  .profile-tab-card {
     width: 35rem;
   }
 
-  .profile-info-list > li {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media only screen and (min-width: 50rem) {
-  .profile-info-card {
+  .profile-tab-card {
     width: 45rem;
   }
 }
 
 @media only screen and (min-width: 70rem) {
-  .profile-info-card {
+  .profile-tab-card {
     width: 55rem;
   }
 }
