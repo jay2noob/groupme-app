@@ -4,6 +4,7 @@
 }
 
 .groups-hero-card {
+  width: 20rem;
   justify-self: center;
   text-align: center;
   display: grid;
@@ -15,21 +16,21 @@
 }
 
 .groups-hero-img-container {
-  position: relative;
-  max-width: 640px;
   overflow: hidden;
   display: block;
+  position: relative;
+  max-height: 300px;
 }
 
 .groups-hero-img {
-  display: block;
-  position: relative;
+  width: 20rem;
+  max-height: 300px;
 }
 
 .groups-hero-content {
   position: absolute;
+  width: 100%;
   bottom: 0;
-  left: 9rem;
   color: #fff;
   background-color: rgba(200,200,200, .4);
   padding: 1rem;
@@ -39,26 +40,42 @@
   font-weight: 400;
 }
 
-/* @media only screen and (min-width: 35rem) {
+@media only screen and (min-width: 35rem) {
   .groups-hero-card {
+    width: 25rem;
+  }
+
+  .groups-hero-img {
     width: 25rem;
   }
 }
 
-@media only screen and (min-width: 45rem) {
+@media only screen and (min-width: 40rem) {
   .groups-hero-card {
-    width: 35rem;
+    width: 32rem;
+  }
+
+  .groups-hero-img {
+    width: 32rem;
   }
 }
 
-@media only screen and (min-width: 55rem) {
+@media only screen and (min-width: 50rem) {
   .groups-hero-card {
-    width: 45rem;
+    width: 42rem;
+  }
+
+  .groups-hero-img {
+    width: 42rem;
   }
 }
 
-@media only screen and (min-width: 65rem) {
+@media only screen and (min-width: 70rem) {
   .groups-hero-card {
     width: 55rem;
   }
-} */
+
+  .groups-hero-img {
+    width: 55rem;
+  }
+}
