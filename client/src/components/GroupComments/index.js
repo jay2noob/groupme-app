@@ -30,6 +30,7 @@ function GroupComments() {
           </div>
         </li>
       </ul>
+      
     </div>
   )
 }

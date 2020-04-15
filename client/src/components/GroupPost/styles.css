@@ -75,6 +75,10 @@
   margin-top: 6px;
 }
 
+.groups-post-body > img {
+  width: 55rem;
+}
+
 .groups-post-reaction {
   display: flex;
   padding: .5rem .5rem .5rem 0;

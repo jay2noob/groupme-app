@@ -35,6 +35,36 @@ function GroupPost() {
         </div>
 
       </div>
+
+      <div className="groups-post-card">
+        <div className="groups-post-top">
+          <div className="groups-post-img-container">
+            <img className="groups-post-img" src="../images/portrait.png" alt=""/>
+          </div>
+          <div className="groups-post-info">
+            <Link to="/profile">
+              <h6 className="groups-post-heading">USERNAME</h6>
+            </Link>
+            <p className="groups-post-time">Just now</p>
+          </div>
+        </div>
+
+        <div className="groups-post-body"> 
+          <img src="../images/coverphoto.png" alt=""/>
+        </div>
+
+        <div className="groups-post-reaction">
+          <Link to="/groups">
+            <i className="fal fa-thumbs-up"></i>
+          </Link>
+          <p className="groups-post-reaction-stat">150 likes</p>
+        </div>
+
+        <div className="groups-post-comments">
+          <GroupComments />
+        </div>
+
+      </div>
     </div>
   )
 }
