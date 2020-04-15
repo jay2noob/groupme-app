@@ -5,14 +5,9 @@ import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 import Groups from './pages/Groups'
 import Events from './pages/Events'
-<<<<<<< HEAD
+import EditProfile from './pages/EditProfile'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-=======
-import EditProfile from './pages/EditProfile'
-// import Login from './pages/Login'
-// import Signup from './pages/Signup'
->>>>>>> fd09a4ca081fc089765420db474c311fe54249d2
 import './App.css';
 
 function App() {
