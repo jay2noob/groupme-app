@@ -1,0 +1,64 @@
+.groups-hero-container {
+  display: grid;
+  margin: 1rem 0 1rem 100px;
+}
+
+.groups-hero-card {
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+}
+
+.groups-hero-img-container {
+  position: relative;
+  max-width: 640px;
+  overflow: hidden;
+  display: block;
+}
+
+.groups-hero-img {
+  display: block;
+  position: relative;
+}
+
+.groups-hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 9rem;
+  color: #fff;
+  background-color: rgba(200,200,200, .4);
+  padding: 1rem;
+}
+
+.groups-hero-heading {
+  font-weight: 400;
+}
+
+/* @media only screen and (min-width: 35rem) {
+  .groups-hero-card {
+    width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 45rem) {
+  .groups-hero-card {
+    width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 55rem) {
+  .groups-hero-card {
+    width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 65rem) {
+  .groups-hero-card {
+    width: 55rem;
+  }
+} */

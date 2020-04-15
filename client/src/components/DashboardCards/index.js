@@ -6,11 +6,11 @@ import './styles.css'
 
 function DashboardCards() {
   return (
-    <div className="dashboard-card-container">
+    <section className="dashboard-card-container">
       <DashboardProfileCard />
       <DashboardStatCard />
       <DashboardGroupCard />
-    </div>
+    </section>
   )
 }
 
