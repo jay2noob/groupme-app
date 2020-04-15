@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom' 
+import GroupComments from '../GroupComments'
 import './styles.css'
 
 function GroupPost() {
@@ -24,13 +25,13 @@ function GroupPost() {
 
         <div className="groups-post-reaction">
           <Link to="/groups">
-            <i class="fal fa-thumbs-up"></i>
+            <i className="fal fa-thumbs-up"></i>
           </Link>
           <p className="groups-post-reaction-stat">150 likes</p>
         </div>
 
         <div className="groups-post-comments">
-
+          <GroupComments />
         </div>
 
       </div>
