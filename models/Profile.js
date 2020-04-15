@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const ProfileSchema = new mongoose.Schema({
-  
   email: {
     type: String,
     required: true,
@@ -24,15 +23,15 @@ const ProfileSchema = new mongoose.Schema({
   },
   city: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'city',
+    ref: "city",
     required: true,
   },
   gender: {
-    type: String,
+    type: Boolean,
   },
   birthdate: {
     type: String,
-    required: false
+    required: false,
   },
   street_address: {
     type: String,
