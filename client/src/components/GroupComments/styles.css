@@ -1,8 +1,4 @@
-.group-comment-top {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  padding: 1rem;
-}
+
 
 .group-comment-info {
   margin-top: .25rem;
@@ -74,7 +70,9 @@
 }
 
 .group-comment-li {
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 1rem;
 }
 
 .group-post-comments {
