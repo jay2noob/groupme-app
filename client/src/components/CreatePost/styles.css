@@ -1,0 +1,39 @@
+.create-post-container {
+  border-radius: 5px;
+  -moz-box-align: stretch;
+
+-moz-box-direction: normal;
+
+-moz-box-orient: vertical;
+
+align-items: stretch;
+
+border: 0px solid black;
+
+box-sizing: border-box;
+
+display: flex;
+
+flex-basis: auto;
+
+flex-direction: column;
+
+flex-shrink: 0;
+
+margin: 0px;
+
+min-height: 0px;
+
+min-width: 0px;
+
+padding: 0px;
+
+position: relative;
+
+z-index: 0;
+}
+
+.create-post-top {  
+  height: 55px;
+  border-bottom: 1px solid #777D74;
+}
