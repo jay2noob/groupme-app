@@ -34,7 +34,9 @@ class LogInForm extends Component {
 
     render() {
         return (
+
             <div className="FormCenter"> 
+            <h2>Log In</h2>
             <form onSubmit= {this.handleSubmit} className="FormFields">
             <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>

@@ -38,6 +38,7 @@ class SignUpForm extends Component  {
     render() {
         return(
             <div className="FormCenter">
+              <h2> Sign Up</h2>
             <form onSubmit={this.handleSubmit} className="FormFields">
             <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">Enter Full Name</label>
@@ -55,7 +56,7 @@ class SignUpForm extends Component  {
               </div>
 
               <div className="FormField">
-                  <button className="FormField__Button mr-20">Sign Up</button> <Link to="/login" className="FormField__Link">I'm already member</Link>
+                  <button className="FormField__Button mr-20">Sign Up</button> <Link to="/" className="FormField__Link">I'm already member</Link>
               </div>
             </form>
           </div>
