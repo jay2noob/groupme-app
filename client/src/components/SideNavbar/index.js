@@ -33,7 +33,7 @@ function SideNavbar() {
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link to="/signout" className="side-navbar_link">
+            <Link to="/" className="side-navbar_link">
               <i className="fal fa-sign-out-alt"></i>
             </Link>
           </li>
