@@ -8,9 +8,12 @@ global.__basedir = __dirname;
 connectDB();
 
 // Init Middleware
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(express.json({ extended: false }));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 app.get("/", (req, res) => res.send("API running..."));
 
