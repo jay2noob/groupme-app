@@ -8,7 +8,6 @@ import Events from './pages/Events'
 import EditProfile from './pages/EditProfile'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import './App.css';
 
 function App() {
   return (
