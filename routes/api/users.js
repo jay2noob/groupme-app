@@ -31,7 +31,6 @@ router.post(
     }
 
     console.log("FILES", req.file);
-    console.log("FILES2", req.files);
     const { name, email, password } = req.body;
 
     try {
@@ -48,7 +47,6 @@ router.post(
           .status(400)
           .json({ errors: [{ msg: "User already exists" }] });
       }
-
        // Get users gravatar
       let avatar = gravatar.url(email, {
         s: "200",
