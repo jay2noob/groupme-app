@@ -12,7 +12,10 @@ function DashboardProfileCard() {
         <div className="dashboard-profile-content">
           <h2 className="dashboard-profile-heading">USERNAME</h2>
           <Link to="/edit-profile">
-            <button className="btn btn-primary">Edit Profile</button> 
+            <button 
+              className="btn btn-primary">
+                Edit Profile
+            </button> 
           </Link>
         </div>
       </div>

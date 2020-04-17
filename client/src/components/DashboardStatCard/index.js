@@ -3,6 +3,7 @@ import './styles.css'
 
 function DashboardStatCard() {
   return (
+    // Dashboard stat card
     <div className="grid-cards">
       <div className="dashboard-stat-card">
         <h2 className="dashboard-stat-heading">Posts</h2>

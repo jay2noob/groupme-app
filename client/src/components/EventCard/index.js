@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 function EventCard() {
@@ -8,7 +9,11 @@ function EventCard() {
         <div className="event-top">
           <div className="event-img-container">
             <img className="event-img" src="../images/event-card.png" alt=""/>
-            <span className="event-edit"><i class="fal fa-user-edit"></i></span>
+            <Link 
+              to="/edit-event"
+              className="event-edit">
+                <i class="fal fa-user-edit"></i>
+            </Link>
           </div>
         </div>
 
@@ -22,6 +27,7 @@ function EventCard() {
             <p>Sat, May 02, 2:00 PM</p>
           </div>
         </div>
+
       </div>
     </div>
   )

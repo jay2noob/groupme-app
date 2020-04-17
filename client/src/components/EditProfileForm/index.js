@@ -5,19 +5,34 @@ function EditProfileForm() {
   return (
     <form>
       <fieldset className="edit-profile-fieldset">
-                  
+      
         <ul className="edit-profile-list"> 
           <li>   
             <label>First Name:</label>
-            <input required type="text" placeholder="Required" id="first-name" name="first_name" />
+            <input 
+              type="text" 
+              placeholder="Required" 
+              id="first-name" 
+              name="first_name" 
+            />
           </li>
           <li>   
             <label>Last Name:</label>
-            <input required type="text" placeholder="Required" id="last-name" name="Last_name" />
+            <input 
+              type="text" 
+              placeholder="Required" 
+              id="last-name" 
+              name="Last_name" 
+            />
           </li>    
           <li>
             <label>City:</label>
-            <input type="text" id="city" name="user_city" placeholder="Enter city" />
+            <input 
+              type="text" 
+              id="city" 
+              name="user_city" 
+              placeholder="Enter city" 
+            />
           </li>
           <li>
           <label>State:</label>
@@ -78,28 +93,61 @@ function EditProfileForm() {
           </li>
           <li>
             <label>Zip Code:</label>
-            <input type="tel" className="zip" id="zipcode" name="user_zipcode" placeholder="Enter 4 digit zip code" />
+            <input 
+              type="tel" 
+              className="zip" 
+              id="zipcode" 
+              name="user_zipcode" 
+              placeholder="Enter 4 digit zip code" 
+            />
           </li>
           <li>
             <label className="edit-profile-gender-label">Gender:</label>
-            <input type="radio" id="male" name="gender" value="male" />
+
+            <input 
+              type="radio" 
+              id="male" 
+              name="gender" 
+              value="male" 
+            />
             <label className="edit-profile-gender-male">Male</label>
-            <input type="radio" id="female" name="gender" value="female" />
+
+            <input 
+              type="radio" 
+              id="female" 
+              name="gender" 
+              value="female" 
+            />
             <label className="edit-profile-gender-female">Female</label>
           </li>
           <li>   
             <label>Birthday:</label>
-            <input required type="date" id="birthday" name="birthdate" />
+            <input 
+              type="date" 
+              id="birthday" 
+              name="birthdate" 
+            />
           </li> 
           <li>
             <label>Phone Number:</label>
-            <input type="tel" id="phone" name="user_phone" placeholder="Enter phone number" />
+            <input 
+              type="tel" 
+              id="phone" 
+              name="user_phone" 
+              placeholder="Enter phone number" 
+            />
           </li>
           <li>
             <label>Email Address:</label>
-            <input required type="email" id="mail" name="email" placeholder="Enter email address" />
+            <input 
+              type="email" 
+              id="mail" 
+              name="email" 
+              placeholder="Enter email address" 
+            />
           </li>
         </ul>
+
       </fieldset>
     </form>
   )

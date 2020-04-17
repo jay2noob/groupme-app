@@ -6,8 +6,10 @@ import ProfileCards from '../components/ProfileCards'
  function Profile() {
   return (
     <Fragment>
-      <SideNavbar />
-      <Navbar />
+      <header>
+        <SideNavbar />
+        <Navbar />
+      </header>
       <ProfileCards />
     </Fragment>
   )

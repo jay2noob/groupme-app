@@ -8,32 +8,32 @@ function SideNavbar() {
       <div className="side-navbar_list">
         <ul className="side-navbar_ul">
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/dashboard">
+            <Link to="/dashboard" className="side-navbar_link">
               <i className="far fa-home"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/profile">
+            <Link to="/profile" className="side-navbar_link">
               <i className="fas fa-user"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/create">
+            <Link to="/create" className="side-navbar_link">
               <i className="fal fa-plus"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/groups">
+            <Link to="/groups" className="side-navbar_link">
               <i className="fas fa-users"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/events">
+            <Link to="/events" className="side-navbar_link">
               <i className="fal fa-calendar-alt"></i>
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link className="side-navbar_link" to="/signout">
+            <Link to="/signout" className="side-navbar_link">
               <i className="fal fa-sign-out-alt"></i>
             </Link>
           </li>

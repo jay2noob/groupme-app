@@ -3,8 +3,9 @@ import EditProfileFrom from '../EditProfileForm'
 import EditProfileImg from '../EditProfileImg'
 import './styles.css'
 
-function EditProfileCard() {
+function EditProfileContainer() {
   return (
+    // Edit profile 
     <div className="edit-profile-card-container">
       <div className="edit-profile-card">
         <div className="edit-profile-heading">
@@ -17,4 +18,4 @@ function EditProfileCard() {
   )
 }
 
-export default EditProfileCard
+export default EditProfileContainer

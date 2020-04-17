@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Navbar from '../components/Navbar'
 import SideNavbar from '../components/SideNavbar'
-import EditProfileCard from '../components/EditProfileCard'
+import EditProfileContainer from '../components/EditProfileContainer'
 
 function EditProfile() {
   return (
@@ -10,7 +10,7 @@ function EditProfile() {
         <SideNavbar />
         <Navbar />
       </header>
-      <EditProfileCard />
+      <EditProfileContainer />
     </Fragment>
   )
 }

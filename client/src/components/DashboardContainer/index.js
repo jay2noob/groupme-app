@@ -6,6 +6,7 @@ import './styles.css'
 
 function DashboardCards() {
   return (
+    // Dashboard container 
     <section className="dashboard-card-container">
       <DashboardProfileCard />
       <DashboardStatCard />
