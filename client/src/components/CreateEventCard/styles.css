@@ -1,0 +1,52 @@
+.create-event-card-container {
+  display: grid;
+  margin: 1rem auto;
+}
+
+.create-event-card {
+  width: 20rem;
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.create-event-content {
+  padding: 1rem;
+}
+
+.create-event-heading {
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 35rem) {
+  .create-event-card {
+    width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 45rem) {
+  .create-event-card {
+    width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 55rem) {
+  .create-event-card {
+    width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 65rem) {
+  .create-event-card {
+    width: 55rem;
+  }
+}
