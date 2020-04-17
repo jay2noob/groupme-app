@@ -22,6 +22,15 @@ img {
   box-shadow: 0 2px 4px rgba(0,0,0,.1),0 4px 8px rgba(0,0,0,.3);
 }
 
+.btn-fileupload {
+  line-height: inherit;
+  width: 40rem;
+  padding: .5rem;
+  margin-top: .15rem;
+  opacity: 1;
+}
+
+
 .btn:hover {
   opacity: 1;
 }

@@ -10,7 +10,6 @@ function EditProfileImg() {
         type="file" 
         accept=".png, .jpg, .jpeg" 
         className=" btn btn-secondary btn-fileupload" 
-        placeholder="Change profile image"
       />
     </div>
   )

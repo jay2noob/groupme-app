@@ -14,11 +14,3 @@
   object-fit: cover;
   margin: 1rem 0;
 }
-
-.btn-fileupload {
-  line-height: inherit !important;
-  width: 40rem !important;
-  padding: .5rem !important;
-  margin-top: .15rem;
-  opacity: 1 !important;
-}

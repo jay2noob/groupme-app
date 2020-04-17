@@ -9,7 +9,7 @@ function CreateGroupCard() {
         <div className="create-group-content">
           <h2 className="create-group-heading">Create a new group</h2>
           <p className="create-group-para">Create a group to start sharing memories with friends and family</p>
-          <Link to='/create'>
+          <Link to='/create/group'>
             <button 
               className="btn btn-primary">
                 Create Group
