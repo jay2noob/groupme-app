@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Navbar from '../components/Navbar'
 import SideNavbar from '../components/SideNavbar'
-import DashboardCards from '../components/DashboardCards'
+import DashboardContainer from '../components/DashboardContainer'
 
 
 function Dashboard() {
@@ -14,7 +14,7 @@ function Dashboard() {
 
       </header>
 
-      <DashboardCards />
+      <DashboardContainer />
 
     </Fragment>
   )
