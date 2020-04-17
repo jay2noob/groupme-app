@@ -5,7 +5,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
-const fs = require('fs').promises;
 
 const User = require("../../models/User");
 const upload = require('../../utils/uploader');
@@ -39,11 +38,6 @@ router.post(
       let user = await User.findOne({ email });
 
       if (user) {
-        try {
-          await fs.unlink(global.__basedir + '/public/img/' + req.file.filename);
-        } catch (e) {
-          console.log(e);
-        }
         return res
           .status(400)
           .json({ errors: [{ msg: "User already exists" }] });

@@ -3,7 +3,7 @@ const connectDB = require("./config/db");
 
 const app = express();
 const bodyParser = require("body-parser");
-global.__basedir = __dirname;
+
 // Connect DB
 connectDB();
 
