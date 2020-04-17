@@ -1,5 +1,7 @@
 .FormCenter {
-  margin-bottom: 100px;
+  margin: 0 auto;
+  
+  width: 32rem;
 }
 
 
