@@ -1,41 +1,39 @@
 const mongoose = require("mongoose");
 
 const ProfileSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
   },
-  password: {
-    type: String,
-    required: true,
-  },
-  avatar: {
-    type: String,
-  },
-  first_name: {
+  firstname: {
     type: String,
     required: true,
   },
-  last_name: {
+  lastname: {
     type: String,
     required: true,
   },
   city: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "city",
-    required: true,
+    type: String,
+  },
+  state: {
+    type: String,
+  },
+  zip: {
+    type: String,
   },
   gender: {
-    type: Boolean,
+    type: String,
   },
   birthdate: {
     type: String,
-    required: false,
   },
-  street_address: {
+  phonenumber: {
     type: String,
-    required: false,
+  },
+  email: {
+    type: String,
+    required: true,
   },
   date: {
     type: Date,
