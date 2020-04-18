@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import WelcomeNavbar from '../components/WelcomeNavbar'
-import LoginCard from '../components/LoginCard'
+import WelcomeHero from '../components/WelcomeHero'
 
 
 function Welcome() {
   return (
     <Fragment>
       <WelcomeNavbar />
-      <LoginCard />
+      <WelcomeHero />
     </Fragment>
   )
 }
