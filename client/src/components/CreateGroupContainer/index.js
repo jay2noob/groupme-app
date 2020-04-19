@@ -1,13 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CreateGroupForm from '../CreateGroupForm'
 import './styles.css'
 
 function CreateGroupContainer() {
   return (
     // Edit profile 
-    <div className="edit-profile-card-container">
-      <div className="edit-profile-card">
-        <div className="edit-profile-heading">
+    <div className="create-group-form-container">
+      <div className="create-group-form-btn">
+        <Link to="/dashboard">
+          <button className="btn btn-primary btn-back">Go Back</button>
+        </Link>
+      </div>
+      <div className="create-group-form">
+        <div className="create-group-form-heading">
           <h2>Create Group</h2>
         </div>
         <CreateGroupForm />

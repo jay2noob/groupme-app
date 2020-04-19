@@ -29,7 +29,7 @@ function CreateGroupForm() {
         </ul>
 
         <div className="create-group-img-container">
-          <label htmlFor="">Optional: add an image for the group</label>
+          <label htmlFor="">Optional: Add an image for the group</label>
             <br />
             <input 
               type="file" 
