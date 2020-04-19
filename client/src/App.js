@@ -7,6 +7,7 @@ import Groups from './pages/Groups'
 import Events from './pages/Events'
 import EditProfile from './pages/EditProfile'
 import CreateGroup from './pages/CreateGroup'
+import CreateEvent from './pages/CreateEvent'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 
@@ -26,14 +27,17 @@ function App() {
         <Route exact path='/profile/edit'>
           <EditProfile />
         </Route>
-        <Route exact path='/create/group'>
-          <CreateGroup />
-        </Route>
         <Route exact path='/groups'>
           <Groups />
         </Route>
+        <Route exact path='/create/group'>
+          <CreateGroup />
+        </Route>
         <Route exact path='/events'>
           <Events />
+        </Route>
+        <Route exact path='/create/event'>
+          <CreateEvent />
         </Route>
         <Route exact path='/login'>
           <Login />

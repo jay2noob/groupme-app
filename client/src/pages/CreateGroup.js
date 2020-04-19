@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
-import CreateGroupContainer from '../components/CreateGroupContainer'
-import { Link } from 'react-router-dom'
+import CreateGroupFormContainer from '../components/CreateGroupFormContainer'
 
 function CreateGroup() {
   return (
     <Fragment>
-      <CreateGroupContainer />
+      <CreateGroupFormContainer />
     </Fragment>
   )
 }

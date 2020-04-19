@@ -1,11 +1,10 @@
 import React from 'react'
+import CreateEventForm from '../CreateEventForm'
 import { Link } from 'react-router-dom'
-import CreateGroupForm from '../CreateGroupForm'
 import './styles.css'
 
-function CreateGroupContainer() {
+function CreateEventFormContainer() {
   return (
-    // Edit profile 
     <div className="create-group-form-container">
       <div className="create-group-form-btn">
         <Link to="/dashboard">
@@ -14,12 +13,12 @@ function CreateGroupContainer() {
       </div>
       <div className="create-group-form">
         <div className="create-group-form-heading">
-          <h2>Create Group</h2>
+          <h2>Create Event</h2>
         </div>
-        <CreateGroupForm />
+        <CreateEventForm />
       </div>
     </div>
   )
 }
 
-export default CreateGroupContainer
+export default CreateEventFormContainer
