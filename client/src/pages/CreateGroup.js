@@ -1,11 +1,11 @@
-import React from 'react'
-import CreateGroupContainer from '../components/CreateGroupContainer'
+import React, { Fragment } from 'react'
+import CreateGroupFormContainer from '../components/CreateGroupFormContainer'
 
 function CreateGroup() {
   return (
-    <div className="group-container">
-      <CreateGroupContainer />
-    </div>
+    <Fragment>
+      <CreateGroupFormContainer />
+    </Fragment>
   )
 }
 

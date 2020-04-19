@@ -9,7 +9,7 @@ function CreateEventCard() {
         <div className="create-event-content">
           <h2 className="create-event-heading">Create a new event</h2>
           <p className="create-event-para">Create an event to share and invite your group to.</p>
-          <Link to='/create'>
+          <Link to='/create/event'>
             <button 
               className="btn btn-primary">
                 Create Event
