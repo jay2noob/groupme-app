@@ -19,6 +19,9 @@ const PostSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
+  postImage: {
+    type: Buffer,
+  },
   likes: [
     {
       user: {
