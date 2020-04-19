@@ -18,11 +18,6 @@ function SideNavbar() {
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link to="/create" className="side-navbar_link">
-              <i className="fal fa-plus"></i>
-            </Link>
-          </li>
-          <li className="side-navbar_item">
             <Link to="/groups" className="side-navbar_link">
               <i className="fas fa-users"></i>
             </Link>

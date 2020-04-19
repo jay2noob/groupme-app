@@ -1,7 +1,9 @@
 import React from 'react'
 import DashboardStatCard from '../DashboardStatCard'
 import DashboardProfileCard from '../DashboardProfileCard'
-import DashboardGroupCard from '../DashboardGroupCard'
+import CreateGroupCard from '../CreateGroupCard'
+import CreateEventCard from '../CreateEventCard'
+import CreatePostCard from '../CreatePostCard'
 import './styles.css'
 
 function DashboardCards() {
@@ -10,7 +12,9 @@ function DashboardCards() {
     <section className="dashboard-card-container">
       <DashboardProfileCard />
       <DashboardStatCard />
-      <DashboardGroupCard />
+      <CreateGroupCard />
+      <CreateEventCard />
+      <CreatePostCard />
     </section>
   )
 }
