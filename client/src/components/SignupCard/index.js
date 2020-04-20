@@ -10,7 +10,7 @@ class SignUpForm extends Component  {
         this.state = {
         
         name:"",    
-        email: "",
+        emailInput: "",
         password: ""
     };
 
@@ -41,22 +41,22 @@ class SignUpForm extends Component  {
               <h2> Sign Up</h2>
             <form onSubmit={this.handleSubmit} className="FormFields">
             <div className="FormField">
-                <label className="FormField__Label" htmlFor="email">Enter Full Name</label>
-                <input type="name" id="email" className="FormField__Input" placeholder="Enter your Full Name" name="name" value={this.state.name} onChange={this.handleChange} />
+                <label className="FormField__Label" htmlFor="name">Enter Full Name</label>
+                <input type="name"  className="FormField__Input" placeholder="Enter your Full Name" name="name" value={this.state.name} onChange={this.handleChange} />
               </div>
 
+
               <div className="FormField">
-                <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
-                <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
+                <label className="FormField__Label" htmlFor="emailInput">Email</label>
+                <input type="emailInput"  className="FormField__Input" placeholder="Enter your Email" name="emailInput" value={this.state.emailInput} onChange={this.handleChange} />
               </div>
-              
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="password">Password</label>
-                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
+                <input type="password"  className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
               </div>
 
               <div className="FormField">
-                  <button className="FormField__Button mr-20">Sign Up</button> <Link to="/" className="FormField__Link">I'm already member</Link>
+                  <button className="FormField__Button mr-20">Sign Up</button> <Link to="/login" className="FormField__Link">I'm already member</Link>
               </div>
             </form>
           </div>
