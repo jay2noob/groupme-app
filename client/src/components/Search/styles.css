@@ -5,23 +5,24 @@
 
 .search-icon {
   border-radius: 5px;
-  padding: .5rem;
+  padding: .45rem;
   background: #379683;
   color: white;
   min-width: 50px;
   text-align: center;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 /* Style the input fields */
 .search-field {
-  border-radius: 5px;
-  padding: .5rem;
-  outline: none;
-  width: 10rem !important;
-  margin-bottom: 0 !important;
-  font-size: 1rem;
+  width: 10rem;
+  margin-bottom: 0;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 .search-field:focus {
   border: 2px solid #379683;
 }
+

@@ -23,7 +23,6 @@ a {
   border: 0;
   border-radius: 5px;
   color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1),0 4px 8px rgba(0,0,0,.3);
 }
 
 .btn-fileupload {
@@ -87,10 +86,8 @@ select {
   padding: .5rem;
   outline: none;
   font-size: 1rem;
-
   width: 100%;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-  border-radius: 5px;
   margin-bottom: 1rem;
 }
 
