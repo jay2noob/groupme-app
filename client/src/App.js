@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Welcome from './pages/Welcome'
 import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
+import MyGroups from './pages/MyGroups'
 import Group from './pages/Group'
 import Events from './pages/Events'
 import EditProfile from './pages/EditProfile'
@@ -28,6 +29,9 @@ function App() {
           <EditProfile />
         </Route>
         <Route exact path='/group'>
+          <MyGroups />
+        </Route>
+        <Route exact path='/group/1'>
           <Group />
         </Route>
         <Route exact path='/create/group'>

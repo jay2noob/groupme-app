@@ -4,9 +4,9 @@ import './styles.css'
 function CreateEventForm() {
   return (
     <form>
-    <fieldset className="create-group-fieldset">
+    <fieldset className="create-event-fieldset">
     
-      <ul className="create-group-list"> 
+      <ul className="create-event-list"> 
         <li>   
           <label>Event Title:</label>
           <input 

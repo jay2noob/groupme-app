@@ -5,14 +5,14 @@ import './styles.css'
 
 function CreateEventFormContainer() {
   return (
-    <div className="create-group-form-container">
-      <div className="create-group-form-btn">
+    <div className="create-event-form-container">
+      <div className="create-event-form-btn">
         <Link to="/dashboard">
           <button className="btn btn-primary btn-back">Go Back</button>
         </Link>
       </div>
-      <div className="create-group-form">
-        <div className="create-group-form-heading">
+      <div className="create-event-form">
+        <div className="create-event-form-heading">
           <h2>Create Event</h2>
         </div>
         <CreateEventForm />
