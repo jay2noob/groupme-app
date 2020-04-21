@@ -8,7 +8,7 @@ class LogInForm extends Component {
         super();
 
         this.state = {
-            email: "",
+            emailInput: "",
             password: ""
         };
 
@@ -40,7 +40,7 @@ class LogInForm extends Component {
             <form onSubmit= {this.handleSubmit} className="FormFields">
             <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
-                <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
+                <input type="emailInput" id="email" className="FormField__Input" placeholder="Enter your email" name="emailInput" value={this.state.emailInput} onChange={this.handleChange} />
               </div>
 
               <div className="FormField">
