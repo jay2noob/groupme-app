@@ -1,18 +1,20 @@
 import React, { Fragment } from 'react'
 import SideNavbar from '../components/SideNavbar'
 import Navbar from '../components/Navbar'
-import ProfileContainer from '../components/Profile/index'
+import GroupHero from '../components/Group/GroupHero'
+import GroupsContainer from '../components/Group/index'
 
- function Profile() {
+ function Groups() {
   return (
     <Fragment>
       <header>
         <SideNavbar />
         <Navbar />
       </header>
-      <ProfileContainer />
+        <GroupHero />
+        <GroupsContainer />
     </Fragment>
   )
 }
 
-export default Profile
+export default Groups

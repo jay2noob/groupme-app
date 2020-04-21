@@ -1,47 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import CreateGroupForm from './CreateGroupForm'
 import './styles.css'
 
-function CreateGroupForm() {
+function CreateGroupFormContainer() {
   return (
-    <form>
-      <fieldset className="create-group-fieldset">
-      
-        <ul className="create-group-list"> 
-          <li>   
-            <label>Group Name:</label>
-            <input 
-              type="text" 
-              placeholder="Group name here" 
-              id="group-name" 
-              name="group_name" 
-            />
-          </li>
-          <li>   
-            <label>About Group:</label>
-            <textarea
-              type="text" 
-              placeholder="A brief description of the group" 
-              id="about-group" 
-              name="about_group">
-              
-            </textarea>
-          </li>
-        </ul>
-
-        <div className="create-group-img-container">
-          <label htmlFor="">Optional: Add an image for the group</label>
-            <br />
-            <input 
-              type="file" 
-              accept=".png, .jpg, .jpeg" 
-              className=" btn btn-secondary btn-fileupload" 
-            />
+    <div className="create-group-form-container">
+      <div className="create-group-form-btn">
+        <Link to="/dashboard">
+          <button className="btn btn-primary btn-back">Go Back</button>
+        </Link>
+      </div>
+      <div className="create-group-form">
+        <div className="create-group-form-heading">
+          <h2>Create Group</h2>
         </div>
-
-        <button className="btn btn-primary create-group-btn">Create Group</button>
-      </fieldset>
-    </form>
+        <CreateGroupForm />
+      </div>
+    </div>
   )
 }
 
-export default CreateGroupForm
+export default CreateGroupFormContainer
