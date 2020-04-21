@@ -1,20 +1,20 @@
-.mygroups-card-container {
+.myevents-card-container {
   margin-left: 100px;
   padding: 1rem;
 }
 
-.mygroups-heading {
+.myevents-heading {
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.mygroups-list {
+.myevents-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.mygroups-item {
+.myevents-item {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -29,7 +29,7 @@
   overflow: hidden;
 }
 
-.mygroups-content-list {
+.myevents-content-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -38,52 +38,47 @@
   gap: 1rem;
 }
 
-.mygroups-content-item {
+.myevents-content-item {
   margin: 0.5rem 0;
 }
 
-.mygroups-content-heading {
+.myevents-content-heading {
   margin-top: 0;  
 }
 
-.mygroups-content-stat-heading {
-  font-weight: 500;
-  margin: 0;
+.myevents-event-time {
+  color: #008EEC;
+  font-size: 0.85rem;
 }
-
-.mygroups-content-stat {
-  opacity: .5;
-  margin: 0;
-}
-
-.mygroups-btn {
-  margin-top: 1.25rem;
-}
-
 
 @media only screen and (min-width: 45rem) {
-  .mygroups-item {
+  .myevents-item {
     grid-template-columns: 1fr 1fr;
   }
 
-  .mygroups-img-container {
+  .myevents-img-container {
     display: block;
   }
   
-  .mygroups-img {
-    min-height: 10rem;
-    max-height: 12rem;
+  .myevents-img {
+    min-height: 13rem;
   }
 
-  .mygroups-item {
+  .myevents-item {
     max-width: 55rem;
     margin: 1.5rem auto;
+  }
+
+  .myevents-event-time {
+    position: absolute;
+    top: 10px;
+    right: 30px;
   }
 
 }
 
 @media only screen and (min-width: 60rem) {
-  .mygroups-item {
+  .myevents-item {
     gap: 2rem;
   }
 }
