@@ -17,6 +17,7 @@
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
   border-radius: 5px;
 }
 
@@ -24,7 +25,7 @@
   overflow: hidden;
   display: block;
   position: relative;
-  max-height: 300px;
+  max-height: 150px;
 }
 
 .groups-hero-img {
@@ -33,16 +34,41 @@
 }
 
 .groups-hero-content {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  color: #fff;
-  background-color: rgba(200,200,200, .4);
-  padding: 1rem;
+  display: grid;
 }
 
 .groups-hero-heading {
   font-weight: 400;
+}
+
+.groups-hero-content-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem;
+}
+
+.groups-hero-content-item {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.groups-hero-content-buttons {
+  padding: 1rem;
+}
+
+.group-hero-btn {
+  margin: .75rem 1rem;
+}
+
+.groups-hero-content-stat-heading {
+  margin: 0;
+}
+
+.groups-hero-content-stat {
+  margin: 0;
 }
 
 @media only screen and (min-width: 35rem) {
@@ -52,6 +78,11 @@
 
   .groups-hero-img {
     width: 25rem;
+  }
+
+  .groups-hero-content-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -108,6 +139,7 @@
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
   border-radius: 5px;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -320,6 +352,7 @@
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
   border-radius: 5px;
   margin-bottom: 1rem;
 }
