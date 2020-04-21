@@ -49,10 +49,6 @@ a {
   background-color: #379683;
 }
 
-.fa-thumbs-up {
-  font-size: 1.25rem;
-}
-
 fieldset {
   border: none;
   max-width: 55em;
@@ -80,6 +76,7 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="date"],
+input[type="file"],
 textarea,
 select {
   border-radius: 5px;
@@ -87,7 +84,6 @@ select {
   outline: none;
   font-size: 1rem;
   width: 100%;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 1rem;
 }
 

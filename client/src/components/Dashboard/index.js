@@ -3,7 +3,6 @@ import DashboardStatCard from './DashboardStatCard'
 import DashboardProfileCard from './DashboardProfileCard'
 import CreateGroupCard from './CreateGroupCard'
 import CreateEventCard from './CreateEventCard'
-import CreatePostCard from '../CreatePostCard'
 import './styles.css'
 
 function DashboardCards() {
@@ -14,7 +13,6 @@ function DashboardCards() {
       <DashboardStatCard />
       <CreateGroupCard />
       <CreateEventCard />
-      <CreatePostCard />
     </section>
   )
 }

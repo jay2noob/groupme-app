@@ -300,3 +300,146 @@
   margin-top: 1rem;
   padding: 1rem;
 }
+
+
+
+
+.create-card-container {
+  display: grid;
+  margin: 1rem auto;
+}
+
+.create-card {
+  width: 20rem;
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.create-heading-container {
+  text-align: left;
+  border-bottom: 1px solid #777D74;
+}
+
+.create-content {
+  padding: 1rem;
+}
+
+.create-heading {
+  font-weight: 400;
+  font-size: 1.25rem;;
+}
+
+.create-post {
+  display: flex;
+  padding: 2rem 0;
+}
+
+.create-post-form {
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.create-post-input {
+  height: 3rem;
+  padding: .375rem .75rem;
+  border: 0;
+  resize: none;
+}
+
+.create-post-input:focus {
+  border: 0;
+}
+
+.create-post-img {
+  display: flex;
+}
+
+.create-post-user-img {
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  font-size: 0.5rem;
+  object-fit: cover;
+}
+
+.create-post-submit {
+  border-top: 1px solid #777D74;
+  text-align: right;
+  padding: 1rem;
+  display: flex;
+}
+
+.create-post-list {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.create-post-list {
+  padding: .5rem;
+}
+
+.create-post-btn {
+  width: 100px;
+}
+
+.file-img-upload {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  font-size: 15px;
+  color: rgb(153,153,153);
+}
+
+.file-upload {
+  padding: .5rem; 
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+}
+
+@media only screen and (min-width: 35rem) {
+  .create-card {
+    width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 40rem) {
+  .create-card {
+    width: 32rem;
+  }
+
+  .post-btn {
+    max-width: 20rem;
+  }
+
+  .create-post-btn {
+    flex: 1;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .create-card {
+    width: 42rem;
+  }
+}
+
+@media only screen and (min-width: 70rem) {
+  .create-card {
+    width: 55rem;
+  }
+}
