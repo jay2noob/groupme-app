@@ -12,7 +12,7 @@ function EventCard() {
             <Link 
               to="/edit-event"
               className="event-edit">
-                <i class="fal fa-user-edit"></i>
+                <i className="fal fa-user-edit"></i>
             </Link>
           </div>
         </div>

@@ -12,7 +12,7 @@ function CreatePostCard() {
           </div>
           <div className="create-post">
             <div className="create-post-img">
-              <img className="create-post-user-img " src="./images/portrait.png" alt=""/>
+              <img className="create-post-user-img " src="../images/portrait.png" alt=""/>
             </div>
             <form className="create-post-form">
               <textarea
