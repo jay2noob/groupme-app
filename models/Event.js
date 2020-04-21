@@ -21,32 +21,20 @@ const EventSchema = new mongoose.Schema({
     required: true,
     ref: "user",
   },
-  responses: [
+  going: [
     {
-      going: [
-        {
-          user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "user",
-          },
-        },
-      ],
-      notgoing: [
-        {
-          user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "user",
-          },
-        },
-      ],
-      maybe: [
-        {
-          user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "user",
-          },
-        },
-      ],
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+      },
+    },
+  ],
+  maybe: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+      },
     },
   ],
   comments: [

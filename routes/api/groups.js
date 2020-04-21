@@ -6,12 +6,14 @@ const auth = require("../../middleware/auth");
 const Group = require("../../models/Group");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const upload = require('../../utils/uploader');
 
-// @route   POST api/posts
+// @route   POST api/groups
 // @desc    Create a post
 // @access  Private
 router.post(
   "/",
+  upload.single('groupImage'),
   [auth, [check("text", "Text is required").not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
@@ -21,11 +23,11 @@ router.post(
 
     try {
       const user = await User.findById(req.user.id).select("-password");
-
+      const avatar = req.file && req.file.filename;
       const newGroup = new Group({
         name: req.body.name,
         admin: req.user.id,
-        // avatar: user.avatar,
+        avatar: avatar || user.avatar,
         members: req.body.members,
       });
 
