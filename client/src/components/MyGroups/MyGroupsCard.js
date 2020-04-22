@@ -29,6 +29,9 @@ function MyGroupsCard() {
           <Link to="/group/1">
             <button className="btn btn-secondary mygroups-btn">View Group</button>
           </Link>  
+          <Link to="/create/event">
+            <button className="btn btn-primary mygroups-btn">Create Event</button>
+          </Link> 
         </div>
       </li>
     </ul>

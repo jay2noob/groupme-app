@@ -33,6 +33,9 @@ function GroupHero() {
             <Link to="/group/events/1">
               <button className="btn btn-secondary group-hero-btn">View Group Events</button>
             </Link>
+            <Link to="/create/event">
+              <button className="btn btn-primary group-hero-btn">Create Event</button>
+            </Link>
           </div>
         </div>
       </div>
