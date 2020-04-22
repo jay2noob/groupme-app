@@ -2,7 +2,6 @@ import React from 'react'
 import DashboardStatCard from './DashboardStatCard'
 import DashboardProfileCard from './DashboardProfileCard'
 import CreateGroupCard from './CreateGroupCard'
-import CreateEventCard from './CreateEventCard'
 import './styles.css'
 
 function DashboardCards() {
@@ -12,7 +11,6 @@ function DashboardCards() {
       <DashboardProfileCard />
       <DashboardStatCard />
       <CreateGroupCard />
-      <CreateEventCard />
     </section>
   )
 }
