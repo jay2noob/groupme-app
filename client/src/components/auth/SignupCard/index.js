@@ -1,53 +1,54 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment, useState } from "react";
+import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+import { setAlert } from "../../../actions/alert";
+import { register } from "../../../actions/auth";
+import PropTypes from "prop-types";
 import "./styles.css";
 
-class SignUpForm extends Component {
-  constructor() {
-    super();
+const SignUpForm = ({ setAlert, register, isAuthenticated }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
+  });
 
-    this.state = {
-      name: "",
-      emailInput: "",
-      password: "",
-    };
+  const { name, email, password, password2 } = formData;
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  handleChange(e) {
-    let target = e.target;
-    let value = target.value;
-    let name = target.name;
-
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  handleSubmit(e) {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    if (password !== password2) {
+      setAlert("Passwords do not match", "danger");
+    } else {
+      register({ name, email, password });
+    }
+  };
 
-    console.log("Form was submitted");
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
   }
 
-  render() {
-    return (
+  return (
+    <Fragment>
       <div className="FormCenter">
         <h2> Sign Up</h2>
-        <form onSubmit={this.handleSubmit} className="FormFields">
+        <form onSubmit={(e) => onSubmit(e)} className="FormFields">
           <div className="FormField">
             <label className="FormField__Label" htmlFor="name">
               Enter Full Name
             </label>
             <input
-              type="name"
+              type="text"
               className="FormField__Input"
               placeholder="Enter your Full Name"
               name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
+              value={name}
+              onChange={(e) => onChange(e)}
+              //required
             />
           </div>
 
@@ -56,12 +57,12 @@ class SignUpForm extends Component {
               Email
             </label>
             <input
-              type="emailInput"
+              type="email"
               className="FormField__Input"
               placeholder="Enter your Email"
-              name="emailInput"
-              value={this.state.emailInput}
-              onChange={this.handleChange}
+              name="email"
+              value={email}
+              onChange={(e) => onChange(e)}
             />
           </div>
           <div className="FormField">
@@ -73,8 +74,8 @@ class SignUpForm extends Component {
               className="FormField__Input"
               placeholder="Enter your password"
               name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
+              value={password}
+              onChange={(e) => onChange(e)}
             />
           </div>
           <div className="FormField">
@@ -85,9 +86,9 @@ class SignUpForm extends Component {
               type="password"
               className="FormField__Input"
               placeholder="Confirm your password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
+              name="password2"
+              value={password2}
+              onChange={(e) => onChange(e)}
             />
           </div>
 
@@ -99,8 +100,18 @@ class SignUpForm extends Component {
           </div>
         </form>
       </div>
-    );
-  }
-}
+    </Fragment>
+  );
+};
 
-export default SignUpForm;
+SignUpForm.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, register })(SignUpForm);

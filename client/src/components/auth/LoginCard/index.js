@@ -1,60 +1,86 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import './styles.css'
+import React, { Fragment, useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login } from "../../../actions/auth";
+import "./styles.css";
 
 // eslint-disable-next-line//
-class LogInForm extends Component {
-    constructor() {
-        super();
+const LogInForm = ({ login, isAuthenticated }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-        this.state = {
-            emailInput: "",
-            password: ""
-        };
+  const { email, password } = formData;
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    handleChange(e) {
-        let target = e.target;
-        let value = target.value;
-        let name = target.name;
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    login(email, password);
+  };
 
-        this.setState({
-            [name]: value 
-        });
-    }
+  // Redirect if logged in
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
-    handleSubmit(e) {
-        e.preventDefault();
-
-        console.log(this.state);
-    }
-
-    render() {
-        return (
-
-            <div className="FormCenter"> 
-            <h2>Log In</h2>
-            <form onSubmit= {this.handleSubmit} className="FormFields">
-            <div className="FormField">
-                <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
-                <input type="emailInput" id="email" className="FormField__Input" placeholder="Enter your email" name="emailInput" value={this.state.emailInput} onChange={this.handleChange} />
-              </div>
-
-              <div className="FormField">
-                <label className="FormField__Label" htmlFor="password">Password</label>
-                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
-              </div>
-
-              <div className="FormField">
-                  <button className="FormField__Button mr-20">log in</button> <Link to="/Signup" className="FormField__Link">Create an account</Link>
-              </div>
-            </form>
+  return (
+    <Fragment>
+      <div className="FormCenter">
+        <h2>Log In</h2>
+        <form onSubmit={(e) => onSubmit(e)} className="FormFields">
+          <div className="FormField">
+            <label className="FormField__Label" htmlFor="email">
+              E-Mail Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="FormField__Input"
+              placeholder="Enter your email"
+              name="email"
+              value={email}
+              onChange={(e) => onChange(e)}
+            />
           </div>
-        );
-    }
-}
 
-export default LogInForm
+          <div className="FormField">
+            <label className="FormField__Label" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="FormField__Input"
+              placeholder="Enter your password"
+              name="password"
+              value={password}
+              onChange={(e) => onChange(e)}
+            />
+          </div>
+
+          <div className="FormField">
+            <button className="FormField__Button mr-20">log in</button>{" "}
+            <Link to="/Signup" className="FormField__Link">
+              Create an account
+            </Link>
+          </div>
+        </form>
+      </div>
+    </Fragment>
+  );
+};
+
+LogInForm.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(LogInForm);
