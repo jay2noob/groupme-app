@@ -1,8 +1,11 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-import './styles.css'
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
+import "./styles.css";
 
-function SideNavbar() {
+const SideNavBar = ({ /*auth: { isAuthenticated, loading },*/ logout }) => {
   return (
     <nav className="side-navbar">
       <div className="side-navbar_list">
@@ -28,14 +31,23 @@ function SideNavbar() {
             </Link>
           </li>
           <li className="side-navbar_item">
-            <Link to="/" className="side-navbar_link">
+            <Link to="/" onClick={logout} className="side-navbar_link">
               <i className="fal fa-sign-out-alt" title="Log Out"></i>
             </Link>
           </li>
         </ul>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default SideNavbar
+SideNavBar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logout })(SideNavBar);
