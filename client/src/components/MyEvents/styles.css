@@ -51,6 +51,11 @@
   font-size: 0.85rem;
 }
 
+.myevents-btn {
+  width: 40%;
+  margin-left: .5rem;
+}
+
 @media only screen and (min-width: 45rem) {
   .myevents-item {
     grid-template-columns: 1fr 1fr;

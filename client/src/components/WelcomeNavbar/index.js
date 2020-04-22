@@ -4,13 +4,18 @@ import './styles.css'
 
 function WelcomeNavbar() {
   return (
-    <nav className="navbar-welcome">
-      <div className="navbar-inner">
-        <div className="navbar-logo">
-          <Link className="navbar-brand" to="/">
+    <nav className="welcome">
+      <div className="welcome-inner">
+        <div className="welcome-logo">
+          <Link className="welcome-brand" to="/">
             Welcome
           </Link>
         </div>
+        <ul className="welcome-ul">
+          <li className="welcome-item"><Link className="welcome-link" to="/signup">SignUp</Link></li>
+          <li className="welcome-item"><Link className="welcome-link" to="/login"> LogIn</Link></li>
+        
+        </ul>
       </div>
     </nav>
   )
