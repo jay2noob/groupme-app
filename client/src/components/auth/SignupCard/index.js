@@ -36,7 +36,7 @@ const SignUpForm = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <div className="FormCenter">
         <h2> Sign Up</h2>
-        <form onSubmit={(e) => onSubmit(e)} className="FormFields">
+        <form className="form" onSubmit={(e) => onSubmit(e)}>
           <div className="FormField">
             <label className="FormField__Label" htmlFor="name">
               Enter Full Name
