@@ -1,18 +1,19 @@
 import React, { Fragment } from 'react'
 import Navbar from '../components/Navbar'
 import SideNavbar from '../components/SideNavbar'
-import EditProfileContainer from '../components/EditProfileForm/index'
+import MyEventsContainer from '../components/MyEvents/index'
 
-function EditProfile() {
+function MyEvents() {
   return (
     <Fragment>
       <header>
         <SideNavbar />
         <Navbar />
       </header>
-      <EditProfileContainer />
+      <MyEventsContainer />
     </Fragment>
   )
 }
 
-export default EditProfile
+
+export default MyEvents
