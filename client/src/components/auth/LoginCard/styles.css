@@ -1,9 +1,8 @@
 .FormCenter {
   margin: 0 auto;
-  
+
   width: 32rem;
 }
-
 
 .FormField {
   margin-bottom: 40px;
@@ -12,7 +11,7 @@
 .FormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: .9em;
+  font-size: 0.9em;
   color: white;
 }
 .FormField__Input {
@@ -29,7 +28,7 @@
 }
 
 .FormField__Input::placeholder {
-  color: #616E7F;
+  color: #616e7f;
 }
 
 .FormField__Button {
@@ -39,14 +38,24 @@
   outline: none;
   border-radius: 25px;
   padding: 15px 70px;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: 500;
 }
 
 .FormField__Link {
-  color: #66707D;
+  color: #66707d;
   text-decoration: none;
   display: inline-block;
   border-bottom: 1.5px solid #379683;
   padding-bottom: 5px;
 }
+
+/*.alert-danger {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}*/
