@@ -77,6 +77,19 @@ class SignUpForm extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <div className="FormField">
+            <label className="FormField__Label" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              className="FormField__Input"
+              placeholder="Confirm your password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
 
           <div className="FormField">
             <button className="FormField__Button mr-20">Sign Up</button>{" "}
