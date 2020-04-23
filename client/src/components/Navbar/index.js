@@ -18,7 +18,7 @@ function Navbar(props) {
         <div className="navbar-list">
           <ul className="navbar-ul">
             <li className="navbar-item">
-              <Link className="navbar-link" to="/">
+              <Link className="navbar-link" to="/dashboard">
                 Welcome, USERNAME
               </Link>
             </li>
