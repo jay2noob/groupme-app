@@ -13,6 +13,7 @@ import CreateGroup from "./pages/CreateGroup";
 import CreateEvent from "./pages/CreateEvent";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import PrivateRoute from "./components/routing/PrivateRoute";
 //Redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -34,42 +35,18 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Welcome />
-          </Route>
-          <Route exact path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route exact path="/profile">
-            <Profile />
-          </Route>
-          <Route exact path="/profile/edit">
-            <EditProfile />
-          </Route>
-          <Route exact path="/groups">
-            <MyGroups />
-          </Route>
-          <Route exact path="/group/1">
-            <Group />
-          </Route>
-          <Route exact path="/group/events/1">
-            <Events />
-          </Route>
-          <Route exact path="/create/group">
-            <CreateGroup />
-          </Route>
-          <Route exact path="/events">
-            <MyEvents />
-          </Route>
-          <Route exact path="/create/event">
-            <CreateEvent />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
+          <Route exact path="/" component={Welcome} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/profile/edit" component={EditProfile} />
+          <PrivateRoute exact path="/groups" component={MyGroups} />
+          <PrivateRoute exact path="/group/1" component={Group} />
+          <PrivateRoute exact path="/group/events/1" component={Events} />
+          <PrivateRoute exact path="/create/group" component={CreateGroup} />
+          <PrivateRoute exact path="/events" component={MyEvents} />
+          <PrivateRoute exact path="/create/event" component={CreateEvent} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
         </Switch>
       </Router>
     </Provider>
