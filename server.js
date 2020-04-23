@@ -4,6 +4,9 @@ const connectDB = require("./config/db");
 const app = express();
 const bodyParser = require("body-parser");
 global.__basedir = __dirname;
+global.pageOptions = {
+  limit: 15 // total number of items
+}
 
 // Connect DB
 connectDB();
@@ -22,7 +25,7 @@ app.get("/", (req, res) => res.send("API running..."));
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/profile", require("./routes/api/profile"));
 app.use("/api/posts", require("./routes/api/posts"));
-app.use("/api/events", require("./routes/api/event"));
+app.use("/api/events", require("./routes/api/events"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/groups", require("./routes/api/groups"));
 

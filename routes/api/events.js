@@ -49,11 +49,18 @@ router.post(
 );
 
 // @route    GET api/events
-// @desc     Get all events
+// @desc     Get all events in the specified range
 // @access   Private
-router.get("/", auth, async (req, res) => {
+router.get("/:page", auth, async (req, res) => {
+  const pageOptions = {
+    page: parseInt(req.params.page, 10) || 0,
+    limit: global.pageOptions.limit
+  }
   try {
-    const events = await Event.find().sort({ date: -1 });
+    const events = await Event.find()
+      .sort({ date: -1 })
+      .skip(pageOptions.page * pageOptions.limit)
+      .limit(pageOptions.limit);
     res.json(events);
   } catch (err) {
     console.error(err.message);

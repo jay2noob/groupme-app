@@ -42,11 +42,19 @@ router.post(
 );
 
 // @route    GET api/posts
-// @desc     Get all posts
+// @desc     Get all posts in the specified range
 // @access   Private
-router.get("/", auth, async (req, res) => {
+router.get("/:page", auth, async (req, res) => {
+
+  const pageOptions = {
+    page: parseInt(req.params.page, 10) || 0,
+    limit: global.pageOptions.limit
+  }
   try {
-    const posts = await Post.find().sort({ date: -1 });
+    const posts = await Post.find()
+      .sort({ date: -1 })
+      .skip(pageOptions.page * pageOptions.limit)
+      .limit(pageOptions.limit);
     res.json(posts);
   } catch (err) {
     console.error(err.message);
