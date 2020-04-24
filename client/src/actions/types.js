@@ -7,3 +7,8 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
+
+export const CREATE_GROUP = "CREATE_GROUP";
+export const GET_GROUP = "GET_GROUP";
+export const GET_GROUPS = "GET_GROUPS";
+export const GROUP_ERROR = "GROUP_ERROR";

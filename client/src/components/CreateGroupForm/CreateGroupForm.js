@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { useState  } from 'react'
+import { connect } from "react-redux";
+import { createGroup } from '../../actions/group'
+import PropTypes from "prop-types";
 import './styles.css'
 
 function CreateGroupForm() {
+  const [group, setGroup] = useState({
+    name: '',
+    desc: ''
+  })
+
+  const { name, desc } = group
+
+  const onChange = event => {
+    setGroup({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  const onSubmit = event => {
+    event.preventDefault()
+    createGroup(group)
+
+    setGroup({
+      name: '',
+      desc: ''
+    })
+  }
+
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <fieldset className="create-group-fieldset">
       
         <ul className="create-group-list"> 
@@ -14,6 +40,8 @@ function CreateGroupForm() {
               placeholder="Group name here" 
               id="group-name" 
               name="group_name" 
+              value={name}
+              onChange={onChange}
             />
           </li>
           <li>   
@@ -21,9 +49,12 @@ function CreateGroupForm() {
             <textarea
               type="text" 
               placeholder="A brief description of the group" 
-              id="about-group" 
-              name="about_group">
-              
+              id="group-desc" 
+              name="group_desc"
+              value={desc}
+              onChange={onChange}
+            >
+
             </textarea>
           </li>
         </ul>
@@ -44,4 +75,13 @@ function CreateGroupForm() {
   )
 }
 
-export default CreateGroupForm
+CreateGroupForm.propTypes = {
+  createGroup: PropTypes.func.isRequired,
+  isAdmin: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAdmin: state.isAdmin
+});
+
+export default connect(mapStateToProps, { createGroup })(CreateGroupForm);
