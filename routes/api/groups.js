@@ -14,7 +14,7 @@ const upload = require('../../utils/uploader');
 router.post(
   "/",
   upload.single('groupImage'),
-  [auth, [check("text", "Text is required").not().isEmpty()]],
+  [auth, [check("name", "A group name is required").not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -27,8 +27,11 @@ router.post(
       const newGroup = new Group({
         name: req.body.name,
         admin: req.user.id,
+        description: req.body.description,
         avatar: avatar || user.avatar,
         members: req.body.members,
+        posts: req.body.posts,
+        events: req.body.events
       });
 
       const group = await newGroup.save();

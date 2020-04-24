@@ -8,6 +8,9 @@ const GroupSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
+  description: {
+    type: String
+  },
   admin: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
