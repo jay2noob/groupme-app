@@ -17,7 +17,7 @@ const GroupSchema = new mongoose.Schema({
   },
   members: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'profile'
   }],
   events: [{
     type: mongoose.Schema.Types.ObjectId,
