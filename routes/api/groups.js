@@ -66,6 +66,22 @@ router.get("/", auth, async (req, res) => {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
+
+});
+
+// @route    GET api/groups/:id
+// @desc     Get group by group id
+// @access   Private
+router.get("/:id", auth, async (req, res) => {
+
+  try {
+    const group = await Group.findById({ _id: req.params.id })
+    res.json(group);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+
 });
 
 // @route    GET api/posts/:id
