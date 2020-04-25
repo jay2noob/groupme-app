@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-import Search from '../Search'
-import './styles.css'
+import Search from "../Search";
+import "./styles.css";
 
 function Navbar(props) {
   return (
@@ -19,14 +19,14 @@ function Navbar(props) {
           <ul className="navbar-ul">
             <li className="navbar-item">
               <Link className="navbar-link" to="/dashboard">
-                Welcome, USERNAME
+                Welcome, {user}
               </Link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

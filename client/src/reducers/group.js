@@ -2,43 +2,41 @@ import {
   CREATE_GROUP,
   GET_GROUP,
   GET_GROUPS,
-  GROUP_ERROR
+  GROUP_ERROR,
 } from "../actions/types";
 
-// create inital state 
+// create inital state
 const initialState = {
   groupID: null,
   memberID: null,
   loading: true,
   isAdmin: false,
   isEditable: false,
-  isJoined: false
-}
+  isJoined: false,
+};
 
 export default function (state = initialState, action) {
-  const { type, payload } = action
+  const { type, payload } = action;
 
-  switch(type) {
+  switch (type) {
     case CREATE_GROUP:
       return {
         ...state,
-        payload,
+        ...payload,
         loading: false,
         isAdmin: true,
-        isEditable: true
-      }
+        isEditable: true,
+      };
     case GROUP_ERROR:
       return {
         groupID: null,
         memberID: null,
-        loading: true,
+        loading: false,
         isAdmin: false,
         isEditable: false,
-        isJoined: false
-      }
-    default: 
-      return state
+        isJoined: false,
+      };
+    default:
+      return state;
   }
-
 }
-
