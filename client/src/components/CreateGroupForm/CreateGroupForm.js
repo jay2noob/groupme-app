@@ -4,13 +4,13 @@ import { createGroup } from '../../actions/group'
 import PropTypes from "prop-types";
 import './styles.css'
 
-function CreateGroupForm() {
+function CreateGroupForm({ createGroup }) {
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
+    groupName: '',
+    groupDescription: '',
   })
 
-  const { name, description } = formData
+  const { groupName, groupDescription } = formData
 
   const onChange = event => {
     setFormData({
@@ -21,16 +21,16 @@ function CreateGroupForm() {
 
   const onSubmit = event => {
     event.preventDefault()
-    createGroup(formData)
+    createGroup({groupName, groupDescription})
 
     setFormData({
-      name: '',
-      description: '',
+      groupName: '',
+      groupDescription: '',
     })
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={(event) => onSubmit(event)}>
       <fieldset className="create-group-fieldset">
       
         <ul className="create-group-list"> 
@@ -39,10 +39,10 @@ function CreateGroupForm() {
             <input 
               type="text" 
               placeholder="Group name here" 
-              id="name" 
-              name="name" 
-              value={name}
-              onChange={onChange}
+              id="groupName" 
+              name="groupName" 
+              value={groupName}
+              onChange={(event) => onChange(event)}
             />
           </li>
           <li>   
@@ -50,10 +50,10 @@ function CreateGroupForm() {
             <textarea
               type="text" 
               placeholder="A brief description of the group" 
-              id="description" 
-              name="description"
-              value={description}
-              onChange={onChange}
+              id="groupDescription" 
+              name="groupDescription"
+              value={groupDescription}
+              onChange={(event) => onChange(event)}
             >
             </textarea>
           </li>
