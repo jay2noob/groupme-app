@@ -19,7 +19,7 @@ function Navbar(props) {
           <ul className="navbar-ul">
             <li className="navbar-item">
               <Link className="navbar-link" to="/dashboard">
-                Welcome, {user}
+                Welcome,
               </Link>
             </li>
           </ul>
