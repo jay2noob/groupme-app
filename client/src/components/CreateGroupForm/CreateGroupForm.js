@@ -5,26 +5,27 @@ import PropTypes from "prop-types";
 import './styles.css'
 
 function CreateGroupForm() {
-  const [group, setGroup] = useState({
+  const [formData, setFormData] = useState({
     name: '',
-    desc: ''
+    description: '',
   })
 
-  const { name, desc } = group
+  const { name, description } = formData
 
   const onChange = event => {
-    setGroup({
+    setFormData({
+      ...formData,
       [event.target.name]: event.target.value
     })
   }
 
   const onSubmit = event => {
     event.preventDefault()
-    createGroup(group)
+    createGroup(formData)
 
-    setGroup({
+    setFormData({
       name: '',
-      desc: ''
+      description: '',
     })
   }
 
@@ -38,8 +39,8 @@ function CreateGroupForm() {
             <input 
               type="text" 
               placeholder="Group name here" 
-              id="group-name" 
-              name="group_name" 
+              id="name" 
+              name="name" 
               value={name}
               onChange={onChange}
             />
@@ -49,12 +50,11 @@ function CreateGroupForm() {
             <textarea
               type="text" 
               placeholder="A brief description of the group" 
-              id="group-desc" 
-              name="group_desc"
-              value={desc}
+              id="description" 
+              name="description"
+              value={description}
               onChange={onChange}
             >
-
             </textarea>
           </li>
         </ul>

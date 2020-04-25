@@ -4,7 +4,6 @@ const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 
 const Group = require("../../models/Group");
-const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 const upload = require('../../utils/uploader');
 
@@ -12,9 +11,13 @@ const upload = require('../../utils/uploader');
 // @desc    Create a post
 // @access  Private
 router.post(
-  "/",
-  upload.single('groupImage'),
-  [auth, [check("name", "A group name is required").not().isEmpty()]],
+  "/", 
+  upload.single('groupImage'), 
+  [auth, 
+    [
+      check("name", "A group name is required").not().isEmpty()
+    ]
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -47,7 +50,7 @@ router.post(
 // @route    GET api/groups
 // @desc     Get all in the specified range
 // @access   Private
-router.get("/:page", auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
 
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,
