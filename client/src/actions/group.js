@@ -2,7 +2,6 @@ import axios from "axios";
 import {
   CREATE_GROUP,
   GET_GROUP,
-  GET_GROUPS,
   GROUP_ERROR
 } from "./types";
 
@@ -32,3 +31,20 @@ export const createGroup = ({ name, description }) => async (dispatch) => {
 
 }
 
+// get group by id
+export const getGroup = (id) => async (dispatch) => {
+
+  try {
+    const response = await axios.get(`/api/group/${id}`)
+
+    dispatch({
+      type: GET_GROUP,
+      payload: response.data
+    })
+  } catch (err) {
+    dispatch({
+      type: GROUP_ERROR,
+    })
+  }
+
+}

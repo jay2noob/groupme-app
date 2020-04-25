@@ -1,6 +1,6 @@
 import React, { useState  } from 'react'
 import { connect } from "react-redux";
-import { createGroup } from '../../actions/createGroup'
+import { createGroup } from '../../actions/group'
 import PropTypes from "prop-types";
 import './styles.css'
 
