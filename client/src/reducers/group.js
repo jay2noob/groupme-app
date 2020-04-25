@@ -2,11 +2,11 @@ import {
   CREATE_GROUP,
   GET_GROUP,
   GET_GROUPS,
-  GROUP_ERROR
+  GROUP_ERROR,
 } from "../actions/types";
 import { profile_url } from "gravatar";
 
-// create inital state 
+// create inital state
 const initialState = {
   group: null,
   groups: [],
@@ -14,12 +14,12 @@ const initialState = {
   isAdmin: false,
   isEditable: false,
   isJoined: false,
-}
+};
 
 export default function (state = initialState, action) {
-  const { type, payload } = action
+  const { type, payload } = action;
 
-  switch(type) {
+  switch (type) {
     case CREATE_GROUP:
       return {
         ...state,
@@ -28,17 +28,15 @@ export default function (state = initialState, action) {
         isAdmin: true,
         isEditable: true,
         isJoined: true,
-      }
+      };
     case GROUP_ERROR:
       return {
         loading: true,
         isAdmin: false,
         isEditable: false,
         isJoined: false,
-      }
-    default: 
-      return state
+      };
+    default:
+      return state;
   }
-
 }
-
