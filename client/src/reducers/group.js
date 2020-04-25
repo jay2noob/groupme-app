@@ -4,7 +4,6 @@ import {
   GET_GROUPS,
   GROUP_ERROR,
 } from "../actions/types";
-import { profile_url } from "gravatar";
 
 // create inital state
 const initialState = {
@@ -13,7 +12,7 @@ const initialState = {
   loading: true,
   isAdmin: false,
   isEditable: false,
-  isJoined: false,
+  isJoined: false
 };
 
 export default function (state = initialState, action) {
@@ -21,6 +20,15 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case CREATE_GROUP:
+      return {
+        ...state,
+        group: payload,
+        loading: false,
+        isAdmin: true,
+        isEditable: true,
+        isJoined: true
+      };
+    case GET_GROUP:
       return {
         ...state,
         group: payload,

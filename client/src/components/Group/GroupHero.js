@@ -1,5 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { getGroup } from '../../actions/group'
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import group from '../../reducers/group'
 import './styles.css'
 
 function GroupHero(props) {
@@ -44,4 +48,13 @@ function GroupHero(props) {
   )
 }
 
-export default GroupHero
+GroupHero.propTypes = {
+  getGroup: PropTypes.func.isRequired,
+  isAdmin: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAdmin: state.isAdmin
+});
+
+export default connect(mapStateToProps, { getGroup })(GroupHero);
