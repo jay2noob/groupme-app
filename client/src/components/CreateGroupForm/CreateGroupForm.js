@@ -6,11 +6,11 @@ import './styles.css'
 
 function CreateGroupForm({ createGroup }) {
   const [formData, setFormData] = useState({
-    groupName: '',
-    groupDescription: '',
+    name: '',
+    description: '',
   })
 
-  const { groupName, groupDescription } = formData
+  const { name, description } = formData
 
   const onChange = event => {
     setFormData({
@@ -21,11 +21,11 @@ function CreateGroupForm({ createGroup }) {
 
   const onSubmit = event => {
     event.preventDefault()
-    createGroup({groupName, groupDescription})
+    createGroup({name, description})
 
     setFormData({
-      groupName: '',
-      groupDescription: '',
+      name: '',
+      description: '',
     })
   }
 
@@ -39,9 +39,9 @@ function CreateGroupForm({ createGroup }) {
             <input 
               type="text" 
               placeholder="Group name here" 
-              id="groupName" 
-              name="groupName" 
-              value={groupName}
+              id="name" 
+              name="name" 
+              value={name}
               onChange={(event) => onChange(event)}
             />
           </li>
@@ -50,9 +50,9 @@ function CreateGroupForm({ createGroup }) {
             <textarea
               type="text" 
               placeholder="A brief description of the group" 
-              id="groupDescription" 
-              name="groupDescription"
-              value={groupDescription}
+              id="description" 
+              name="description"
+              value={description}
               onChange={(event) => onChange(event)}
             >
             </textarea>

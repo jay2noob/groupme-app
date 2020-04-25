@@ -7,7 +7,7 @@ import {
 } from "./types";
 
 // create a new group
-export const createGroup = ({ groupName, groupDescription }) => async (dispatch) => {
+export const createGroup = ({ name, description }) => async (dispatch) => {
   // axios config object - with the headers you want to include 
   const config = {
     headers: {
@@ -15,10 +15,9 @@ export const createGroup = ({ groupName, groupDescription }) => async (dispatch)
     }
   }
 
-  const body = JSON.stringify({ groupName, groupDescription });
+  const body = JSON.stringify({ name, description });
 
   try {
-    //
     const response = await axios.post('/api/groups', body, config)
 
     dispatch({

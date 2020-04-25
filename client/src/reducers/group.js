@@ -27,14 +27,14 @@ export default function (state = initialState, action) {
         loading: false,
         isAdmin: true,
         isEditable: true,
-        isJoined: true,
+        isJoined: true
       };
     case GROUP_ERROR:
       return {
         loading: true,
         isAdmin: false,
         isEditable: false,
-        isJoined: false,
+        isJoined: false
       };
     default:
       return state;
