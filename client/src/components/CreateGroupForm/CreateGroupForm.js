@@ -1,6 +1,6 @@
 import React, { useState  } from 'react'
 import { connect } from "react-redux";
-import { createGroup } from '../../actions/group'
+import { createGroup } from '../../actions/createGroup'
 import PropTypes from "prop-types";
 import './styles.css'
 
@@ -18,7 +18,6 @@ function CreateGroupForm({ createGroup }) {
       [event.target.name]: event.target.value
     })
   }
-
   const onSubmit = event => {
     event.preventDefault()
     createGroup({name, description})
