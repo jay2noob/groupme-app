@@ -1,31 +1,51 @@
-import React, { useState  } from 'react'
+import React, { useState } from 'react'
+import { Redirect } from "react-router-dom"
 import { connect } from "react-redux";
 import { createGroup } from '../../actions/createGroup'
 import PropTypes from "prop-types";
 import './styles.css'
 
-function CreateGroupForm({ createGroup }) {
+function CreateGroupForm({ createGroup, group }) {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
+    groupImage: ''
   })
 
-  const { name, description } = formData
+  const { name, description, groupImage } = formData
 
   const onChange = event => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value
-    })
+    if (event.target.files) {
+      setFormData({
+        ...formData,
+        groupImage: event.target.files[0]
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [event.target.name]: event.target.value
+      })
+    }
   }
   const onSubmit = event => {
     event.preventDefault()
-    createGroup({name, description})
+    createGroup({ name, description, groupImage })
 
     setFormData({
       name: '',
       description: '',
+      groupImage: ''
     })
+  }
+
+  if (group) {
+    console.log("Group", group);
+    return <Redirect
+      to={{
+        pathname: `/group/${group._id}`,
+        group
+      }}
+      />;
   }
 
   return (
@@ -64,6 +84,8 @@ function CreateGroupForm({ createGroup }) {
             <input 
               type="file" 
               accept=".png, .jpg, .jpeg" 
+              name="groupImage"
+              onChange={(event) => onChange(event)}
               className=" btn btn-secondary btn-fileupload" 
             />
         </div>
@@ -77,10 +99,12 @@ function CreateGroupForm({ createGroup }) {
 CreateGroupForm.propTypes = {
   createGroup: PropTypes.func.isRequired,
   isAdmin: PropTypes.bool,
+  group: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({
-  isAdmin: state.isAdmin
+  isAdmin: state.isAdmin,
+  group: state.createGroup.group
 });
 
 export default connect(mapStateToProps, { createGroup })(CreateGroupForm);

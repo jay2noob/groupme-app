@@ -2,14 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
 
-function GroupHero() {
+function GroupHero(props) {
+  const { group } = props
   return (
     <section className="groups-hero-container">
       <div className="groups-hero-card">
         <div className="groups-hero-img-container">
           <img className="groups-hero-img" src="../images/coverphoto.png" alt=""/>
         </div>
-        <h2 className="groups-hero-group-name">Group Name</h2>
+        <h2 className="groups-hero-group-name">{ group && group.name || "Group Name" }</h2>
         <div className="groups-hero-content">
 
           <ul className="groups-hero-content-list">
