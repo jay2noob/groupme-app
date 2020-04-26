@@ -31,6 +31,9 @@ const ProfileSchema = new mongoose.Schema({
   phonenumber: {
     type: String,
   },
+  email: {
+    type: String,
+  },
   date: {
     type: Date,
     default: Date.now,

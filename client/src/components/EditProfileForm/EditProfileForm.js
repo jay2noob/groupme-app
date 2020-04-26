@@ -15,7 +15,7 @@ const initialState = {
   gender: "",
   birthdate: "",
   phonenumber: "",
-  email: "",
+  //email: "",
 };
 
 const EditProfileForm = ({
@@ -33,11 +33,7 @@ const EditProfileForm = ({
       for (const key in profile) {
         if (key in profileData) profileData[key] = profile[key];
       }
-      for (const key in profile.social) {
-        if (key in profileData) profileData[key] = profile.social[key];
-      }
-      if (Array.isArray(profileData.skills))
-        profileData.skills = profileData.skills.join(", ");
+
       setFormData(profileData);
     }
   }, [loading, getCurrentProfile, profile]);
@@ -51,7 +47,7 @@ const EditProfileForm = ({
     gender,
     birthdate,
     phonenumber,
-    email,
+    //email,
   } = formData;
 
   const onChange = (e) =>
@@ -219,11 +215,11 @@ const EditProfileForm = ({
             <li>
               <label>Email Address:</label>
               <input
-                type="email"
-                id="mail"
-                name="email"
+                type="text"
+                //id="mail"
+                //name="email"
                 placeholder="Enter email address"
-                value={email}
+                //value={email}
                 onChange={(e) => onChange(e)}
               />
             </li>

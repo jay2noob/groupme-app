@@ -42,6 +42,7 @@ export default function (state = initialState, action) {
         ...state,
         profile: null,
         loading: false,
+        user: null,
       };
     default:
       return state;
