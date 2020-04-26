@@ -37,8 +37,8 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Welcome} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/profile" component={Profile} />
-          <PrivateRoute exact path="/profile/edit" component={EditProfile} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile/edit" component={EditProfile} />
           <PrivateRoute exact path="/groups" component={MyGroups} />
           <PrivateRoute exact path="/group/:id" component={Group} />
           <PrivateRoute exact path="/group/events/1" component={Events} />
