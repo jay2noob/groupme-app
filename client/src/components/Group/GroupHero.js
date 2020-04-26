@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import { getGroup } from '../../actions/group'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import group from '../../reducers/group'
 import './styles.css'
 
 function GroupHero(props) {
