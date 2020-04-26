@@ -9,7 +9,6 @@ const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 const Post = require("../../models/Post");
 
-
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU5OWRhNDE4MjQxYjMxYjMxZjQwNjQ0In0sImlhdCI6MTU4NzE0MTE4NSwiZXhwIjoxNTg3NTAxMTg1fQ.nBnFYjldmqMFe7I0dL3fI-OeSYXMDqAnydQdonMShR8
 // @route    GET api/profile/me
 // @desc     Get current users profile
@@ -90,7 +89,8 @@ router.post(
       zip,
       gender,
       birthdate,
-      phonenumber
+      phonenumber,
+      email,
     } = req.body;
 
     // Build profile object
@@ -104,6 +104,7 @@ router.post(
     if (gender) profileFields.gender = gender;
     if (birthdate) profileFields.birthdate = birthdate;
     if (phonenumber) profileFields.phonenumber = phonenumber;
+    if (email) profileFields.email = email;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
