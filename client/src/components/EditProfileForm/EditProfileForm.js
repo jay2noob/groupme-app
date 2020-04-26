@@ -6,39 +6,41 @@ import PropTypes from "prop-types";
 
 import "./styles.css";
 
+const initialState = {
+  firstname: "",
+  lastname: "",
+  city: "",
+  state: "",
+  zip: "",
+  gender: "",
+  birthdate: "",
+  phonenumber: "",
+  email: "",
+};
+
 const EditProfileForm = ({
   createProfile,
   getCurrentProfile,
   profile: { profile, loading },
   history,
 }) => {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    city: "",
-    state: "",
-    zip: "",
-    gender: "",
-    birthdate: "",
-    phonenumber: "",
-    email: "",
-  });
+  const [formData, setFormData] = useState(initialState);
 
   useEffect(() => {
-    getCurrentProfile();
-
-    setFormData({
-      firstname: loading || !profile.firstname ? "" : profile.firstname,
-      lastname: loading || !profile.lastname ? "" : profile.lastname,
-      city: loading || !profile.city ? "" : profile.city,
-      state: loading || !profile.state ? "" : profile.state,
-      zip: loading || !profile.zip ? "" : profile.zip,
-      gender: loading || !profile.gender ? "" : profile.gender,
-      birthdate: loading || !profile.birthdate ? "" : profile.birthdate,
-      phonenumber: loading || !profile.phonenumber ? "" : profile.phonenumber,
-      email: loading || !profile.email ? "" : profile.email,
-    });
-  }, [loading, getCurrentProfile]);
+    if (!profile) getCurrentProfile();
+    if (!loading && profile) {
+      const profileData = { ...initialState };
+      for (const key in profile) {
+        if (key in profileData) profileData[key] = profile[key];
+      }
+      for (const key in profile.social) {
+        if (key in profileData) profileData[key] = profile.social[key];
+      }
+      if (Array.isArray(profileData.skills))
+        profileData.skills = profileData.skills.join(", ");
+      setFormData(profileData);
+    }
+  }, [loading, getCurrentProfile, profile]);
 
   const {
     firstname,
@@ -237,8 +239,8 @@ const EditProfileForm = ({
 };
 
 EditProfileForm.propTypes = {
-  createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
+  createProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
 };
 
