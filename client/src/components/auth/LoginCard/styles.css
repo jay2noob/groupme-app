@@ -48,6 +48,8 @@
   display: inline-block;
   border-bottom: 1.5px solid #379683;
   padding-bottom: 5px;
+  margin-top: 10%;
+  width: 100%;
 }
 
 /*.alert-danger {

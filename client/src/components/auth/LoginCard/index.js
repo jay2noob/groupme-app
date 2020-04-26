@@ -64,9 +64,9 @@ const LogInForm = ({ login, isAuthenticated }) => {
 
           <div className="FormField">
             <button className="FormField__Button mr-20">log in</button>{" "}
-            <Link to="/Signup" className="FormField__Link">
+            {/* <Link to="/Signup" className="FormField__Link">
               Create an account
-            </Link>
+            </Link> */}
           </div>
         </form>
       </div>

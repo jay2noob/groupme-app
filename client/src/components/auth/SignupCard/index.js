@@ -94,9 +94,9 @@ const SignUpForm = ({ setAlert, register, isAuthenticated }) => {
 
           <div className="FormField">
             <button className="FormField__Button mr-20">Sign Up</button>{" "}
-            <Link to="/login" className="FormField__Link">
+            {/* <Link to="/login" className="FormField__Link">
               I'm already member
-            </Link>
+            </Link> */}
           </div>
         </form>
       </div>

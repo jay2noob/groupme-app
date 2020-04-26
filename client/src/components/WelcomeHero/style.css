@@ -2,7 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 15%;
-    width: 960px;
+    width: 100%;
 }
 
 .x-large {
@@ -21,5 +21,9 @@
 }
 
 .space {
-    margin-left: 1rem;
+    margin-left: 1%;
+}
+
+.btn-secondary {
+    margin-top: 2%;
 }
