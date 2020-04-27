@@ -6,12 +6,12 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import './styles.css'
 
-function MyGroupsContainer({ getMyGroups }) {
+function MyGroupsContainer({ getMyGroups }, props) {
   const [myGroups, setMyGroups] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setMyGroups(getMyGroups())
+    getMyGroups()
     setLoading(false)
     // eslint-disable-next-line
   }, [])
