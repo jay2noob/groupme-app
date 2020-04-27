@@ -1,7 +1,6 @@
 .dashboard-card-container {
   margin-left: 100px;
   padding: 1rem;
-  width: 100%;
 }
 
 .dashboard-profile-container {
@@ -10,7 +9,7 @@
 }
 /* changed width from 20rem to 100% - Aris */
 .dashboard-profile-card {
-  width: 100%;
+  width: 20rem;
   justify-self: center;
   text-align: center;
   display: grid;
@@ -177,7 +176,7 @@
 }
 /* changed width from 20rem to 100% - Aris */
 .create-group-card {
-  width: 100%;
+  width: 20rem;
   justify-self: center;
   text-align: center;
   display: grid;
