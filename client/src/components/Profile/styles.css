@@ -1,6 +1,7 @@
 .profile-card-container {
   margin-left: 100px;
   padding: 1rem;
+  width: 100%
 }
 
 .info-grid-cards {
@@ -14,9 +15,9 @@
   display: grid;
   margin: 1rem auto;
 }
-
+/* changed width 20rem to 100% - Aris */
 .profile-info-card {
-  width: 20rem;
+  width: 100%; 
   justify-self: center;
   text-align: center;
   display: grid;
@@ -106,7 +107,7 @@
 }
 
 .profile-user-card {
-  width: 20rem;
+  width: 100%;
   justify-self: center;
   text-align: center;
   display: grid;

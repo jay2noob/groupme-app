@@ -1,11 +1,13 @@
 .navbar {
   background-color: #05386B;
   margin-left: 100px;
+  width: 100%;
 }
 
 .navbar-inner {
   display: grid;
   text-align: center;
+  width: 100%;
 }
 
 .navbar-logo {

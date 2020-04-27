@@ -1,8 +1,9 @@
 .myevents-card-container {
   margin-left: 100px;
   padding: 1rem;
+  width: 100%;
 }
-
+/* added width 100% -Aris */
 .myevents-heading {
   margin-bottom: 1.5rem;
   text-align: center;
