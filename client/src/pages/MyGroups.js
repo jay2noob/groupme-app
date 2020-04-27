@@ -4,6 +4,7 @@ import SideNavbar from '../components/SideNavbar'
 import MyGroupsContainer from '../components/MyGroups/index'
 
 function MyGroups() {
+
   return (
     <Fragment>
       <header>
@@ -14,6 +15,5 @@ function MyGroups() {
     </Fragment>
   )
 }
-
 
 export default MyGroups

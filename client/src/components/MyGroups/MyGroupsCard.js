@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom'
 import './styles.css'
 
 
-function MyGroupsCard() {
+function MyGroupsCard({  }) {
   return (
     <ul className="mygroups-list">
       <li className="mygroups-item">
         <div className="mygroups-img-container">
           <img className="mygroups-img" src="../images/coverphoto.png" alt=""/>
-        </div>
+        </div> 
         <div className="mygroups-content">
-          <h3 className="mygroups-content-heading">My Group Name</h3>
+          <h3 className="mygroups-content-heading">{}</h3>
           <ul className="mygroups-content-list">
             <li className="mygroups-content-item">
               <h4 className="mygroups-content-stat-heading">Posts</h4>
