@@ -1,26 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentProfile, deleteAccount } from "../../actions/profile";
+
 import "./styles.css";
 
-const DashboardProfileCard = ({
-  getCurrentProfile,
-  deleteAccount,
-  auth: { user },
-  profile: { profile, loading },
-}) => {
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
+const DashboardProfileCard = ({ auth: { user } }) => {
   return (
     <div className="dashboard-profile-container">
       <div className="dashboard-profile-card">
         <div className="dashboard-profile-img-container">
           <img
             className="dashboard-profile-img"
-            src={user && user.avatar} //"../images/portrait.png"
+            src={user && user.avatar}
             alt=""
           />
         </div>
@@ -36,17 +28,11 @@ const DashboardProfileCard = ({
 };
 
 DashboardProfileCard.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired,
-  deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
-  DashboardProfileCard
-);
+export default connect(mapStateToProps)(DashboardProfileCard);
