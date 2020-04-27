@@ -6,13 +6,17 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import './styles.css'
 
-function MyGroupsContainer({ getMyGroups }, props) {
-  const [myGroups, setMyGroups] = useState([])
+function MyGroupsContainer({ getMyGroups, myGroups }, props) {
+  const [myGroupsList, setMyGroupsList] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getMyGroups()
     setLoading(false)
+    if (myGroups) {
+      console.log("myGroups Effect", myGroups)
+      setMyGroupsList(myGroups)
+    }
     // eslint-disable-next-line
   }, [])
 
@@ -20,23 +24,24 @@ function MyGroupsContainer({ getMyGroups }, props) {
     return <Spinner />
   } 
 
+  console.log("myGroups", myGroups);
   return (
     <section className="mygroups-card-container">
       <h2 className="mygroups-heading">My Groups</h2>
+      {loading ? (<h3>Loading Groups...</h3>) : null }
       {!loading && myGroups.length === 0 ? (<h3>No Groups to show</h3>) : (
-        myGroups.map(myGroup => <MyGroupsCard myGroups={myGroups} key={myGroup._id} />)
+        myGroups.map(myGroup => <MyGroupsCard myGroup={myGroup} key={myGroup._id} />)
       )}
-      <MyGroupsCard />
     </section>
   )
 }
 
 MyGroupsContainer.propTypes = {
-  myGroups: PropTypes.object.isRequired
+  myGroups: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  myGroups: state.myGroups
+  myGroups: state.group.myGroups
 });
 
-export default connect(mapStateToProps, {  getMyGroups })(MyGroupsContainer);
+export default connect(mapStateToProps, { getMyGroups })(MyGroupsContainer);

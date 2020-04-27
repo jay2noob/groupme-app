@@ -18,6 +18,7 @@ app.use(
     extended: true,
   })
 );
+app.use('/static', express.static('public'))
 
 app.get("/", (req, res) => res.send("API running..."));
 
