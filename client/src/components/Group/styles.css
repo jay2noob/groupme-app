@@ -5,7 +5,7 @@
 
 .groups-hero-container {
   display: grid;
-  margin: 1rem 0 1rem 100px;
+  margin: 1rem 0 1rem 0;
 }
 
 .groups-hero-card {

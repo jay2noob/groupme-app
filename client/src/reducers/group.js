@@ -1,14 +1,14 @@
 import {
   CREATE_GROUP,
   GET_GROUP,
-  GET_GROUPS,
-  GROUP_ERROR,
+  GET_MYGROUPS,
+  GROUP_ERROR
 } from "../actions/types";
 
 // create inital state
 const initialState = {
   group: null,
-  groups: [],
+  myGroups: [],
   loading: true,
   isAdmin: false,
   isEditable: false,
@@ -35,6 +35,13 @@ export default function (state = initialState, action) {
         loading: false,
         isAdmin: true,
         isEditable: true,
+        isJoined: true
+      };
+    case GET_MYGROUPS:
+      return {
+        ...state,
+        myGroups: payload,
+        loading: false,
         isJoined: true
       };
     case GROUP_ERROR:
