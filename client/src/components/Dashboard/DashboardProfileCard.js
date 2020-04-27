@@ -12,7 +12,8 @@ function DashboardProfileCard(props) {
         <div className="dashboard-profile-img-container">
           <img
             className="dashboard-profile-img"
-            /*src="../images/portrait.png"*/ alt=""
+            src="../images/portrait.png"
+            alt=""
           />
         </div>
         <div className="dashboard-profile-content">

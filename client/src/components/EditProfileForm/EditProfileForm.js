@@ -55,7 +55,7 @@ const EditProfileForm = ({
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    createProfile(formData, history, true);
+    createProfile(formData, history);
   };
 
   return (
@@ -244,6 +244,8 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  withRouter(EditProfileForm)
+export default withRouter(
+  connect(mapStateToProps, { createProfile, getCurrentProfile })(
+    EditProfileForm
+  )
 );
