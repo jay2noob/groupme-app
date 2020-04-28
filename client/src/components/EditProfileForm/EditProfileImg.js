@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import "./styles.css";
 
 function EditProfileImg({ auth: { user } }) {
-  console.log(user);
   return (
     <div className="edit-profile-img-container">
       <img
