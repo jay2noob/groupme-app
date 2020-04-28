@@ -50,12 +50,14 @@ export const getGroup = (id) => async (dispatch) => {
 
 }
 
-// get all groups user belongs to
-export const getMyGroups = () => async (dispatch) => {
+// get all groups user belongs to 
+// page page number as well
+export const getMyGroups = ({ page }) => async (dispatch) => {
 
   try {
-    const response = await axios.get(`/api/groups`)
+    const response = await axios.get(`/api/groups/${page}`)
 
+    console.log(page);
     dispatch({
       type: GET_MYGROUPS,
       payload: response.data

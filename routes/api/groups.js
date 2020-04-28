@@ -50,7 +50,7 @@ router.post(
 // @route    GET api/groups
 // @desc     Get all in the specified range
 // @access   Private
-router.get("/", auth, async (req, res) => {
+router.get("/:page", auth, async (req, res) => {
 
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,

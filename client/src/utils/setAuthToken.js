@@ -8,4 +8,5 @@ const setAuthToken = (token) => {
   }
 };
 
+export const IMAGE_URL = "http://localhost:3001/static/img/";
 export default setAuthToken;

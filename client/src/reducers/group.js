@@ -38,7 +38,7 @@ export default function (state = initialState, action) {
     case GET_MYGROUPS:
       return {
         ...state,
-        myGroups: payload,
+        myGroups: [ ...state.myGroups, ...payload ],
         loading: false,
         isJoined: true
       };

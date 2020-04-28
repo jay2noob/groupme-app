@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
-
+import { IMAGE_URL } from '../../utils/setAuthToken';
 
 function MyGroupsCard({ myGroup }) {
 
   var res = myGroup.avatar.match(/^\/\//g);
-  const url = res == null ? `http://localhost:3001/static/img/${myGroup.avatar}` : myGroup.avatar;
+  const url = res == null ? `${IMAGE_URL}${myGroup.avatar}` : myGroup.avatar;
 
   return (
     <ul className="mygroups-list">
@@ -19,15 +19,15 @@ function MyGroupsCard({ myGroup }) {
           <ul className="mygroups-content-list">
             <li className="mygroups-content-item">
               <h4 className="mygroups-content-stat-heading">Posts</h4>
-              <p className="mygroups-content-stat">{myGroup.posts.length}</p>
+              <p className="mygroups-content-stat">{myGroup.posts && myGroup.posts.length}</p>
             </li>
             <li className="mygroups-content-item">
               <h4 className="mygroups-content-stat-heading">Members</h4>
-              <p className="mygroups-content-stat">{myGroup.members.length}</p>
+              <p className="mygroups-content-stat">{myGroup.members && myGroup.members.length}</p>
             </li>
             <li className="mygroups-content-item">
               <h4 className="mygroups-content-stat-heading">Likes</h4>
-              <p className="mygroups-content-stat">{myGroup.events.length}</p>
+              <p className="mygroups-content-stat">{ myGroup.events && myGroup.events.length}</p>
             </li>
           </ul>
           <Link to={`/groups/${myGroup._id}`}>
