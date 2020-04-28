@@ -1,8 +1,21 @@
-import React from 'react'
-// import { Link } from 'react-router-dom'
-import './styles.css'
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getCurrentProfile } from "../../actions/profile";
+//import { Link } from "react-router-dom";
+import "./styles.css";
 
-function ProfileInfoCard() {
+const ProfileInfoCard = ({
+  getCurrentProfile,
+  auth: { user },
+  profile: { profile },
+  match,
+}) => {
+  useEffect(() => {
+    getCurrentProfile();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="profile-info-container">
       <div className="profile-info-card">
@@ -16,11 +29,15 @@ function ProfileInfoCard() {
               <ul className="profile-info-list">
                 <li className="profile-info-li">
                   <span className="profile-info-question_span">Birthday</span>
-                  <span className="profile-info-answer_span">June, 01 2000</span>
+                  <span className="profile-info-answer_span">
+                    {profile && profile.birthdate}
+                  </span>
                 </li>
                 <li className="profile-info-li">
                   <span className="profile-info-question_span">Gender</span>
-                  <span className="profile-info-answer_span">Female</span>
+                  <span className="profile-info-answer_span">
+                    {profile && profile.gender}
+                  </span>
                 </li>
               </ul>
             </div>
@@ -29,11 +46,15 @@ function ProfileInfoCard() {
               <ul className="profile-info-list">
                 <li className="profile-info-li">
                   <span className="profile-info-question_span">Email</span>
-                  <span className="profile-info-answer_span">myemail@nope.com</span>
+                  <span className="profile-info-answer_span">
+                    {user && user.email}
+                  </span>
                 </li>
                 <li className="profile-info-li">
                   <span className="profile-info-question_span">Phone</span>
-                  <span className="profile-info-answer_span">440-555-5555</span>
+                  <span className="profile-info-answer_span">
+                    {profile && profile.phonenumber}
+                  </span>
                 </li>
               </ul>
             </div>
@@ -41,7 +62,18 @@ function ProfileInfoCard() {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProfileInfoCard
+ProfileInfoCard.propTypes = {
+  getCurrentProfile: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps, { getCurrentProfile })(ProfileInfoCard);
