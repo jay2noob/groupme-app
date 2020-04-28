@@ -72,7 +72,7 @@ router.get("/:page", auth, async (req, res) => {
 // @route    GET api/groups/:id
 // @desc     Get group by group id
 // @access   Private
-router.get("/:id", auth, async (req, res) => {
+router.get("/group/:id", auth, async (req, res) => {
 
   try {
     const group = await Group.findById(req.params.id)

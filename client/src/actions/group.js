@@ -36,7 +36,7 @@ export const createGroup = ({ name, description }) => async (dispatch) => {
 export const getGroup = (id) => async (dispatch) => {
 
   try {
-    const response = await axios.get(`/api/groups/${id}`)
+    const response = await axios.get(`/api/groups/group/${id}`)
 
     dispatch({
       type: GET_GROUP,

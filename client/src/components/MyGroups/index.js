@@ -14,38 +14,36 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
     getMyGroups({ page })
     setLoading(false)
     if (myGroups) {
-      console.log("myGroups Effect", myGroups)
+      console.log("myGroups Effect", myGroups, page)
     }
 
     /// use debounce function to limit the number of requests sent to server if the user scrolls up and down too quiclky
     window.onscroll = () => {
-
-      const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-      const body = document.body;
-      const html = document.documentElement;
-      const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-      const windowBottom = windowHeight + window.pageYOffset;
+      const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight
+      const body = document.body
+      const html = document.documentElement
+      const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
+      const windowBottom = windowHeight + window.pageYOffset
       if (windowBottom >= docHeight) {
-        console.log("Bottom Reached")
-        getMyGroups({ page: (page + 1) })
-        setPage(page + 1)
+        const updatePage = page + 1
+        console.log("Bottom Reached", updatePage)
+        getMyGroups({ page: updatePage })
+        setPage(updatePage)
       } else {
-        console.log("Not Yet");
+        console.log("Not Yet")
       }
-
     }
     // eslint-disable-next-line
   }, [])
 
-  if(loading) {
-    return <Spinner />
-  } 
+  
 
   console.log("myGroups", myGroups);
   
   return (
     <section className="mygroups-card-container">
       <h2 className="mygroups-heading">My Groups</h2>
+      { loading ? <Spinner /> : null}
       {!loading && myGroups && myGroups.length === 0 ? (<h3>No Groups to show</h3>) : (
         myGroups.map(myGroup => <MyGroupsCard myGroup={myGroup} key={myGroup._id} />)
       )}
