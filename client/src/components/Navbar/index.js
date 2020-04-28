@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import Search from "../Search";
 import "./styles.css";
 
-function Navbar(props) {
+function Navbar({ auth: { user } }) {
   return (
     <nav className="navbar">
       <div className="navbar-inner">
@@ -19,7 +21,7 @@ function Navbar(props) {
           <ul className="navbar-ul">
             <li className="navbar-item">
               <Link className="navbar-link" to="/dashboard">
-                Welcome,
+                Welcome, {user && user.name}
               </Link>
             </li>
           </ul>
@@ -29,4 +31,12 @@ function Navbar(props) {
   );
 }
 
-export default Navbar;
+Navbar.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(Navbar);
