@@ -75,8 +75,13 @@ router.get("/", auth, async (req, res) => {
 router.get("/:id", auth, async (req, res) => {
 
   try {
-    const group = await Group.findById({ _id: req.params.id })
+    const group = await Group.findById(req.params.id)
+    // Check for ObjectId format and group
+    if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !group) {
+      return res.status(404).json({ msg: 'group not found' });
+    }
     res.json(group);
+    
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

@@ -6,8 +6,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import './styles.css'
 
-function MyGroupsContainer({ getMyGroups, myGroups }, props) {
-  const [myGroupsList, setMyGroupsList] = useState([])
+function MyGroupsContainer({ getMyGroups, myGroups }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -15,7 +14,6 @@ function MyGroupsContainer({ getMyGroups, myGroups }, props) {
     setLoading(false)
     if (myGroups) {
       console.log("myGroups Effect", myGroups)
-      setMyGroupsList(myGroups)
     }
     // eslint-disable-next-line
   }, [])
@@ -25,10 +23,10 @@ function MyGroupsContainer({ getMyGroups, myGroups }, props) {
   } 
 
   console.log("myGroups", myGroups);
+  
   return (
     <section className="mygroups-card-container">
       <h2 className="mygroups-heading">My Groups</h2>
-      {loading ? (<h3>Loading Groups...</h3>) : null }
       {!loading && myGroups.length === 0 ? (<h3>No Groups to show</h3>) : (
         myGroups.map(myGroup => <MyGroupsCard myGroup={myGroup} key={myGroup._id} />)
       )}

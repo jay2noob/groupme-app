@@ -5,7 +5,7 @@ import { createGroup } from "../../actions/group";
 import PropTypes from "prop-types";
 import "./styles.css";
 
-function CreateGroupForm({ createGroup, group }) {
+function CreateGroupForm({ createGroup, currentGroup }) {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -38,13 +38,13 @@ function CreateGroupForm({ createGroup, group }) {
     });
   };
 
-  if (group) {
-    console.log("Group", group);
+  if (currentGroup) {
+    console.log("currentGroup", currentGroup);
     return (
       <Redirect
         to={{
-          pathname: `/group/${group._id}`,
-          group,
+          pathname: `/groups/${currentGroup._id}`,
+          currentGroup,
         }}
       />
     );
@@ -89,10 +89,10 @@ function CreateGroupForm({ createGroup, group }) {
             className=" btn btn-secondary btn-fileupload"
           />
         </div>
-
-        <button className="btn btn-primary create-group-btn">
-          Create Group
-        </button>
+        
+          <button className="btn btn-primary create-group-btn">
+            Create Group
+          </button>
       </fieldset>
     </form>
   );
@@ -101,12 +101,12 @@ function CreateGroupForm({ createGroup, group }) {
 CreateGroupForm.propTypes = {
   createGroup: PropTypes.func.isRequired,
   isAdmin: PropTypes.bool,
-  group: PropTypes.object,
+  currentGroup: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
   isAdmin: state.isAdmin,
-  group: state.group,
+  currentGroup: state.currentGroup,
 });
 
 export default connect(mapStateToProps, { createGroup })(CreateGroupForm);

@@ -30,7 +30,7 @@ function MyGroupsCard({ myGroup }) {
               <p className="mygroups-content-stat">{myGroup.events.length}</p>
             </li>
           </ul>
-          <Link to={`/group/${myGroup._id}`}>
+          <Link to={`/groups/${myGroup._id}`}>
             <button className="btn btn-secondary mygroups-btn">View Group</button>
           </Link>  
           <Link to="/create/event">

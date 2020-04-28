@@ -40,8 +40,8 @@ const App = () => {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/profile/edit" component={EditProfile} />
           <PrivateRoute exact path="/groups" component={MyGroups} />
-          <PrivateRoute exact path="/group/:id" component={Group} />
-          <PrivateRoute exact path="/group/events/1" component={Events} />
+          <PrivateRoute exact path="/groups/:id" component={Group} />
+          <PrivateRoute exact path="/groups/events/1" component={Events} />
           <PrivateRoute exact path="/create/group" component={CreateGroup} />
           <PrivateRoute exact path="/events" component={MyEvents} />
           <PrivateRoute exact path="/create/event" component={CreateEvent} />

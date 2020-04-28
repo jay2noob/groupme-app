@@ -7,7 +7,7 @@ import {
 
 // create inital state
 const initialState = {
-  group: null,
+  currentGroup: null,
   myGroups: [],
   loading: true,
   isAdmin: false,
@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
     case CREATE_GROUP:
       return {
         ...state,
-        group: payload,
+        currentGroup: payload,
         loading: false,
         isAdmin: true,
         isEditable: true,
@@ -31,10 +31,8 @@ export default function (state = initialState, action) {
     case GET_GROUP:
       return {
         ...state,
-        group: payload,
+        currentGroup: payload,
         loading: false,
-        isAdmin: true,
-        isEditable: true,
         isJoined: true
       };
     case GET_MYGROUPS:
