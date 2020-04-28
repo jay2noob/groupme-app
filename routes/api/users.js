@@ -5,17 +5,17 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
-const fs = require('fs').promises;
+const fs = require("fs").promises;
 
 const User = require("../../models/User");
-const upload = require('../../utils/uploader');
+const upload = require("../../utils/uploader");
 
 // @route   POST api/users
 // @desc    Register user
 // @access  Public
 router.post(
   "/",
-  upload.single('profileImage'),
+  upload.single("avatar"),
   [
     check("name", "Name is required").not().isEmpty(),
     check("email", "Please include a valid email").isEmail(),
@@ -39,7 +39,9 @@ router.post(
 
       if (user) {
         try {
-          await fs.unlink(global.__basedir + '/public/img/' + req.file.filename);
+          await fs.unlink(
+            global.__basedir + "/public/img/" + req.file.filename
+          );
         } catch (e) {
           console.log(e);
         }
@@ -47,7 +49,7 @@ router.post(
           .status(400)
           .json({ errors: [{ msg: "User already exists" }] });
       }
-       // Get users gravatar
+      // Get users gravatar
       let avatar = gravatar.url(email, {
         s: "200",
         r: "pg",

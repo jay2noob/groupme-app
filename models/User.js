@@ -17,14 +17,17 @@ const UserSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
+  profileImage: {
+    type: Buffer,
+  },
   date: {
     type: Date,
     default: Date.now,
   },
   admin: {
-    type: Boolean, 
-    default: false 
-  }
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

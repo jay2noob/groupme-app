@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import "./styles.css";
 
-const DashboardProfileCard = ({ auth: { user } }) => {
+function DashboardProfileCard({ auth: { user } }) {
   return (
     <div className="dashboard-profile-container">
       <div className="dashboard-profile-card">
@@ -25,7 +25,7 @@ const DashboardProfileCard = ({ auth: { user } }) => {
       </div>
     </div>
   );
-};
+}
 
 DashboardProfileCard.propTypes = {
   auth: PropTypes.object.isRequired,

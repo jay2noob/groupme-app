@@ -1,18 +1,33 @@
-import React from 'react'
-import './styles.css'
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import "./styles.css";
 
-function EditProfileImg() {
+function EditProfileImg({ auth: { user } }) {
+  console.log(user);
   return (
     <div className="edit-profile-img-container">
-      <img className="edit-profile-img" src="../images/portrait.png" alt=""/>
+      <img
+        className="edit-profile-img"
+        src={user && user.avatar}
+        /*"../images/portrait.png"*/ alt=""
+      />
       <label htmlFor="">Change profile image</label>
-      <input 
-        type="file" 
-        accept=".png, .jpg, .jpeg" 
-        className=" btn btn-secondary btn-fileupload" 
+      <input
+        type="file"
+        accept=".png, .jpg, .jpeg"
+        className=" btn btn-secondary btn-fileupload"
       />
     </div>
-  )
+  );
 }
 
-export default EditProfileImg
+EditProfileImg.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(EditProfileImg);
