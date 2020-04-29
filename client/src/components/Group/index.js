@@ -31,7 +31,7 @@ function GroupsContainer({ getGroup, currentGroup }) {
 
   return (
     <section className="groups-card-container">
-      <GroupHero currentGroup={currentGroup || []} />
+      <GroupHero currentGroup={currentGroup || {}} />
       <CreatePostCard />
       <GroupPost />
     </section>
@@ -39,11 +39,11 @@ function GroupsContainer({ getGroup, currentGroup }) {
 }
 
 GroupsContainer.propTypes = {
-  currentGroup: PropTypes.array.isRequired
+  currentGroup: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  currentGroup: state.group.currentGroup || []
+  currentGroup: state.group.currentGroup || {}
 });
 
 export default connect(mapStateToProps, { getGroup })(GroupsContainer);
