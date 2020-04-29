@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const EventSchema = new mongoose.Schema({
+  groupID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "group"
+  },
   title: {
     type: String,
     required: true,
@@ -19,13 +23,13 @@ const EventSchema = new mongoose.Schema({
   host: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "user",
+    ref: "profile",
   },
   going: [
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
+        ref: "profile",
       },
     },
   ],
@@ -33,7 +37,7 @@ const EventSchema = new mongoose.Schema({
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
+        ref: "profile",
       },
     },
   ],
@@ -41,7 +45,7 @@ const EventSchema = new mongoose.Schema({
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
+        ref: "profile",
       },
       text: {
         type: String,

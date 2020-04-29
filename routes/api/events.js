@@ -6,6 +6,7 @@ const auth = require("../../middleware/auth");
 const Event = require("../../models/Event");
 const User = require("../../models/User");
 const upload = require('../../utils/uploader');
+const Group = require('../../models/Group')
 
 // @route   POST api/events
 // @desc    Create an events
@@ -29,16 +30,21 @@ router.post(
 
     try {
       const user = await User.findById(req.user.id).select("-password");
+      const group = await Group.findById(req.params.id)
+
       const avatar = req.file && req.file.filename;
       const newEvent = new Event({
+        groupID: req.params.groupID,
         title: req.body.title,
         description: req.body.description,
         location: req.body.location,
         image: avatar || user.avatar,
-        host: req.user.id,
+        host: req.user.id
       });
 
-      const event = await newEvent.save();
+   
+
+      const event = await newEvent.save(group);
 
       res.json(event);
     } catch (err) {

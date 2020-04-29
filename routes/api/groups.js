@@ -69,7 +69,7 @@ router.get("/:page", auth, async (req, res) => {
 
 });
 
-// @route    GET api/groups/:id
+// @route    GET api/groups/group/:id
 // @desc     Get group by group id
 // @access   Private
 router.get("/group/:id", auth, async (req, res) => {
