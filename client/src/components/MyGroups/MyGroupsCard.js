@@ -26,7 +26,7 @@ function MyGroupsCard({ myGroup }) {
               <p className="mygroups-content-stat">{myGroup.members && myGroup.members.length}</p>
             </li>
             <li className="mygroups-content-item">
-              <h4 className="mygroups-content-stat-heading">Likes</h4>
+              <h4 className="mygroups-content-stat-heading">Events</h4>
               <p className="mygroups-content-stat">{ myGroup.events && myGroup.events.length}</p>
             </li>
           </ul>

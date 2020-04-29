@@ -79,14 +79,20 @@ function CreateGroupForm({ createGroup, currentGroup }) {
         </ul>
 
         <div className="create-group-img-container">
-          <label htmlFor="">Optional: Add an image for the group</label>
-          <br />
+
+          <label
+            className="file-upload btn-secondary"
+            htmlFor="img-upload"
+          >
+            <i className="fal fa-image" /> Upload Photo
+          </label>
           <input
-            type="file"
-            accept=".png, .jpg, .jpeg"
             name="groupImage"
             onChange={(event) => onChange(event)}
-            className=" btn btn-secondary btn-fileupload"
+            className="btn btn-fileupload file-img-upload "
+            id="img-upload"
+            type="file"
+            accept=".png, .jpg, .jpeg"
           />
         </div>
         

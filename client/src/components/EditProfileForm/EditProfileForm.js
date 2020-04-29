@@ -12,10 +12,8 @@ const initialState = {
   city: "",
   state: "",
   zip: "",
-  gender: "",
   birthdate: "",
-  phonenumber: "",
-  //email: "",
+  phonenumber: ""
 };
 
 const EditProfileForm = ({
@@ -44,10 +42,8 @@ const EditProfileForm = ({
     city,
     state,
     zip,
-    gender,
     birthdate,
-    phonenumber,
-    //email,
+    phonenumber
   } = formData;
 
   const onChange = (e) =>
@@ -171,27 +167,6 @@ const EditProfileForm = ({
               />
             </li>
             <li>
-              <label className="edit-profile-gender-label">Gender:</label>
-
-              <input
-                type="radio"
-                id="male"
-                name="gender"
-                value={gender}
-                onChange={(e) => onChange(e)}
-              />
-              <label className="edit-profile-gender-male">Male</label>
-
-              <input
-                type="radio"
-                id="female"
-                name="gender"
-                value={gender}
-                onChange={(e) => onChange(e)}
-              />
-              <label className="edit-profile-gender-female">Female</label>
-            </li>
-            <li>
               <label>Birthday:</label>
               <input
                 type="date"
@@ -212,23 +187,20 @@ const EditProfileForm = ({
                 onChange={(e) => onChange(e)}
               />
             </li>
-            <li>
-              <label>Email Address:</label>
-              <input
-                type="text"
-                //id="mail"
-                //name="email"
-                placeholder="Enter email address"
-                //value={email}
-                onChange={(e) => onChange(e)}
-              />
-            </li>
           </ul>
         </fieldset>
-        <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn btn-light my-1" to="/dashboard">
-          Go Back
-        </Link>
+        <div className="edit-profile-buttons">
+
+          <button type="submit" className="btn btn-primary my-1">Submit</button>
+      
+          <Link to="/dashboard">
+            <button className="btn btn-secondary back-btn">Go Back</button>
+          </Link>
+
+          <Link to="/api/profile">
+            <button className="btn delete-btn">Delete Profile</button>
+          </Link>
+        </div>
       </form>
     </Fragment>
   );

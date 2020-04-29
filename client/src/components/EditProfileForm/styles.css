@@ -57,3 +57,21 @@
   margin: 1rem 0;
 }
 
+.edit-profile-list > li {
+  margin-bottom: 1rem;
+}
+
+.form {
+  border: none;
+  max-width: 55em;
+  padding: 1rem;
+}
+
+.edit-profile-buttons {
+  margin: 0 auto;
+}
+
+.edit-profile-buttons > a, button {
+  margin-left: .10rem;
+}
+

@@ -29,12 +29,18 @@ a {
   line-height: inherit;
   width: 40rem;
   padding: .5rem;
-  margin-top: .15rem;
+  margin-top: .25rem;
   opacity: 1;
 }
 
 .back-btn {
-  padding: 1rem;
+  padding: .15rem;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  padding: .15rem;
+  margin-top: 2%;
 }
 
 .btn:hover {
@@ -84,7 +90,6 @@ select {
   outline: none;
   font-size: 1rem;
   width: 100%;
-  margin-bottom: 1rem;
 }
 
 input:focus,

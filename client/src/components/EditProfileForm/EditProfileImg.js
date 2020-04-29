@@ -11,11 +11,17 @@ function EditProfileImg({ auth: { user } }) {
         src={user && user.avatar}
         /*"../images/portrait.png"*/ alt=""
       />
-      <label htmlFor="">Change profile image</label>
+      <label
+        className="file-upload btn-secondary"
+        htmlFor="img-upload"
+      >
+        <i className="fal fa-image" /> Upload Photo
+      </label>
       <input
+        className="file-img-upload"
+        id="img-upload"
         type="file"
         accept=".png, .jpg, .jpeg"
-        className=" btn btn-secondary btn-fileupload"
       />
     </div>
   );

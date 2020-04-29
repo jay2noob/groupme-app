@@ -51,3 +51,7 @@
   max-width: 45rem;
   margin: 0 auto;
 }
+
+.create-group-img-container {
+  padding: .5rem 0 .25rem 0;
+} 

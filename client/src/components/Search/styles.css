@@ -16,7 +16,7 @@
 
 /* Style the input fields */
 .search-field {
-  width: 10rem;
+  width: 10rem !important;
   margin-bottom: 0;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;

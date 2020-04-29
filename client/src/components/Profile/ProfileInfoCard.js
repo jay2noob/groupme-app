@@ -28,15 +28,21 @@ const ProfileInfoCard = ({
             <div className="profile-info">
               <ul className="profile-info-list">
                 <li className="profile-info-li">
-                  <span className="profile-info-question_span">Birthday</span>
+                  <span className="profile-info-question_span">First Name</span>
                   <span className="profile-info-answer_span">
-                    {profile && profile.birthdate}
+                    {profile && profile.firstname}
                   </span>
                 </li>
                 <li className="profile-info-li">
-                  <span className="profile-info-question_span">Gender</span>
+                  <span className="profile-info-question_span">Last Name</span>
                   <span className="profile-info-answer_span">
-                    {profile && profile.gender}
+                    {profile && profile.lastname}
+                  </span>
+                </li>
+                <li className="profile-info-li">
+                  <span className="profile-info-question_span">Birthday</span>
+                  <span className="profile-info-answer_span">
+                    {profile && profile.birthdate}
                   </span>
                 </li>
               </ul>
@@ -54,6 +60,24 @@ const ProfileInfoCard = ({
                   <span className="profile-info-question_span">Phone</span>
                   <span className="profile-info-answer_span">
                     {profile && profile.phonenumber}
+                  </span>
+                </li>
+                <li className="profile-info-li">
+                  <span className="profile-info-question_span">City</span>
+                  <span className="profile-info-answer_span">
+                    {profile && profile.city}
+                  </span>
+                </li>
+                <li className="profile-info-li">
+                  <span className="profile-info-question_span">State</span>
+                  <span className="profile-info-answer_span">
+                    {profile && profile.state}
+                  </span>
+                </li>
+                <li className="profile-info-li">
+                  <span className="profile-info-question_span">Zip Code</span>
+                  <span className="profile-info-answer_span">
+                    {profile && profile.zip}
                   </span>
                 </li>
               </ul>

@@ -22,9 +22,6 @@ const ProfileSchema = new mongoose.Schema({
   zip: {
     type: String,
   },
-  gender: {
-    type: String,
-  },
   birthdate: {
     type: String,
   },
