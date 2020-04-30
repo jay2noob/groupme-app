@@ -36,14 +36,17 @@ function GroupsContainer({ getGroup, currentGroup }) {
       <GroupPost />
     </section>
   )
-}
+} 
 
 GroupsContainer.propTypes = {
-  currentGroup: PropTypes.object.isRequired
+  currentGroup: PropTypes.object.isRequired,
+  isJoined: PropTypes.bool
+
 };
 
 const mapStateToProps = (state) => ({
-  currentGroup: state.group.currentGroup || {}
+  currentGroup: state.group.currentGroup || {},
+  isJoined: state.isJoined
 });
 
 export default connect(mapStateToProps, { getGroup })(GroupsContainer);

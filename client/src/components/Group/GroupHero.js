@@ -7,7 +7,7 @@ import { joinGroup } from "../../actions/group";
 import PropTypes from "prop-types";
 
 
-function GroupHero({ currentGroup, joinGroup }) {
+function GroupHero({ currentGroup, joinGroup, isJoined }) {
   console.log("currentGroup", currentGroup);
   
   let res = null;
@@ -45,7 +45,12 @@ function GroupHero({ currentGroup, joinGroup }) {
           </ul>
           <div className="groups-hero-content-buttons">
             
-            <button onClick={onJoin} className="btn btn-primary group-hero-btn">Join Group</button>
+            { isJoined ? 
+              <button onClick={onJoin} className="btn btn-primary group-hero-btn">
+                Join Group
+              </button> 
+            : null }
+            
             
             <Link to="/group/events/1">
               <button className="btn btn-secondary group-hero-btn">View Group Events</button>
@@ -65,11 +70,11 @@ function GroupHero({ currentGroup, joinGroup }) {
 GroupHero.propTypes = {
   createGroup: PropTypes.func.isRequired,
   currentGroup: PropTypes.object.isRequired,
-  isAdmin: PropTypes.bool
+  isJoined: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
-  isAdmin: state.isAdmin,
+  isJoined: state.isJoined,
   currentGroup: state.group.currentGroup || {}
 });
 
