@@ -68,11 +68,36 @@ export const createProfile = (formData, history, edit = false) => async (
   try {
     const config = {
       headers: {
-        "Content-Type": "application/json",
-      },
-    };
+        'Content-Type': 'multipart/form-data'
+      }
+    }
+    /*
+      firstname,
+      lastname,
+      city,
+      state,
+      zip,
+      birthdate,
+      phonenumber,
+      avatarImage
+    */
 
-    const res = await axios.post("/api/profile", formData, config);
+    console.log(formData);
+    const body = new FormData();
+    body.append("firstname", formData.firstname);
+    body.append("lastname", formData.lastname);
+    body.append("city", formData.city);
+    body.append("state", formData.state);
+    body.append("zip", formData.zip);
+    body.append("birthdate", formData.birthdate);
+    body.append("phonenumber", formData.phonenumber);
+    body.append("avatarImage", formData.avatarImage);
+    
+    // formData.append("description", description);
+    // formData.append("groupImage", groupImage);
+
+
+    const res = await axios.post("/api/profile", body, config);
 
     dispatch({
       type: UPDATE_PROFILE,

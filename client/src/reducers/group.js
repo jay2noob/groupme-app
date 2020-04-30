@@ -2,7 +2,8 @@ import {
   CREATE_GROUP,
   GET_GROUP,
   GET_MYGROUPS,
-  GROUP_ERROR
+  GROUP_ERROR,
+  JOIN_GROUP
 } from "../actions/types";
 
 // create inital state
@@ -20,6 +21,15 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case CREATE_GROUP:
+      return {
+        ...state,
+        currentGroup: payload,
+        loading: false,
+        isAdmin: true,
+        isEditable: true,
+        isJoined: true
+      };
+    case JOIN_GROUP:
       return {
         ...state,
         currentGroup: payload,

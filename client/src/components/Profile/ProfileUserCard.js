@@ -3,15 +3,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { IMAGE_URL } from "../../utils/setAuthToken";
 
-function ProfileUserCard({ auth: { user } }) {
+function ProfileUserCard({ profile, auth, auth: { user } }) {
+  console.log("profile", profile.profile)
+  console.log("AUTH", auth)
+  let res = null;
+  let url = null;
+  if (user) {
+    res = user.avatar && user.avatar.match(/^\/\//g);
+    url = res == null ? `${IMAGE_URL}${user.avatar}` : user.avatar
+  }
+
   return (
     <div className="profile-user-container">
       <div className="profile-user-card">
         <div className="profile-user-img-container">
           <img
             className="profile-user-img"
-            src={user && user.avatar}
+            src={url}
             /*"../images/portrait.png"*/ alt=""
           />
         </div>
@@ -42,10 +52,12 @@ function ProfileUserCard({ auth: { user } }) {
 
 ProfileUserCard.propTypes = {
   auth: PropTypes.object.isRequired,
+  profile: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  profile: state.profile
 });
 
 export default connect(mapStateToProps)(ProfileUserCard);

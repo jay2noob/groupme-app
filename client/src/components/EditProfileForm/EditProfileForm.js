@@ -1,10 +1,12 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { withRouter, Link } from "react-router-dom";
-import { createProfile, getCurrentProfile } from "../../actions/profile";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React, { useState, useEffect, Fragment } from "react"
+import { withRouter, Link } from "react-router-dom"
+import { createProfile, getCurrentProfile } from "../../actions/profile"
+import { loadUser } from '../../actions/auth'
+import { connect } from "react-redux"
+import PropTypes from "prop-types"
 
-import "./styles.css";
+import "./styles.css"
+import { IMAGE_URL } from "../../utils/setAuthToken"
 
 const initialState = {
   firstname: "",
@@ -13,25 +15,35 @@ const initialState = {
   state: "",
   zip: "",
   birthdate: "",
-  phonenumber: ""
+  phonenumber: "",
+  avatarImage: "",
 };
 
 const EditProfileForm = ({
   createProfile,
   getCurrentProfile,
+  loadUser,
   profile: { profile, loading },
   history,
+  auth: { user }
 }) => {
   const [formData, setFormData] = useState(initialState);
 
+  let res = null;
+  let url = null;
+  if (user) {
+    res = user.avatar && user.avatar.match(/^\/\//g);
+    url = res == null ? `${IMAGE_URL}${user.avatar}` : user.avatar
+  }
   useEffect(() => {
     if (!profile) getCurrentProfile();
+
     if (!loading && profile) {
       const profileData = { ...initialState };
       for (const key in profile) {
         if (key in profileData) profileData[key] = profile[key];
       }
-
+      loadUser();
       setFormData(profileData);
     }
   }, [loading, getCurrentProfile, profile]);
@@ -43,11 +55,25 @@ const EditProfileForm = ({
     state,
     zip,
     birthdate,
-    phonenumber
+    phonenumber,
+    avatarImage
   } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (event) => {
+
+    if (event.target.files) {
+      setFormData({
+        ...formData,
+        avatarImage: event.target.files[0]
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [event.target.name]: event.target.value
+      })
+    }
+    // console.log("FORM", formData, event.target.files[0]);
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +82,29 @@ const EditProfileForm = ({
 
   return (
     <Fragment>
+      
       <form className="form" onSubmit={(e) => onSubmit(e)}>
+        <div className="edit-profile-img-container">
+          <img
+            className="edit-profile-img"
+            src={url}
+            /*"../images/portrait.png"*/ alt=""
+          />
+          <label
+            className="file-upload btn-secondary"
+            htmlFor="img-upload"
+          >
+            <i className="fal fa-image" /> Upload Photo
+          </label>
+          <input
+            name="avatarImage"
+            onChange={(event) => onChange(event)}
+            className="file-img-upload "
+            id="img-upload"
+            type="file"
+            accept=".png, .jpg, .jpeg"
+          />
+        </div>
         <fieldset className="edit-profile-fieldset">
           <ul className="edit-profile-list">
             <li>
@@ -208,16 +256,19 @@ const EditProfileForm = ({
 
 EditProfileForm.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
+  loadUser: PropTypes.func.isRequired,
   createProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
+  auth: state.auth
 });
 
 export default withRouter(
-  connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  connect(mapStateToProps, { createProfile, getCurrentProfile, loadUser })(
     EditProfileForm
   )
 );

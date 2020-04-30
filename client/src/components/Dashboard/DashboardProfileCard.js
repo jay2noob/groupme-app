@@ -4,15 +4,24 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import "./styles.css";
+import { IMAGE_URL } from "../../utils/setAuthToken";
 
 function DashboardProfileCard({ auth: { user } }) {
+
+  let res = null;
+  let url = null;
+  if (user) {
+    res = user.avatar && user.avatar.match(/^\/\//g);
+    url = res == null ? `${IMAGE_URL}${user.avatar}` : user.avatar
+  }
+  
   return (
     <div className="dashboard-profile-container">
       <div className="dashboard-profile-card">
         <div className="dashboard-profile-img-container">
           <img
             className="dashboard-profile-img"
-            src={user && user.avatar}
+            src={url}
             alt=""
           />
         </div>

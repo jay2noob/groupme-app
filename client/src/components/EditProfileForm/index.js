@@ -11,7 +11,9 @@ function EditProfileContainer() {
         <div className="edit-profile-heading">
           <h2>Personal Information</h2>
         </div>
-        <EditProfileImg />
+        {
+          // <EditProfileImg />
+        }
         <EditProfileForm />
       </div>
     </div>

@@ -47,6 +47,26 @@ router.post(
   }
 );
 
+
+// @route    PUT api/events/ungoing/:id
+// @desc     Makr an event as not going
+// @access   Private
+router.put("/join/:id", auth, async (req, res) => {
+  try {
+    const group = await Group.findById(req.params.id);
+    // Check if the post has already been liked
+    if (group.members.filter((one) => one.user.toString() === req.user.id).length > 0) {
+      return res.status(400).json({ msg: "Already a member of the group" });
+    }
+    group.members.unshift({ user: req.user.id });
+    await group.save();
+    res.json(group.members);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route    GET api/groups
 // @desc     Get all in the specified range
 // @access   Private
@@ -75,12 +95,20 @@ router.get("/:page", auth, async (req, res) => {
 router.get("/group/:id", auth, async (req, res) => {
 
   try {
-    const group = await Group.findById(req.params.id)
+    let group = await Group.findById(req.params.id)
     // Check for ObjectId format and group
     if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !group) {
       return res.status(404).json({ msg: 'group not found' });
     }
-    res.json(group);
+
+    // Check if the post has already been liked
+    group = JSON.parse(JSON.stringify(group))
+    if (group.members.filter((one) => one.user.toString() === req.user.id).length > 0) {
+      group.joined = true
+    } else {
+      group.joined = false
+    }
+    res.json(group)
     
   } catch (err) {
     console.error(err.message);

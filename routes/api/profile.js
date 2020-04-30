@@ -2,12 +2,16 @@ const express = require("express");
 const request = require("request");
 const config = require("config");
 const router = express.Router();
+const gravatar = require("gravatar");
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
+const fs = require("fs").promises;
 
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 const Post = require("../../models/Post");
+const upload = require("../../utils/uploader");
+
 
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWU5OWRhNDE4MjQxYjMxYjMxZjQwNjQ0In0sImlhdCI6MTU4NzE0MTE4NSwiZXhwIjoxNTg3NTAxMTg1fQ.nBnFYjldmqMFe7I0dL3fI-OeSYXMDqAnydQdonMShR8
 // @route    GET api/profile/me
@@ -68,6 +72,7 @@ router.get("/", async (req, res) => {
 // @access   Private
 router.post(
   "/",
+  upload.single("avatarImage"),
   [
     auth,
     [
@@ -90,7 +95,7 @@ router.post(
       gender,
       birthdate,
       phonenumber,
-      email,
+      email
     } = req.body;
 
     // Build profile object
@@ -105,6 +110,40 @@ router.post(
     if (birthdate) profileFields.birthdate = birthdate;
     if (phonenumber) profileFields.phonenumber = phonenumber;
     if (email) profileFields.email = email;
+
+
+    try {
+      let user = await User.findOne({ _id: req.user.id });
+      if (user) {
+        
+        // Delete Previous Avatar
+        try {
+          await fs.unlink(
+            global.__basedir + "/public/img/" + user.avatar
+          );
+        } catch (e) {
+          console.log(e);
+        }
+
+        console.log("FILE", req.file);
+        // Get users Avatar
+        const avatar = (req.file && req.file.filename) || user.avatar
+
+
+        // Update
+        user = await User.findOneAndUpdate(
+          { _id: req.user.id },
+          { $set: { name: `${firstname} ${lastname}`, avatar } },
+          { new: true }
+        )
+
+        console.warn("Test", user);
+        
+      }
+
+    } catch (err) {
+      console.error(err.message)
+    }
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
