@@ -2,13 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
 import { IMAGE_URL } from '../../utils/setAuthToken';
+import { connect } from "react-redux";
+import { joinGroup } from "../../actions/group";
+import PropTypes from "prop-types";
 
 
-function GroupHero({ currentGroup }) {
+function GroupHero({ currentGroup, joinGroup, isJoined }) {
   console.log("currentGroup", currentGroup);
-  var res = currentGroup.avatar && currentGroup.avatar.match(/^\/\//g);
-  const url = res == null ? `${IMAGE_URL}${currentGroup.avatar}` : currentGroup.avatar;
+  
+  let res = null;
+  let url = null;
+  if (currentGroup) {
+    res = currentGroup.avatar && currentGroup.avatar.match(/^\/\//g);
+    url = res == null ? `${IMAGE_URL}${currentGroup.avatar}` : currentGroup.avatar
+  }
 
+  const onJoin = (e) => {
+    joinGroup({ id: currentGroup._id })
+  }
   return (
     <section className="groups-hero-container">
       <div className="groups-hero-card">
@@ -33,9 +44,14 @@ function GroupHero({ currentGroup }) {
             </li>
           </ul>
           <div className="groups-hero-content-buttons">
-            <Link to="/join">
-              <button className="btn btn-primary group-hero-btn">Join Group</button>
-            </Link>
+            
+            { isJoined ? 
+              <button onClick={onJoin} className="btn btn-primary group-hero-btn">
+                Join Group
+              </button> 
+            : null }
+            
+            
             <Link to="/group/events/1">
               <button className="btn btn-secondary group-hero-btn">View Group Events</button>
             </Link>
@@ -50,4 +66,16 @@ function GroupHero({ currentGroup }) {
 }
 
 
-export default GroupHero;
+
+GroupHero.propTypes = {
+  createGroup: PropTypes.func.isRequired,
+  currentGroup: PropTypes.object.isRequired,
+  isJoined: PropTypes.bool
+};
+
+const mapStateToProps = (state) => ({
+  isJoined: state.isJoined,
+  currentGroup: state.group.currentGroup || {}
+});
+
+export default connect(mapStateToProps, { joinGroup })(GroupHero);

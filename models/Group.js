@@ -16,8 +16,10 @@ const GroupSchema = new mongoose.Schema({
     ref: 'user'
   },
   members: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'profile'
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user"
+    }
   }],
   events: [{
     type: mongoose.Schema.Types.ObjectId,

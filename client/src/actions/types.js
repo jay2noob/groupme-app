@@ -10,6 +10,7 @@ export const LOGOUT = "LOGOUT";
 
 export const CREATE_GROUP = "CREATE_GROUP";
 export const GET_GROUP = "GET_GROUP";
+export const JOIN_GROUP = "JOIN_GROUP";
 export const GET_MYGROUPS = "GET_MYGROUPS";
 export const GROUP_ERROR = "GROUP_ERROR";
 
