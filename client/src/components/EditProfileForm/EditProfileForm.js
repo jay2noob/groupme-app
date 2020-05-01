@@ -46,7 +46,7 @@ const EditProfileForm = ({
       loadUser();
       setFormData(profileData);
     }
-  }, [loading, getCurrentProfile, profile]);
+  }, [loading, loadUser, getCurrentProfile, profile]);
 
   const {
     firstname,
@@ -103,6 +103,7 @@ const EditProfileForm = ({
             id="img-upload"
             type="file"
             accept=".png, .jpg, .jpeg"
+            value={avatarImage}
           />
         </div>
         <fieldset className="edit-profile-fieldset">

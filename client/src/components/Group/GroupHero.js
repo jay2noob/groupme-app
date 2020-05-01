@@ -66,7 +66,6 @@ function GroupHero({ currentGroup, joinGroup, isJoined }) {
 
 
 GroupHero.propTypes = {
-  createGroup: PropTypes.func.isRequired,
   currentGroup: PropTypes.object.isRequired,
   isJoined: PropTypes.bool
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import EditProfileForm from "./EditProfileForm";
-import EditProfileImg from "./EditProfileImg";
+
 import "./styles.css";
 
 function EditProfileContainer() {
@@ -11,9 +11,6 @@ function EditProfileContainer() {
         <div className="edit-profile-heading">
           <h2>Personal Information</h2>
         </div>
-        {
-          // <EditProfileImg />
-        }
         <EditProfileForm />
       </div>
     </div>
