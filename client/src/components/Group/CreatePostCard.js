@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { addPost } from "../../actions/post";
 import "./styles.css";
 
 function CreatePostCard() {
+  const [text, setText] = useState("");
+
   return (
     <div className="create-card-container">
       <div className="create-card">
@@ -18,11 +23,23 @@ function CreatePostCard() {
                 alt=""
               />
             </div>
-            <form className="create-post-form">
+            <form
+              className="create-post-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                addPost({ text });
+                setText("");
+              }}
+            >
               <textarea
                 type="text"
+                cols="30"
+                rows="5"
                 placeholder="Write something here..."
                 className="create-post-input"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                required
               ></textarea>
             </form>
           </div>
@@ -42,9 +59,13 @@ function CreatePostCard() {
                 />
               </li>
             </div>
-            <Link to="/create" className="create-post-btn">
-              <button className="btn btn-primary post-btn">Post</button>
-            </Link>
+
+            <button
+              className="btn btn-primary post-btn"
+              onSubmit={(e) => addPost(e)}
+            >
+              Post
+            </button>
           </div>
         </div>
       </div>
@@ -52,4 +73,12 @@ function CreatePostCard() {
   );
 }
 
-export default CreatePostCard;
+CreatePostCard.propTypes = {
+  addPost: PropTypes.func.isRequired,
+};
+
+export default connect(
+  null,
+
+  { addPost }
+)(CreatePostCard);

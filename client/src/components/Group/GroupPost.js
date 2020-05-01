@@ -1,15 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom' 
-import GroupComment from './GroupComment'
-import './styles.css'
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { getPosts } from "../../actions/post";
+import GroupComment from "./GroupComment";
+import "./styles.css";
 
-function GroupPost() {
+function GroupPost({ getPosts, post: { posts, loading } }) {
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
   return (
     <div className="groups-post-container">
       <div className="groups-post-card">
         <div className="groups-post-top">
           <div className="groups-post-img-container">
-            <img className="groups-post-img" src="../images/portrait.png" alt=""/>
+            <img
+              className="groups-post-img"
+              src="../images/portrait.png"
+              alt=""
+            />
           </div>
           <div className="groups-post-info">
             <Link to="/profile">
@@ -19,8 +30,12 @@ function GroupPost() {
           </div>
         </div>
 
-        <div className="groups-post-body"> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla dolor, ornare at commodo non, feugiat non nisi. Phasellus faucibus mollis pharetra. Proin blandit ac massa sed rhoncus</p>
+        <div className="groups-post-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nulla
+            dolor, ornare at commodo non, feugiat non nisi. Phasellus faucibus
+            mollis pharetra. Proin blandit ac massa sed rhoncus
+          </p>
         </div>
 
         <div className="groups-post-reaction">
@@ -33,13 +48,16 @@ function GroupPost() {
         <div className="groups-post-comments">
           <GroupComment />
         </div>
-
       </div>
 
       <div className="groups-post-card">
         <div className="groups-post-top">
           <div className="groups-post-img-container">
-            <img className="groups-post-img" src="../images/portrait.png" alt=""/>
+            <img
+              className="groups-post-img"
+              src="../images/portrait.png"
+              alt=""
+            />
           </div>
           <div className="groups-post-info">
             <Link to="/profile">
@@ -49,8 +67,8 @@ function GroupPost() {
           </div>
         </div>
 
-        <div className="groups-post-body"> 
-          <img src="../images/coverphoto.png" alt=""/>
+        <div className="groups-post-body">
+          <img src="../images/coverphoto.png" alt="" />
         </div>
 
         <div className="groups-post-reaction">
@@ -63,10 +81,18 @@ function GroupPost() {
         <div className="groups-post-comments">
           <GroupComment />
         </div>
-
       </div>
     </div>
-  )
+  );
 }
 
-export default GroupPost
+GroupPost.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  post: state.post,
+});
+
+export default connect(mapStateToProps, { getPosts })(GroupPost);
