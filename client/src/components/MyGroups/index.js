@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import MyGroupsCard from './MyGroupsCard'
-import Spinner from '../Spinner/Spinner'
 import { getMyGroups } from '../../actions/group'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import MyGroupsCard from './MyGroupsCard'
+import Spinner from '../Spinner/Spinner'
 import './styles.css'
 
 function MyGroupsContainer({ getMyGroups, myGroups }) {
@@ -30,7 +30,6 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
 
     setLoading(false)
     /// use debounce function to limit the number of requests sent to server if the user scrolls up and down too quiclky
-    // eslint-disable-next-line
     const onScroll = e => {
       const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight
       const body = document.body
@@ -59,7 +58,7 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
   return (
     <section className="mygroups-card-container">
       <h2 className="mygroups-heading">My Groups</h2>
-      { loading ? <Spinner /> : null}
+      { loading ? <Spinner /> : null }
       {!loading && myGroups && myGroups.length === 0 ? (<h3>No Groups to show</h3>) : (
         myGroups.map(myGroup => <MyGroupsCard myGroup={myGroup} key={myGroup._id} />)
       )}

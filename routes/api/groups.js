@@ -31,10 +31,9 @@ router.post(
         name: req.body.name,
         admin: req.user.id,
         description: req.body.description,
-        avatar: avatar || user.avatar
+        avatar: avatar || user.avatar,
       });
 
-      group.members.unshift({ user: req.user.id });
       const group = await newGroup.save();
 
       res.json(group);

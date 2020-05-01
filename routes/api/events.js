@@ -65,7 +65,7 @@ router.post(
 // @route    GET api/events
 // @desc     Get all events in the specified range
 // @access   Private
-router.get("/:page", auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,
     limit: global.pageOptions.limit

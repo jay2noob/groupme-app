@@ -51,7 +51,7 @@ const EditProfileForm = ({
       loadUser();
       setFormData(profileData);
     }
-  }, [loading, loadUser, getCurrentProfile, profile, loadUser]);
+  }, [loading, loadUser, getCurrentProfile, profile]);
 
   const {
     firstname,

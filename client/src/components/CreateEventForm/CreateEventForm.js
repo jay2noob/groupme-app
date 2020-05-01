@@ -46,19 +46,20 @@ function CreateEventForm({ currentEvent, createEvent }) {
       time: '', 
       eventImage: ''
     })
+
+    if (currentEvent) {
+      console.log("currentEvent", currentEvent);
+      return (
+        <Redirect
+          to={{
+            pathname: `/groups/events/${groupID}`,
+            currentEvent
+          }}
+        />
+      );
+    }
   }
 
-  if (currentEvent) {
-    console.log("currentEvent", currentEvent);
-    return (
-      <Redirect
-        to={{
-          pathname: `/groups/events/${groupID}`,
-          currentEvent
-        }}
-      />
-    );
-  }
 
   return (
     <form onSubmit={(event) => onSubmit(event)}>
