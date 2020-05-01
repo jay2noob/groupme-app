@@ -50,7 +50,8 @@ function GroupHero({ currentGroup, joinGroup, isJoined }) {
                 Join Group
               </button>
               : null }
-            <Link to="/groups/events/1">
+              
+            <Link to={`/groups/events/${currentGroup._id}}`}>
               <button className="btn btn-secondary group-hero-btn">View Group Events</button>
             </Link>
             <Link to={`/create/event/${currentGroup._id}`}>
@@ -66,7 +67,6 @@ function GroupHero({ currentGroup, joinGroup, isJoined }) {
 
 
 GroupHero.propTypes = {
-  createGroup: PropTypes.func.isRequired,
   currentGroup: PropTypes.object.isRequired,
   isJoined: PropTypes.bool
 };

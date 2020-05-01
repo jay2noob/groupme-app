@@ -40,3 +40,70 @@ export const createEvent = ({ groupID, title, description, location, time, event
 
 }
 
+// get event by id
+export const getEvent = (id) => async (dispatch) => {
+
+  try {
+    const response = await axios.get(`/api/events/${id}`)
+
+    dispatch({
+      type: GET_EVENT,
+      payload: response.data
+    })
+  } catch (err) {
+    dispatch({
+      type: EVENT_ERROR,
+    })
+  }
+
+}
+
+// get all groups user belongs to 
+// page page number as well
+export const getMyEvents = ({ page }) => async (dispatch) => {
+
+  try {
+    const response = await axios.get(`/api/events/${page}`)
+    // console.log(page);
+    // if (page === 0) {
+    //   dispatch({
+    //     type: GROUP_ERROR
+    //   })
+    // }
+    dispatch({
+      type: GET_MYEVENTS,
+      payload: response.data
+    })
+  } catch (err) {
+    dispatch({
+      type: EVENT_ERROR,
+    })
+  }
+
+}
+
+// join a new group
+export const joinEvent = ({ id }) => async (dispatch) => {
+  // axios config object - with the headers you want to include 
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    }
+  };
+
+  const body = JSON.stringify({ join: 1 })
+
+  try {
+    const response = await axios.put(`/api/events/join/${id}`, body, config)
+
+    dispatch({
+      type: JOIN_EVENT,
+      payload: response.data
+    })
+  } catch (err) {
+    dispatch({
+      type: EVENT_ERROR,
+    })
+  }
+
+}

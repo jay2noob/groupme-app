@@ -12,7 +12,11 @@ function CreateEventForm({ currentEvent, createEvent }) {
   const { groupID } = useParams();
 
   const [formData, setFormData] = useState({
-    title: '', description: '', location: '', time: '12:00 PM', eventImage: ''
+    title: '', 
+    description: '',
+    location: '', 
+    time: '12:00 PM', 
+    eventImage: ''
   })
 
   const { title, description, location, time, eventImage } = formData
@@ -36,21 +40,26 @@ function CreateEventForm({ currentEvent, createEvent }) {
     console.log("FORM DATA", groupID, title, description, location, time, eventImage)
     createEvent({ groupID, title, description, location, time, eventImage })
     setFormData({
-      title: '', description: '', location: '', time: '', eventImage: ''
+      title: '', 
+      description: '', 
+      location: '', 
+      time: '', 
+      eventImage: ''
     })
+
+    if (currentEvent) {
+      console.log("currentEvent", currentEvent);
+      return (
+        <Redirect
+          to={{
+            pathname: `/groups/events/${groupID}`,
+            currentEvent
+          }}
+        />
+      );
+    }
   }
 
-  if (currentEvent) {
-    console.log("currentEvent", currentEvent);
-    return (
-      <Redirect
-        to={{
-          pathname: `/groups/events/${groupID}`,
-          currentEvent
-        }}
-      />
-    );
-  }
 
   return (
     <form onSubmit={(event) => onSubmit(event)}>
