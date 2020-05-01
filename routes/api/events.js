@@ -3,7 +3,6 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 
-const Event = require("../../models/Event");
 const User = require("../../models/User");
 const upload = require('../../utils/uploader');
 const Group = require('../../models/Group')
@@ -14,14 +13,16 @@ const Group = require('../../models/Group')
 router.post(
   "/",
   upload.single('eventImage'),
+  [
+    auth,
     [
-        auth,
-        [
-            check("title", "Title is required").not().isEmpty(),
-            check("description", "Description is required").not().isEmpty(),
-            check("location", "Location is required").not().isEmpty()
-        ]
-    ],
+      check("title", "Title is required").not().isEmpty(),
+      check("description", "Description is required").not().isEmpty(),
+      check("location", "Location is required").not().isEmpty(),
+      check("time", "Time is required").not().isEmpty(),
+      check("groupID", "Location is required").not().isEmpty()
+    ]
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -30,26 +31,32 @@ router.post(
 
     try {
       const user = await User.findById(req.user.id).select("-password");
-      const group = await Group.findById(req.params.id)
+      let group = await Group.findById(req.body.groupID);
 
       const avatar = req.file && req.file.filename;
       const newEvent = new Event({
-        groupID: req.params.groupID,
+        groupID: req.body.groupID,
         title: req.body.title,
         description: req.body.description,
         location: req.body.location,
+        time: req.body.time,
         image: avatar || user.avatar,
         host: req.user.id
-      });
+      })
 
-   
+      const event = await newEvent.save()
+      if (group) {
+        if (group.events.filter((one) => one.event.toString() === event._id).length > 0) {
+          console.log("Event already added");
+        }
+        group.events.unshift({ event: event._id })
+        await group.save()
+      }
 
-      const event = await newEvent.save(group);
-
-      res.json(event);
+      res.json(event)
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server Error");
+      console.error(err.message)
+      res.status(500).send("Server Error")
     }
   }
 );

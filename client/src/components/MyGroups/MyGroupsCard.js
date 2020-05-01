@@ -33,7 +33,7 @@ function MyGroupsCard({ myGroup }) {
           <Link to={`/groups/${myGroup._id}`}>
             <button className="btn btn-secondary mygroups-btn">View Group</button>
           </Link>  
-          <Link to="/create/event">
+          <Link to={`/create/event/${myGroup._id}`}>
             <button className="btn btn-primary mygroups-btn">Create Event</button>
           </Link> 
         </div>

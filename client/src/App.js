@@ -41,10 +41,10 @@ const App = () => {
           <Route exact path="/profile/edit" component={EditProfile} />
           <PrivateRoute exact path="/groups" component={MyGroups} />
           <PrivateRoute exact path="/groups/:id" component={Group} />
-          <PrivateRoute exact path="/groups/events/1" component={Events} />
           <PrivateRoute exact path="/create/group" component={CreateGroup} />
+          <PrivateRoute exact path="/groups/events/:groupID" component={Events} />
           <PrivateRoute exact path="/events" component={MyEvents} />
-          <PrivateRoute exact path="/create/event" component={CreateEvent} />
+          <PrivateRoute exact path="/create/event/:groupID" component={CreateEvent} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
         </Switch>

@@ -13,4 +13,4 @@ import EventsContainer from '../components/Event/index'
   )
 }
 
-export default Events
+export default Events;

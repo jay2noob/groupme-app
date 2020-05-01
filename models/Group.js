@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const GroupSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
   },
   avatar: {
     type: String,
@@ -22,12 +21,16 @@ const GroupSchema = new mongoose.Schema({
     }
   }],
   events: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'event'
+    event: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'event'
+    }
   }],
   posts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'post'
+    post: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'post'
+    }
   }],
   date: {
     type: Date,
