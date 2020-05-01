@@ -47,9 +47,9 @@ router.post(
 
       const event = await newEvent.save()
       if (group) {
-        if (group.events.filter((one) => one.event.toString() === event._id).length > 0) {
-          console.log("Event already added");
-        }
+        // if (group.events.filter((one) => one.event.toString() === event._id).length > 0) {
+        //   console.log("Event already added");
+        // }
         group.events.unshift({ event: event._id })
         await group.save()
       }
@@ -62,10 +62,10 @@ router.post(
   }
 );
 
-// @route    GET api/events
+// @route    GET api/events/:page
 // @desc     Get all events in the specified range
 // @access   Private
-router.get("/", auth, async (req, res) => {
+router.get("/:page", auth, async (req, res) => {
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,
     limit: global.pageOptions.limit

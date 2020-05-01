@@ -13,7 +13,7 @@ const initialState = {
   loading: true,
   isAdmin: false,
   isEditable: false,
-  isJoined: false
+  isGoing: false
 };
 
 export default function (state = initialState, action) {

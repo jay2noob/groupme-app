@@ -1,6 +1,5 @@
 import React from "react";
 import EditProfileForm from "./EditProfileForm";
-
 import "./styles.css";
 
 function EditProfileContainer() {

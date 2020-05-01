@@ -11,6 +11,8 @@ function MyEventsContainer({ getMyEvents, myEvents }) {
   const [page, setPage] = useState(1)
   const [nextPage, setNextPage] = useState(false)
 
+  console.log(myEvents)
+
   useEffect(() => {
     if(myEvents.length === 0) {
       getMyEvents({ page })
