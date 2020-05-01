@@ -12,15 +12,15 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
   const [nextPage, setNextPage] = useState(false);
   console.log("myGroups Effect", myGroups, page)
 
-  const throttle = (fn, wait) => {
-    var time = Date.now()
-    return () => {
-      if ((time + wait - Date.now()) < 0) {
-        fn()
-        time = Date.now()
-      }
-    }
-  }
+  // const throttle = (fn, wait) => {
+  //   var time = Date.now()
+  //   return () => {
+  //     if ((time + wait - Date.now()) < 0) {
+  //       fn()
+  //       time = Date.now()
+  //     }
+  //   }
+  // }
 
   useEffect(() => {
 
@@ -53,7 +53,7 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
     window.addEventListener("scroll", onScroll)
 
     return () => window.removeEventListener("scroll", onScroll)
-  }, [myGroups])
+  }, [myGroups, getMyGroups, page, nextPage])
 
   
   return (

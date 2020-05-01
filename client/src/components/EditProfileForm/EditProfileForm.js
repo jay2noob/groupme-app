@@ -46,7 +46,7 @@ const EditProfileForm = ({
       loadUser();
       setFormData(profileData);
     }
-  }, [loading, getCurrentProfile, profile]);
+  }, [loading, loadUser, getCurrentProfile, profile]);
 
   const {
     firstname,
@@ -55,8 +55,8 @@ const EditProfileForm = ({
     state,
     zip,
     birthdate,
+    avatarImage,
     phonenumber,
-    avatarImage
   } = formData;
 
   const onChange = (event) => {
@@ -98,6 +98,7 @@ const EditProfileForm = ({
           </label>
           <input
             name="avatarImage"
+            value={avatarImage}
             onChange={(event) => onChange(event)}
             className="file-img-upload "
             id="img-upload"
