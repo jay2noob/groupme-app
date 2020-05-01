@@ -3,16 +3,17 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 
-const Post = require("../../models/Post");
 const User = require("../../models/User");
 const upload = require('../../utils/uploader');
+const Group = require('../../models/Group')
+const Post = require('../../models/Post')
 
 // @route   POST api/posts
 // @desc    Create an posts
 // @access  Private
 router.post(
   "/",
-  upload.single('eventImage'),
+  upload.single('postImage'),
   [
     auth,
     [
@@ -40,6 +41,7 @@ router.post(
       })
 
       const post = await newPost.save()
+
       if (group) {
         group.posts.unshift({ post: post._id })
         await group.save()
@@ -57,7 +59,7 @@ router.post(
 // @route    GET api/posts
 // @desc     Get all posts in the specified range
 // @access   Private
-router.get("/", auth, async (req, res) => {
+router.get("/:page", auth, async (req, res) => {
 
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,
@@ -67,7 +69,7 @@ router.get("/", auth, async (req, res) => {
     const posts = await Post.find()
       .sort({ date: -1 })
       .skip(pageOptions.page * pageOptions.limit)
-      .limit(pageOptions.limit);
+      .limit(pageOptions.limit)
     res.json(posts);
   } catch (err) {
     console.error(err.message);
@@ -175,8 +177,7 @@ router.put("/unlike/:id", auth, async (req, res) => {
 // @route    POST api/posts/comment/:id
 // @desc     Comment on a post
 // @access   Private
-router.post(
-  "/comment/:id",
+router.post("/comment/:id",
   [auth, [check("text", "Text is required").not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);

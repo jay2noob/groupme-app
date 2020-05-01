@@ -8,7 +8,7 @@ import "./styles.css";
 
 function MyGroupsContainer({ getMyGroups, myGroups }) {
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [nextPage, setNextPage] = useState(false);
   console.log("myGroups Effect", myGroups, page);
 
@@ -60,7 +60,7 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
     window.addEventListener("scroll", onScroll);
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, [myGroups, getMyGroups, page, nextPage]);
+  }, []);
 
   return (
     <section className="mygroups-card-container">

@@ -18,7 +18,7 @@ function EventsContainer({ getEvent, currentEvent }) {
     if (currentEvent) {
       console.log(currentEvent);
     }
-  }, [getEvent, id, currentEvent]);
+  }, []);
 
   if (loading) {
     return <Spinner />;

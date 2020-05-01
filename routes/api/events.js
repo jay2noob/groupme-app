@@ -47,9 +47,6 @@ router.post(
 
       const event = await newEvent.save()
       if (group) {
-        // if (group.events.filter((one) => one.event.toString() === event._id).length > 0) {
-        //   console.log("Event already added");
-        // }
         group.events.unshift({ event: event._id })
         await group.save()
       }
@@ -85,7 +82,7 @@ router.get("/:page", auth, async (req, res) => {
 // @route    GET api/events/:id
 // @desc     Get events by ID
 // @access   Private
-router.get("/:id", auth, async (req, res) => {
+router.get("/event/:id", auth, async (req, res) => {
   try {
     const event = await Event.findById(req.params.id);
     // Check for ObjectId format and post

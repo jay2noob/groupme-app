@@ -67,7 +67,7 @@ router.put("/join/:id", auth, async (req, res) => {
 // @route    GET api/groups
 // @desc     Get all in the specified range
 // @access   Private
-router.get("/", auth, async (req, res) => {
+router.get("/:page", auth, async (req, res) => {
 
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,
@@ -93,6 +93,8 @@ router.get("/group/:id", auth, async (req, res) => {
 
   try {
     let group = await Group.findById(req.params.id)
+          .populate('posts.post')
+          .populate('events.event');
     // Check for ObjectId format and group
     if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !group) {
       return res.status(404).json({ msg: 'group not found' });

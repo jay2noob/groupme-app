@@ -8,7 +8,7 @@ import './styles.css'
 
 function MyEventsContainer({ getMyEvents, myEvents }) {
   const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(0)
   const [nextPage, setNextPage] = useState(false)
 
   console.log(myEvents)
