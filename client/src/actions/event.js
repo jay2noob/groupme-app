@@ -83,7 +83,7 @@ export const getMyEvents = ({ page }) => async (dispatch) => {
 }
 
 // join a new group
-export const joinGroup = ({ id }) => async (dispatch) => {
+export const joinEvent = ({ id }) => async (dispatch) => {
   // axios config object - with the headers you want to include 
   const config = {
     headers: {
