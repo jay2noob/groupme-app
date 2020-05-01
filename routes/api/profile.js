@@ -9,7 +9,6 @@ const fs = require("fs").promises;
 
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-const Post = require("../../models/Post");
 const upload = require("../../utils/uploader");
 
 

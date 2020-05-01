@@ -48,26 +48,78 @@ router.post(
 );
 
 
-// @route    PUT api/events/ungoing/:id
+// @route    PUT api/groups/join/:id
 // @desc     Makr an event as not going
 // @access   Private
 router.put("/join/:id", auth, async (req, res) => {
   try {
     const group = await Group.findById(req.params.id);
-    // Check if the post has already been liked
+    // Check if user is already a member
     if (group.members.filter((one) => one.user.toString() === req.user.id).length > 0) {
       return res.status(400).json({ msg: "Already a member of the group" });
     }
+
     group.members.unshift({ user: req.user.id });
     await group.save();
     res.json(group.members);
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
 
-// @route    GET api/groups
+// @route    PUT api/groups/group/:id/event
+// @desc     Create an event
+// @access   Private
+router.put("/group/:id/event", auth, async (req, res) => {
+  try {
+    const group = await Group.findById(req.params.id);
+
+    const newEvent = {
+      title: req.body.title,
+      description: req.body.description,
+      location: req.body.location,
+      image: req.body.image,
+      going: req.body.going,
+      maybe: req.body.maybe,
+      date: req.body.date
+    }
+    
+    group.events.unshift(newEvent);
+    await group.save();
+    res.json(group.events);
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    PUT api/groups/group/:id/post
+// @desc     Create an post
+// @access   Private
+router.put("/group/:id/post", auth, async (req, res) => {
+  try {
+    const group = await Group.findById(req.params.id);
+
+    const newPost = {
+      name: req.body.name,
+      admin: req.user.id,
+      text: req.body.text,
+    }
+    
+    group.posts.unshift(newPost);
+    await group.save();
+    res.json(group.posts);
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    GET api/groups/:page
 // @desc     Get all in the specified range
 // @access   Private
 router.get("/:page", auth, async (req, res) => {
