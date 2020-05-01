@@ -3,7 +3,6 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 
-const Event = require("../../models/Event");
 const User = require("../../models/User");
 const upload = require('../../utils/uploader');
 const Group = require('../../models/Group')
@@ -41,8 +40,6 @@ router.post(
         image: avatar || user.avatar,
         host: req.user.id
       });
-
-   
 
       const event = await newEvent.save(group);
 

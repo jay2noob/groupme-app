@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const GroupSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
   },
   avatar: {
     type: String,
@@ -22,12 +21,81 @@ const GroupSchema = new mongoose.Schema({
     }
   }],
   events: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'event'
+    title: {
+      type: String,
+    },
+    description: {
+      type: String,
+    },
+    location: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+    going: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "profile",
+        },
+      },
+    ],
+    maybe: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "profile",
+        },
+      },
+    ],
+    date: {
+      type: Date,
+    }
   }],
   posts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'post'
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "users"
+    },
+    text: {
+      type: String,
+    },
+    name: {
+      type: String,
+    },
+    avatar: {
+      type: String,
+    },
+    postImage: {
+      type: Buffer,
+    },
+    likes: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "users",
+        }
+      }
+    ],
+    comments: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "users",
+        },
+        text: {
+          type: String,
+        },
+        avatar: {
+          type: String,
+        },
+        date: {
+          type: Date,
+          default: Date.now,
+        }
+      }
+    ]
   }],
   date: {
     type: Date,
