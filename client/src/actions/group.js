@@ -87,8 +87,12 @@ export const getMyGroups = ({ page }) => async (dispatch) => {
 
   try {
     const response = await axios.get(`/api/groups/${page}`)
-
     console.log(page);
+    // if (page === 0) {
+    //   dispatch({
+    //     type: GROUP_ERROR
+    //   })
+    // }
     dispatch({
       type: GET_MYGROUPS,
       payload: response.data

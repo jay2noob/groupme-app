@@ -9,36 +9,52 @@ import './styles.css'
 function MyGroupsContainer({ getMyGroups, myGroups }) {
   const [loading, setLoading] = useState(true)
   const [page, setPage] = useState(1)
+  const [nextPage, setNextPage] = useState(false);
+  console.log("myGroups Effect", myGroups, page)
+
+  const throttle = (fn, wait) => {
+    var time = Date.now()
+    return () => {
+      if ((time + wait - Date.now()) < 0) {
+        fn()
+        time = Date.now()
+      }
+    }
+  }
 
   useEffect(() => {
-    getMyGroups({ page })
-    setLoading(false)
-    if (myGroups) {
-      console.log("myGroups Effect", myGroups, page)
+
+    if (myGroups.length === 0) {
+      getMyGroups({ page })
     }
 
+    setLoading(false)
     /// use debounce function to limit the number of requests sent to server if the user scrolls up and down too quiclky
-    window.onscroll = () => {
+    // eslint-disable-next-line
+    const onScroll = e => {
       const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight
       const body = document.body
       const html = document.documentElement
       const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
       const windowBottom = windowHeight + window.pageYOffset
-      if (windowBottom >= docHeight) {
-        const updatePage = page + 1
-        console.log("Bottom Reached", updatePage)
-        getMyGroups({ page: updatePage })
-        setPage(updatePage)
+      if (windowBottom >= docHeight && !nextPage) {
+        setNextPage(true)
+        setTimeout(async () => {
+          const updatePage = page + 1
+          console.log("Bottom Reached", updatePage);
+          getMyGroups({ page: updatePage })
+          setPage(updatePage)
+          setNextPage(false)
+        }, 1000)
       } else {
         console.log("Not Yet")
       }
     }
-    // eslint-disable-next-line
-  }, [])
+    window.addEventListener("scroll", onScroll)
 
-  
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [myGroups])
 
-  console.log("myGroups", myGroups);
   
   return (
     <section className="mygroups-card-container">
@@ -52,11 +68,11 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
 }
 
 MyGroupsContainer.propTypes = {
-  myGroups: PropTypes.array.isRequired
-};
+  myGroups: PropTypes.array
+}
 
 const mapStateToProps = (state) => ({
   myGroups: state.group.myGroups
-});
+})
 
 export default connect(mapStateToProps, { getMyGroups })(MyGroupsContainer);

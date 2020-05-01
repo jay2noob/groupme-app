@@ -7,7 +7,6 @@ import {
   UPDATE_PROFILE,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
-  LOGOUT,
 } from "./types";
 
 // Get current users profile
@@ -69,9 +68,9 @@ export const createProfile = (formData, history, edit = false) => async (
   try {
     const config = {
       headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    };
+        'Content-Type': 'multipart/form-data'
+      }
+    }
     /*
       firstname,
       lastname,
@@ -93,9 +92,10 @@ export const createProfile = (formData, history, edit = false) => async (
     body.append("birthdate", formData.birthdate);
     body.append("phonenumber", formData.phonenumber);
     body.append("avatarImage", formData.avatarImage);
-
+    
     // formData.append("description", description);
     // formData.append("groupImage", groupImage);
+
 
     const res = await axios.post("/api/profile", body, config);
 
@@ -131,7 +131,6 @@ export const deleteAccount = () => async (dispatch) => {
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
-      dispatch({ type: LOGOUT });
 
       dispatch(setAlert("Your account has been permanantly deleted"));
     } catch (err) {

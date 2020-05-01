@@ -12,7 +12,7 @@ function CreateEventForm({ currentEvent, createEvent }) {
   const { groupID } = useParams();
 
   const [formData, setFormData] = useState({
-    title: '', description: '', location: '', time: '', eventImage: ''
+    title: '', description: '', location: '', time: '12:00 PM', eventImage: ''
   })
 
   const { title, description, location, time, eventImage } = formData

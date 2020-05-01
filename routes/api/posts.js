@@ -67,7 +67,7 @@ router.get("/:page", auth, async (req, res) => {
 // @access   Private
 router.get("/:id", auth, async (req, res) => {
   try {
-    // const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id);
     // Check for ObjectId format and post
     if (!post) {
       return res.status(404).json({ msg: "Post not found" });
@@ -87,7 +87,7 @@ router.get("/:id", auth, async (req, res) => {
 // @access   Private
 router.delete("/:id", auth, async (req, res) => {
   try {
-    // const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id);
     if (!post) {
       return res.status(404).json({ msg: "Post not found" });
     }
@@ -111,7 +111,7 @@ router.delete("/:id", auth, async (req, res) => {
 // @access   Private
 router.put("/like/:id", auth, async (req, res) => {
   try {
-    // const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id);
     // Check if the post has already been liked
     if (
       post.likes.filter((like) => like.user.toString() === req.user.id).length >
@@ -133,7 +133,7 @@ router.put("/like/:id", auth, async (req, res) => {
 // @access   Private
 router.put("/unlike/:id", auth, async (req, res) => {
   try {
-    // const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id);
 
     // Check if the post has already been liked
     if (
@@ -172,7 +172,7 @@ router.post(
     }
     try {
       const user = await User.findById(req.user.id).select("-password");
-      // const post = await Post.findById(req.params.id);
+      const post = await Post.findById(req.params.id);
 
       const newComment = {
         text: req.body.text,
@@ -198,7 +198,7 @@ router.post(
 // @access   Private
 router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
   try {
-    // const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id);
 
     // Pull out comment
     const comment = post.comments.find(
