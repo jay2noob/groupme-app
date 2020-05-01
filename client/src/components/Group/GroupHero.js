@@ -45,17 +45,15 @@ function GroupHero({ currentGroup, joinGroup, isJoined }) {
           </ul>
           <div className="groups-hero-content-buttons">
             
-            { isJoined ? 
+            { isJoined ?
               <button onClick={onJoin} className="btn btn-primary group-hero-btn">
                 Join Group
-              </button> 
-            : null }
-            
-            
-            <Link to="/group/events/1">
+              </button>
+              : null }
+            <Link to="/groups/events/1">
               <button className="btn btn-secondary group-hero-btn">View Group Events</button>
             </Link>
-            <Link to="/create/event">
+            <Link to={`/create/event/${currentGroup._id}`}>
               <button className="btn btn-primary group-hero-btn">Create Event</button>
             </Link>
           </div>

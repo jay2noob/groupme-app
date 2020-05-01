@@ -14,6 +14,12 @@ export const JOIN_GROUP = "JOIN_GROUP";
 export const GET_MYGROUPS = "GET_MYGROUPS";
 export const GROUP_ERROR = "GROUP_ERROR";
 
+export const CREATE_EVENT = "CREATE_EVENT";
+export const GET_EVENT = "GET_EVENT";
+export const JOIN_EVENT = "JOIN_EVENT";
+export const GET_MYEVENTS = "GET_MYEVENTS";
+export const EVENT_ERROR = "EVENT_ERROR";
+
 export const GET_PROFILE = "GET_PROFILE";
 export const GET_PROFILES = "GET_PROFILES";
 export const PROFILE_ERROR = "PROFILE_ERROR";
