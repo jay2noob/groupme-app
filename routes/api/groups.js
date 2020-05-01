@@ -31,12 +31,10 @@ router.post(
         name: req.body.name,
         admin: req.user.id,
         description: req.body.description,
-        avatar: avatar || user.avatar,
-        members: req.body.members,
-        posts: req.body.posts,
-        events: req.body.events
+        avatar: avatar || user.avatar
       });
 
+      group.members.unshift({ user: req.user.id });
       const group = await newGroup.save();
 
       res.json(group);
@@ -48,8 +46,8 @@ router.post(
 );
 
 
-// @route    PUT api/events/ungoing/:id
-// @desc     Makr an event as not going
+// @route    PUT api/groups/join/:id
+// @desc     Memeber join
 // @access   Private
 router.put("/join/:id", auth, async (req, res) => {
   try {
