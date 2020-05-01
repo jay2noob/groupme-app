@@ -31,3 +31,46 @@ function Search() {
 }
 
 export default Search
+
+
+
+// class Search extends React.Component {
+
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       searchValue: '',
+//       results: {},
+//       loading: false,
+//       message: ""
+//     }
+//   }
+
+//   handleSearchChange = (event) => {
+//     const searchValue = event.target.value; 
+//     this.setState(  state: {searchValue: searchValue, loading: true} );
+//   };
+
+//   render() {
+//     const {searchValue} = this.state;
+//     return (
+//       <div className="search-container">
+//         <label className="search-icon-container">
+//           <i className="fal fa-search search-icon"></i>
+//         </label>
+//         <input
+//           className="search-field"
+//           type="text"
+//           placeholder="Search for a user"
+//           name="search"
+//           // set value prop to the current state 
+//           value={searchValue}
+//           // event function that keeps the value up to date 
+//           onChange={this.handleSearchChange}
+//         />
+//       </div>
+
+//     )
+//   }
+// }
