@@ -4,17 +4,22 @@ const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 
 const Post = require("../../models/Post");
-const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 const upload = require('../../utils/uploader');
 
 // @route   POST api/posts
-// @desc    Create a post
+// @desc    Create an posts
 // @access  Private
 router.post(
   "/",
-  upload.single('postImage'),
-  [auth, [check("text", "Text is required").not().isEmpty()]],
+  upload.single('eventImage'),
+  [
+    auth,
+    [
+      check("text", "text is required").not().isEmpty(),
+      check("groupID", "A group ID is required").not().isEmpty()
+    ]
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -23,28 +28,36 @@ router.post(
 
     try {
       const user = await User.findById(req.user.id).select("-password");
+      let group = await Group.findById(req.body.groupID);
+
       const avatar = req.file && req.file.filename;
       const newPost = new Post({
+        groupID: req.body.groupID,
         text: req.body.text,
         name: user.name,
         avatar: avatar || user.avatar,
-        user: req.user.id,
-      });
+        user: req.user.id
+      })
 
-      const post = await newPost.save();
+      const post = await newPost.save()
+      if (group) {
+        group.posts.unshift({ post: post._id })
+        await group.save()
+      }
 
-      res.json(post);
+      res.json(post)
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server Error");
+      console.error(err.message)
+      res.status(500).send("Server Error")
     }
   }
 );
 
+
 // @route    GET api/posts
 // @desc     Get all posts in the specified range
 // @access   Private
-router.get("/:page", auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
 
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,

@@ -21,7 +21,7 @@ router.post(
       check("description", "Description is required").not().isEmpty(),
       check("location", "Location is required").not().isEmpty(),
       check("time", "Time is required").not().isEmpty(),
-      check("groupID", "Location is required").not().isEmpty()
+      check("groupID", "A group ID is required").not().isEmpty()
     ]
   ],
   async (req, res) => {

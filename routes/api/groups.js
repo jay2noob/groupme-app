@@ -67,7 +67,7 @@ router.put("/join/:id", auth, async (req, res) => {
 // @route    GET api/groups
 // @desc     Get all in the specified range
 // @access   Private
-router.get("/:page", auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
 
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,
@@ -112,50 +112,6 @@ router.get("/group/:id", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 
-});
-
-// @route    GET api/posts/:id
-// @desc     Get post by ID
-// @access   Private
-router.get("/:id", auth, async (req, res) => {
-  try {
-    const group = await Group.findById(req.params.id);
-    // Check for ObjectId format and post
-    if (!group) {
-      return res.status(404).json({ msg: "Group not found" });
-    }
-    res.json(group);
-  } catch (err) {
-    console.error(err.message);
-    if (err.kind === "ObjectId") {
-      return res.status(404).json({ msg: "Group not found" });
-    }
-    res.status(500).send("Server Error");
-  }
-});
-
-// @route    DELETE api/posts/:id
-// @desc     Delete a post
-// @access   Private
-router.delete("/:id", auth, async (req, res) => {
-  try {
-    const group = await Group.findById(req.params.id);
-    if (!group) {
-      return res.status(404).json({ msg: "Group not found" });
-    }
-    // Check user
-    if (group.admin.toString() !== req.user.id) {
-      return res.status(401).json({ msg: "Only Admin can delete a group" });
-    }
-    await group.remove();
-    res.json({ msg: "Group removed" });
-  } catch (err) {
-    console.error(err.message);
-    if (err.kind === "ObjectId") {
-      return res.status(404).json({ msg: "Group not found" });
-    }
-    res.status(500).send("Server Error");
-  }
 });
 
 

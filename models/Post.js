@@ -1,32 +1,33 @@
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
+  groupID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "group"
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "users",
-  },
-  family: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "group",
+    ref: "profile"
   },
   text: {
     type: String,
+    required: true
   },
   name: {
-    type: String,
+    type: String
   },
   avatar: {
-    type: String,
+    type: String
   },
   postImage: {
-    type: Buffer,
+    type: Buffer
   },
   likes: [
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "users",
+        ref: "profile"
       },
     },
   ],
@@ -34,18 +35,18 @@ const PostSchema = new mongoose.Schema({
     {
       user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "users",
+        ref: "profile"
       },
       text: {
         type: String,
-        required: true,
+        required: true
       },
       avatar: {
         type: String,
       },
       date: {
         type: Date,
-        default: Date.now,
+        default: Date.now
       },
     },
   ],

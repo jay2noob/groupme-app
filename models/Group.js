@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 
 const GroupSchema = new mongoose.Schema({
   name: {
-    type: String,
-    required: true,
+    type: String
   },
   avatar: {
-    type: String,
+    type: String
   },
   description: {
     type: String
@@ -35,7 +34,7 @@ const GroupSchema = new mongoose.Schema({
   }],
   date: {
     type: Date,
-    default: Date.now,
+    default: Date.now
   }
 });
 
