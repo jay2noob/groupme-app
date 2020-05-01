@@ -1,12 +1,16 @@
-import React, { useState, useEffect, Fragment } from "react"
-import { withRouter, Link } from "react-router-dom"
-import { createProfile, getCurrentProfile } from "../../actions/profile"
-import { loadUser } from '../../actions/auth'
-import { connect } from "react-redux"
-import PropTypes from "prop-types"
+import React, { useState, useEffect, Fragment } from "react";
+import { withRouter, Link } from "react-router-dom";
+import {
+  createProfile,
+  getCurrentProfile,
+  deleteAccount,
+} from "../../actions/profile";
+import { loadUser } from "../../actions/auth";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import "./styles.css"
-import { IMAGE_URL } from "../../utils/setAuthToken"
+import "./styles.css";
+import { IMAGE_URL } from "../../utils/setAuthToken";
 
 const initialState = {
   firstname: "",
@@ -23,9 +27,10 @@ const EditProfileForm = ({
   createProfile,
   getCurrentProfile,
   loadUser,
+  deleteAccount,
   profile: { profile, loading },
   history,
-  auth: { user }
+  auth: { user },
 }) => {
   const [formData, setFormData] = useState(initialState);
 
@@ -33,7 +38,7 @@ const EditProfileForm = ({
   let url = null;
   if (user) {
     res = user.avatar && user.avatar.match(/^\/\//g);
-    url = res == null ? `${IMAGE_URL}${user.avatar}` : user.avatar
+    url = res == null ? `${IMAGE_URL}${user.avatar}` : user.avatar;
   }
   useEffect(() => {
     if (!profile) getCurrentProfile();
@@ -46,7 +51,7 @@ const EditProfileForm = ({
       loadUser();
       setFormData(profileData);
     }
-  }, [loading, loadUser, getCurrentProfile, profile]);
+  }, [loading, loadUser, getCurrentProfile, profile, loadUser]);
 
   const {
     firstname,
@@ -56,24 +61,23 @@ const EditProfileForm = ({
     zip,
     birthdate,
     phonenumber,
-    avatarImage
+    avatarImage,
   } = formData;
 
   const onChange = (event) => {
-
     if (event.target.files) {
       setFormData({
         ...formData,
-        avatarImage: event.target.files[0]
-      })
+        avatarImage: event.target.files[0],
+      });
     } else {
       setFormData({
         ...formData,
-        [event.target.name]: event.target.value
-      })
+        [event.target.name]: event.target.value,
+      });
     }
     // console.log("FORM", formData, event.target.files[0]);
-  }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -82,18 +86,10 @@ const EditProfileForm = ({
 
   return (
     <Fragment>
-      
       <form className="form" onSubmit={(e) => onSubmit(e)}>
         <div className="edit-profile-img-container">
-          <img
-            className="edit-profile-img"
-            src={url}
-            /*"../images/portrait.png"*/ alt=""
-          />
-          <label
-            className="file-upload btn-secondary"
-            htmlFor="img-upload"
-          >
+          <img className="edit-profile-img" src={url} alt="" />
+          <label className="file-upload btn-secondary" htmlFor="img-upload">
             <i className="fal fa-image" /> Upload Photo
           </label>
           <input
@@ -239,15 +235,18 @@ const EditProfileForm = ({
           </ul>
         </fieldset>
         <div className="edit-profile-buttons">
+          <button type="submit" className="btn btn-primary my-1">
+            Submit
+          </button>
 
-          <button type="submit" className="btn btn-primary my-1">Submit</button>
-      
           <Link to="/dashboard">
             <button className="btn btn-secondary back-btn">Go Back</button>
           </Link>
 
-          <Link to="/api/profile">
-            <button className="btn delete-btn">Delete Profile</button>
+          <Link to="/">
+            <button className="btn delete-btn" onClick={() => deleteAccount()}>
+              Delete Profile
+            </button>
           </Link>
         </div>
       </form>
@@ -259,17 +258,21 @@ EditProfileForm.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   loadUser: PropTypes.func.isRequired,
   createProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
-  auth: state.auth
+  auth: state.auth,
 });
 
 export default withRouter(
-  connect(mapStateToProps, { createProfile, getCurrentProfile, loadUser })(
-    EditProfileForm
-  )
+  connect(mapStateToProps, {
+    createProfile,
+    getCurrentProfile,
+    loadUser,
+    deleteAccount,
+  })(EditProfileForm)
 );
