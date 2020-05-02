@@ -9,11 +9,14 @@ import {
   GET_POST,
   ADD_COMMENT,
   REMOVE_COMMENT,
+  GET_GROUP,
+  USER_LOADED,
 } from "./types";
 
-
 // Add post
-export const addPost = ({ groupID, text, name, avatar }) => async (dispatch) => {
+export const addPost = ({ groupID, text, name, avatar }) => async (
+  dispatch
+) => {
   const config = {
     headers: {
       "Content-Type": "multipart/form-data",
@@ -34,7 +37,10 @@ export const addPost = ({ groupID, text, name, avatar }) => async (dispatch) => 
       payload: res.data,
     });
 
-    dispatch(setAlert("Post Created", "success"));
+    //dispatch(setAlert("Post Created", "success"));
+    //dispatch({ type: USER_LOADED });
+    //dispatch({ type: GET_GROUP });
+    //dispatch({ type: GET_POSTS });
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -44,9 +50,9 @@ export const addPost = ({ groupID, text, name, avatar }) => async (dispatch) => 
 };
 
 // Get posts
-export const getPosts = ({ page }) => async (dispatch) => {
+export const getPosts = () => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/posts/${page}`);
+    const res = await axios.get(`/api/posts`);
 
     dispatch({
       type: GET_POSTS,
@@ -59,7 +65,6 @@ export const getPosts = ({ page }) => async (dispatch) => {
     });
   }
 };
-
 
 // Get post
 

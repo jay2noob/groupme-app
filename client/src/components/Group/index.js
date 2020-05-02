@@ -1,28 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
-import { getGroup } from '../../actions/group'
-import { getPosts } from '../../actions/post'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { getGroup } from "../../actions/group";
+import { getPosts } from "../../actions/post";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import GroupPost from './GroupPost'
-import CreatePostCard from './CreatePostCard'
-import GroupHero from './GroupHero'
-import './styles.css'
+import GroupPost from "./GroupPost";
+import CreatePostCard from "./CreatePostCard";
+import GroupHero from "./GroupHero";
+import "./styles.css";
 
-function GroupsContainer({ getGroup, currentGroup, getPosts, post: {posts}}) {
-  const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState(0);
-  const [nextPage, setNextPage] = useState(false);
+function GroupsContainer({
+  getGroup,
+  currentGroup,
+  getPosts,
+  post: { posts },
+}) {
+  const [loading, setLoading] = useState(true);
+  //const [page, setPage] = useState(0);
+  //const [nextPage, setNextPage] = useState(false);
 
   let { id } = useParams();
 
   useEffect(() => {
-    getGroup(id)
-    getPosts({ page })
+    getGroup(id);
+    getPosts();
     setLoading(false);
-    
-    const onScroll = (e) => {
+
+    /*const onScroll = (e) => {
       const windowHeight =
         "innerHeight" in window
           ? window.innerHeight
@@ -50,12 +55,12 @@ function GroupsContainer({ getGroup, currentGroup, getPosts, post: {posts}}) {
         console.log("Not Yet");
       }
     };
-    window.addEventListener("scroll", onScroll);
+    //window.addEventListener("scroll", onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
-    
+    return () => window.removeEventListener("scroll", onScroll);*/
+
     // eslint-disable-next-line
-  }, [])
+  }, []);
 
   return (
     <section className="groups-card-container">
@@ -64,25 +69,25 @@ function GroupsContainer({ getGroup, currentGroup, getPosts, post: {posts}}) {
       {posts && posts.length === 0 ? (
         <h3>No posts to show</h3>
       ) : (
-        posts.map(post => (
-          <GroupPost post={post} key={post._id} />
-        ))
+        posts.map((post) => <GroupPost post={post} key={post._id} />)
       )}
     </section>
-  )
-} 
+  );
+}
 
 GroupsContainer.propTypes = {
   getPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
   currentGroup: PropTypes.object.isRequired,
-  isJoined: PropTypes.bool
+  isJoined: PropTypes.bool,
 };
 
 const mapStateToProps = (state) => ({
   currentGroup: state.group.currentGroup || {},
   isJoined: state.isJoined,
-  post: state.post
+  post: state.post,
 });
 
-export default connect(mapStateToProps, { getGroup, getPosts })(GroupsContainer);
+export default connect(mapStateToProps, { getGroup, getPosts })(
+  GroupsContainer
+);
