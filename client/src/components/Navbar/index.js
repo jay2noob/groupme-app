@@ -11,7 +11,7 @@ function Navbar({ auth: { user } }) {
       <div className="navbar-inner">
         <div className="navbar-logo">
           <Link className="navbar-brand" to="/dashboard">
-            Page Name
+            GroupMe
           </Link>
         </div>
         <div className="navbar-search">

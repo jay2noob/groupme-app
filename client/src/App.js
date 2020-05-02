@@ -4,6 +4,7 @@ import Welcome from "./pages/Welcome";
 //import Alert from "./layout/Alert";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
+import Users from './pages/Users';
 import MyGroups from "./pages/MyGroups";
 import Group from "./pages/Group";
 import Events from "./pages/Events";
@@ -39,6 +40,7 @@ const App = () => {
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/profile/edit" component={EditProfile} />
+          <Route exact path="/users" component={Users} />
           <PrivateRoute exact path="/groups" component={MyGroups} />
           <PrivateRoute exact path="/groups/:id" component={Group} />
           <PrivateRoute exact path="/create/group" component={CreateGroup} />
