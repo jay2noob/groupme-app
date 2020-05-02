@@ -9,7 +9,6 @@ const ProfileInfoCard = ({
   getCurrentProfile,
   auth: { user },
   profile: { profile },
-  match,
 }) => {
   useEffect(() => {
     getCurrentProfile();

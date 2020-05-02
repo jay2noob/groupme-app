@@ -1,0 +1,38 @@
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getProfiles } from "../../actions/profile";
+import { IMAGE_URL } from "../../utils/setAuthToken";
+import UserCard from './UserCard'
+import "./styles.css";
+
+function UsersContainer({ getProfiles, profile: { profiles } }) {
+
+
+  useEffect(() => {
+    getProfiles()
+  }, [])
+
+  return (
+    <div className="profile-user-container margin-left">
+      {profiles && profiles.length === 0 ? (
+        <h3>No profiles found</h3>
+      ) : (
+        profiles.map(user => (
+          <UserCard user={user} key={user._id}/>
+        ))
+      )}
+    </div>
+  );
+}
+
+UsersContainer.propTypes = {
+  getProfiles: PropTypes.func.isRequired,
+  profile: PropTypes.object
+};
+
+const mapStateToProps = (state) => ({
+  profile: state.profile
+});
+
+export default connect(mapStateToProps, { getProfiles })(UsersContainer);
