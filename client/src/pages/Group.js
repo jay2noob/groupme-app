@@ -5,7 +5,6 @@ import GroupsContainer from '../components/Group/index'
 
 function Groups() {
 
-
   return (
     <Fragment>
       <header>

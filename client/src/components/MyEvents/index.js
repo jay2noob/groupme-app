@@ -14,9 +14,8 @@ function MyEventsContainer({ getMyEvents, myEvents }) {
   console.log(myEvents)
 
   useEffect(() => {
-    if(myEvents.length === 0) {
-      getMyEvents({ page })
-    }
+    getMyEvents({ page })
+
 
     setLoading(false)
     // use debounce function to limit the number of requests sent to server if the user scrolls up and down too quiclky

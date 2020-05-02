@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import './styles.css'
 import { connect } from "react-redux";
 import { createEvent } from "../../actions/event";
 import PropTypes from "prop-types";
 import { Redirect, useParams } from 'react-router-dom'
+import './styles.css'
 
 
 
-function CreateEventForm({ currentEvent, createEvent }) {
+function CreateEventForm({ createEvent, currentEvent }) {
 
   const { groupID } = useParams();
 

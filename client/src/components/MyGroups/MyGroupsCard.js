@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './styles.css'
 import { IMAGE_URL } from '../../utils/setAuthToken';
+import './styles.css'
 
 function MyGroupsCard({ myGroup }) {
 
