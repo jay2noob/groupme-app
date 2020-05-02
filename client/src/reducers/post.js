@@ -37,7 +37,7 @@ export default function (state = initialState, action) {
     case ADD_POST:
       return {
         ...state,
-        posts: [payload, ...state.posts],
+        post: payload,
         loading: false,
       };
 

@@ -11,13 +11,64 @@ import {
   REMOVE_COMMENT,
 } from "./types";
 
-// Get posts
-export const getPosts = () => async (dispatch) => {
+
+// Add post
+export const addPost = ({ groupID, text, name, avatar }) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+
+  const formData = new FormData();
+  formData.append("groupID", groupID);
+  formData.append("text", text);
+  formData.append("name", name);
+  formData.append("avatar", avatar);
+
   try {
-    const res = await axios.get("/api/posts");
+    const res = await axios.post("/api/posts", formData, config);
+
+    dispatch({
+      type: ADD_POST,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Post Created", "success"));
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Get posts
+export const getPosts = ({ page }) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/${page}`);
 
     dispatch({
       type: GET_POSTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+
+// Get post
+
+export const getPost = (id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/posts/${id}`);
+
+    dispatch({
+      type: GET_POST,
       payload: res.data,
     });
   } catch (err) {
@@ -73,49 +124,6 @@ export const deletePost = (id) => async (dispatch) => {
     });
 
     dispatch(setAlert("Post Removed", "success"));
-  } catch (err) {
-    dispatch({
-      type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
-
-// Add post
-export const addPost = (formData) => async (dispatch) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
-  try {
-    const res = await axios.post("/api/posts", formData, config);
-
-    dispatch({
-      type: ADD_POST,
-      payload: res.data,
-    });
-
-    dispatch(setAlert("Post Created", "success"));
-  } catch (err) {
-    dispatch({
-      type: POST_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
-  }
-};
-
-// Get post
-
-export const getPost = (id) => async (dispatch) => {
-  try {
-    const res = await axios.get(`/api/posts/${id}`);
-
-    dispatch({
-      type: GET_POST,
-      payload: res.data,
-    });
   } catch (err) {
     dispatch({
       type: POST_ERROR,

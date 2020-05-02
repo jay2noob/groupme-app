@@ -56,7 +56,7 @@ router.post(
 );
 
 
-// @route    GET api/posts
+// @route    GET api/posts/:page
 // @desc     Get all posts in the specified range
 // @access   Private
 router.get("/:page", auth, async (req, res) => {
@@ -198,6 +198,27 @@ router.post("/comment/:id",
       post.comments.unshift(newComment);
 
       await post.save();
+
+      res.json(post.comments);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
+    }
+  }
+);
+
+// @route    GET api/posts/comment/:id
+// @desc     Comment on a post
+// @access   Private
+router.get("/comment/:id",
+  [auth, [check("text", "Text is required").not().isEmpty()]],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    try {
+      const post = await Post.findById(req.params.id);
 
       res.json(post.comments);
     } catch (err) {

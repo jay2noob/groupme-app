@@ -48,7 +48,7 @@ export default function (state = initialState, action) {
     case GET_MYEVENTS:
       return {
         ...state,
-        myEvents: [ ...state.myEvents, ...payload ],
+        myEvents: payload,
         loading: false,
         isGoing: true
       };

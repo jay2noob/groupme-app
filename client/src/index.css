@@ -37,6 +37,10 @@ a {
   padding: .15rem;
 }
 
+.like-btn {
+  font-size: 1.15rem !important;
+}
+
 .delete-btn {
   background-color: #dc3545;
   padding: .15rem;

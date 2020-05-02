@@ -1,12 +1,33 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { addPost } from "../../actions/post";
 import "./styles.css";
 
-function CreatePostCard() {
-  const [text, setText] = useState("");
+function CreatePostCard({ addPost, post: {posts, loading} }) {
+
+  const [formData, setFormData] = useState({
+    text: ''
+  });
+
+  const { text } = formData
+
+  const onChange = event => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  const onSubmit = event => {
+    event.preventDefault()
+
+    addPost({ text })
+
+    setFormData({
+      text: ''
+    })
+  }
 
   return (
     <div className="create-card-container">
@@ -15,6 +36,10 @@ function CreatePostCard() {
           <div className="create-heading-container">
             <h2 className="create-heading">Create a new post</h2>
           </div>
+          <form
+              className="create-post-form"
+              onSubmit={(event) => onSubmit(event)}
+          >
           <div className="create-post">
             <div className="create-post-img">
               <img
@@ -23,25 +48,16 @@ function CreatePostCard() {
                 alt=""
               />
             </div>
-            <form
-              className="create-post-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                addPost({ text });
-                setText("");
-              }}
-            >
+ 
               <textarea
                 type="text"
-                cols="30"
-                rows="5"
                 placeholder="Write something here..."
                 className="create-post-input"
                 value={text}
-                onChange={(e) => setText(e.target.value)}
+                name="text"
+                onChange={(event) => onChange(event)}
                 required
               ></textarea>
-            </form>
           </div>
           <div className="create-post-submit">
             <div className="create-post-list">
@@ -62,11 +78,11 @@ function CreatePostCard() {
 
             <button
               className="btn btn-primary post-btn"
-              onSubmit={(e) => addPost(e)}
             >
               Post
             </button>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -75,10 +91,11 @@ function CreatePostCard() {
 
 CreatePostCard.propTypes = {
   addPost: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired
 };
 
-export default connect(
-  null,
+const mapStateToProps = (state) => ({
+  post: state.post
+})
 
-  { addPost }
-)(CreatePostCard);
+export default connect(mapStateToProps, { addPost })(CreatePostCard);

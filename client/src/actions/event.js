@@ -58,7 +58,7 @@ export const getEvent = (id) => async (dispatch) => {
 
 }
 
-// get all groups user belongs to 
+// get all events user belongs to 
 // page page number as well
 export const getMyEvents = ({ page }) => async (dispatch) => {
 

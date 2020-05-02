@@ -94,6 +94,7 @@ router.get("/group/:id", auth, async (req, res) => {
   try {
     let group = await Group.findById(req.params.id)
           .populate('posts.post')
+          .populate('posts.comment')
           .populate('events.event');
     // Check for ObjectId format and group
     if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !group) {
