@@ -61,7 +61,7 @@ function GroupsContainer({ getGroup, currentGroup, getPosts, post: {posts}}) {
     <section className="groups-card-container">
       <GroupHero currentGroup={currentGroup || {}} />
       <CreatePostCard />
-      {!loading && posts && posts.length === 0 ? (
+      {posts && posts.length === 0 ? (
         <h3>No posts to show</h3>
       ) : (
         posts.map(post => (

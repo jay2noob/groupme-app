@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import GroupComment from "./GroupComment";
-import Spinner from "../Spinner/Spinner";
+// import GroupComment from "./GroupComment";
+// import Spinner from "../Spinner/Spinner";
 import "./styles.css";
 
 function GroupPost({ post }) {
@@ -30,14 +30,22 @@ function GroupPost({ post }) {
         </div>
 
         <div className="groups-post-reaction">
-          <Link to="/groups">
+          <button>
             <i className="fal fa-thumbs-up like-btn"></i>
-          </Link>
+          </button>
           <p className="groups-post-reaction-stat">{post.likes.length}</p>
         </div>
 
         <div className="groups-post-comments">
-          <GroupComment />
+          {/* {console.log(post.comments)}
+          {post.comments && post.comments.length === 0 ? (
+          <h3>No comments to show</h3>
+          ) : (
+            post.comments.map(post => (
+              <GroupComment comment={post.comments} key={post.comments._id} />
+            ))
+          )} */}
+
         </div>
       </div>
 
@@ -45,5 +53,6 @@ function GroupPost({ post }) {
   );                                                                                                                                 
 }
 ;
+
 
 export default GroupPost;
