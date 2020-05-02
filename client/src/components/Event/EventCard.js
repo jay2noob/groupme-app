@@ -27,9 +27,9 @@ function EventCard({ currentEvent, joinEvent, isGoing }) {
 
         <div className="event-body"> 
           <div>
-            <h3 className="event-heading">{currentEvent.title}</h3>
-            <h5>{currentEvent.location}</h5>
-            <p>{currentEvent.description}</p>
+            <h3 className="event-heading">Cookout</h3>
+            <h5>Garfield Park</h5>
+            <p>A cookout for friends and family</p>
             { isGoing ?
               <button onClick={onJoin} className="btn btn-primary group-hero-btn">
                 Going
@@ -37,10 +37,38 @@ function EventCard({ currentEvent, joinEvent, isGoing }) {
               : null }
           </div>
           <div className="event-time">
-            <p>{currentEvent.date}</p>
+            <p>Sat, May 2 2020</p>
           </div>
         </div>
-        
+      </div>
+
+      <div className="event-card">
+        <div className="event-top">
+          <div className="event-img-container">
+            <img className="event-img" src="../../images/event-card.png" alt=""/>
+            <Link 
+              to="/edit-event"
+              className="event-edit">
+                <i className="fal fa-user-edit"></i>
+            </Link>
+          </div>
+        </div>
+
+        <div className="event-body"> 
+          <div>
+            <h3 className="event-heading">Birthday Party</h3>
+            <h5>Sam's House</h5>
+            <p>A birthday celebaration for Joan</p>
+            { isGoing ?
+              <button onClick={onJoin} className="btn btn-primary group-hero-btn">
+                Going
+              </button>
+              : null }
+          </div>
+          <div className="event-time">
+            <p>Sat, May 9 2020</p>
+          </div>
+        </div>
       </div>
 
     </div>

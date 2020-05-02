@@ -9,7 +9,7 @@ function EventHero({ currentEvent, joinEvent, isGoing }) {
     <section className="events-hero-container">
       <div className="events-hero-card">
         <div className="events-hero-content">
-          <h2 className="events-hero-heading">GroupName Events</h2>
+          <h2 className="events-hero-heading">Group Events</h2>
         </div>
       </div>
     </section>
