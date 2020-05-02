@@ -30,7 +30,7 @@ function UserCard({ user: {user}, profile }) {
         <h2 className="profile-user-heading">{user.name}</h2>
 
         <button className="btn btn-secondary">Invite to a group</button>
-        <Link to={`/profile/${profile._id}`}>
+        <Link to={`/profile`}>
           <button onClick={() => history.push('/profile')} className="btn btn-primary">View Profile</button>
         </Link>
       </div>
