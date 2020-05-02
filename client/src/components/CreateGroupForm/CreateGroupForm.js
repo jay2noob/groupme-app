@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { createGroup } from "../../actions/group";
 import PropTypes from "prop-types";
 import "./styles.css";
 
 function CreateGroupForm({ createGroup, currentGroup }) {
+  let history = useHistory()
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -36,19 +38,11 @@ function CreateGroupForm({ createGroup, currentGroup }) {
       description: "",
       groupImage: "",
     });
-  };
 
-  if (currentGroup) {
-    console.log("currentGroup", currentGroup);
-    return (
-      <Redirect
-        to={{
-          pathname: `/groups/${currentGroup._id}`,
-          currentGroup,
-        }}
-      />
-    );
-  }
+    console.log(currentGroup)
+    history.push(`/groups/${currentGroup}`)
+    console.log(history)
+  };
 
   return (
     <form onSubmit={(event) => onSubmit(event)}>

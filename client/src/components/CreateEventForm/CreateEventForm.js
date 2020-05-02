@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { connect } from "react-redux";
 import { createEvent } from "../../actions/event";
 import PropTypes from "prop-types";
-import { Redirect, useParams } from 'react-router-dom'
+import { Redirect, useParams, useHistory } from 'react-router-dom'
 import './styles.css'
 
 
 
 function CreateEventForm({ createEvent, currentEvent }) {
+  let history = useHistory()
 
   const { groupID } = useParams();
 
@@ -46,18 +47,9 @@ function CreateEventForm({ createEvent, currentEvent }) {
       time: '', 
       eventImage: ''
     })
+    history.push(`/groups/events/${groupID}`)
+    console.log(history)
 
-    if (currentEvent) {
-      console.log("currentEvent", currentEvent);
-      return (
-        <Redirect
-          to={{
-            pathname: `/groups/events/${groupID}`,
-            currentEvent
-          }}
-        />
-      );
-    }
   }
 
 

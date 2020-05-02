@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { getProfiles } from "../../actions/profile";
+import { Link, useHistory } from "react-router-dom";
+import { getCurrentProfile } from "../../actions/profile";
 import { IMAGE_URL } from "../../utils/setAuthToken";
 import "./styles.css";
 
 function UserCard({ user: {user}, profile }) {
+  let history = useHistory()
 
   console.log(user)
   let res = null;
@@ -30,7 +31,7 @@ function UserCard({ user: {user}, profile }) {
 
         <button className="btn btn-secondary">Invite to a group</button>
         <Link to={`/profile/${profile._id}`}>
-          <button className="btn btn-primary">View Profile</button>
+          <button onClick={() => history.push('/profile')} className="btn btn-primary">View Profile</button>
         </Link>
       </div>
     </div>
@@ -38,7 +39,7 @@ function UserCard({ user: {user}, profile }) {
 }
 
 UserCard.propTypes = {
-  getProfiles: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object
 };
@@ -48,4 +49,4 @@ const mapStateToProps = (state) => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getProfiles })(UserCard);
+export default connect(mapStateToProps, { getCurrentProfile })(UserCard);
