@@ -15,15 +15,10 @@ function MyEventsContainer({ getMyGroups, getMyEvents, event: { myEvents } }) {
   console.log(myEvents);
 
   useEffect(() => {
-<<<<<<< HEAD
     getMyGroups({ page });
     getMyEvents({ page });
 
     setLoading(false);
-=======
-    getMyEvents({ page })
-
->>>>>>> 632d9ff26b5080e543be161e76e1388871b27643
 
     // use debounce function to limit the number of requests sent to server if the user scrolls up and down too quiclky
     const onScroll = (e) => {
