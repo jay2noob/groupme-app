@@ -1,33 +1,30 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addPost } from "../../actions/post";
+import { addPost, getPosts } from "../../actions/post";
 import "./styles.css";
 
-function CreatePostCard({ addPost, post: {posts, loading} }) {
-
+function CreatePostCard({ addPost, getPosts, post: { posts, loading } }) {
   const [formData, setFormData] = useState({
-    text: ''
+    text: "",
   });
 
-  const { text } = formData
+  const { text } = formData;
 
-  const onChange = event => {
+  const onChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
-  const onSubmit = event => {
-    event.preventDefault()
-
-    addPost({ text })
-
+  const onSubmit = (event) => {
+    event.preventDefault();
+    addPost({ text });
     setFormData({
-      text: ''
-    })
-  }
+      text: "",
+    });
+  };
 
   return (
     <div className="create-card-container">
@@ -37,18 +34,18 @@ function CreatePostCard({ addPost, post: {posts, loading} }) {
             <h2 className="create-heading">Create a new post</h2>
           </div>
           <form
-              className="create-post-form"
-              onSubmit={(event) => onSubmit(event)}
+            className="create-post-form"
+            onSubmit={(event) => onSubmit(event)}
           >
-          <div className="create-post">
-            <div className="create-post-img">
-              <img
-                className="create-post-user-img "
-                src="../images/portrait.png"
-                alt=""
-              />
-            </div>
- 
+            <div className="create-post">
+              <div className="create-post-img">
+                <img
+                  className="create-post-user-img "
+                  src="../images/portrait.png"
+                  alt=""
+                />
+              </div>
+
               <textarea
                 type="text"
                 placeholder="Write something here..."
@@ -58,30 +55,26 @@ function CreatePostCard({ addPost, post: {posts, loading} }) {
                 onChange={(event) => onChange(event)}
                 required
               ></textarea>
-          </div>
-          <div className="create-post-submit">
-            <div className="create-post-list">
-              <li className="create-post-item">
-                <label
-                  className="file-upload btn-secondary"
-                  htmlFor="img-upload"
-                >
-                  <i className="fal fa-image" /> Upload Photo
-                </label>
-                <input
-                  className="file-img-upload"
-                  id="img-upload"
-                  type="file"
-                />
-              </li>
             </div>
+            <div className="create-post-submit">
+              <div className="create-post-list">
+                <li className="create-post-item">
+                  <label
+                    className="file-upload btn-secondary"
+                    htmlFor="img-upload"
+                  >
+                    <i className="fal fa-image" /> Upload Photo
+                  </label>
+                  <input
+                    className="file-img-upload"
+                    id="img-upload"
+                    type="file"
+                  />
+                </li>
+              </div>
 
-            <button
-              className="btn btn-primary post-btn"
-            >
-              Post
-            </button>
-          </div>
+              <button className="btn btn-primary post-btn">Post</button>
+            </div>
           </form>
         </div>
       </div>
@@ -91,11 +84,12 @@ function CreatePostCard({ addPost, post: {posts, loading} }) {
 
 CreatePostCard.propTypes = {
   addPost: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  post: state.post
-})
+  post: state.post,
+});
 
-export default connect(mapStateToProps, { addPost })(CreatePostCard);
+export default connect(mapStateToProps, { addPost, getPosts })(CreatePostCard);
