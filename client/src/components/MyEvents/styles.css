@@ -1,0 +1,89 @@
+.myevents-card-container {
+  margin-left: 100px;
+  padding: 1rem;
+}
+/* added width 100% -Aris */
+.myevents-heading {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.myevents-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.myevents-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
+  border-left: 6px solid #379683;
+  padding: 2.5rem 1.5rem;
+  transition: padding .2s,border .2s;
+  margin-bottom: 3rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.myevents-content-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.myevents-content-item {
+  margin: 0.5rem 0;
+}
+
+.myevents-content-heading {
+  margin-top: 0;  
+}
+
+.myevents-event-time {
+  color: #008EEC;
+  font-size: 0.85rem;
+}
+
+.myevents-btn {
+  width: 40%;
+  margin-left: .5rem;
+}
+
+@media only screen and (min-width: 45rem) {
+  .myevents-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .myevents-img-container {
+    display: block;
+  }
+  
+  .myevents-img {
+    min-height: 13rem;
+  }
+
+  .myevents-item {
+    max-width: 55rem;
+    margin: 1.5rem auto;
+  }
+
+  .myevents-event-time {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+
+}
+
+@media only screen and (min-width: 60rem) {
+  .myevents-item {
+    gap: 2rem;
+  }
+}

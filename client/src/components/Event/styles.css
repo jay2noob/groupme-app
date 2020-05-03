@@ -1,0 +1,154 @@
+/*====================== 
+Events Container 
+======================*/
+.events-container {
+  margin-left: 100px;
+  padding: 1rem;
+}
+
+/*====================== 
+Events Hero Section
+======================*/
+
+.events-hero-card {
+  min-width: 20rem;
+  max-width: 55rem;
+  margin: 0 auto;
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+}
+
+.events-hero-img-container {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  max-height: 300px;
+}
+
+.events-hero-img {
+  width: 20rem;
+  max-height: 300px;
+}
+
+.events-hero-heading {
+  margin: 0;
+  background-color: #EDF2F4;
+  padding: 1rem;
+}
+
+
+/*====================== 
+Event Cards
+======================*/
+.event-grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 55rem;
+  margin: 0 auto;
+}
+
+.event-container {
+  display: grid;
+  margin: 1rem auto;
+}
+
+.event-card {
+  min-width: 20rem;
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  margin: 0 auto;
+  position: relative;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.event-img-container {
+  height: 200px;
+  width: 100%;
+  position: relative;
+}
+
+.event-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+} 
+
+.event-edit {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  position: absolute;
+  right: 24px;
+  bottom: -28px;
+  background-color: #379683;
+  border-radius: 50%;
+  padding: 1rem;
+  color: #fff;
+}
+
+.event-top {
+  display: flex;
+}
+
+.event-info {
+  margin-top: .25rem;
+}
+
+.event-info > a {
+  color: #3F414D;
+  text-decoration: none;
+}
+
+.event-heading {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.event-time {
+  color: #008EEC;
+  font-size: 0.85rem;
+  text-align:right;
+}
+
+.event-body {
+  text-align: left;
+  margin-top: 6px;
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 35rem) {
+  .event-card {
+    max-width: 25rem;
+  }
+}
+
+
+@media only screen and (min-width: 50rem) {
+  .event-grid-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media only screen and (min-width: 70rem) {
+  .event-grid-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .event-card {
+    min-width: 15rem;
+  }
+}

@@ -1,0 +1,92 @@
+.mygroups-card-container {
+  margin-left: 100px;
+  padding: 1rem;
+}
+/* added width 100% -Aris */
+
+.mygroups-heading {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.mygroups-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mygroups-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
+  border-left: 6px solid #379683;
+  padding: 2.5rem 1.5rem;
+  transition: padding .2s,border .2s;
+  margin-bottom: 3rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.mygroups-content-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.mygroups-content-item {
+  margin: 0.5rem 0;
+}
+
+.mygroups-content-heading {
+  margin-top: 0;  
+}
+
+.mygroups-content-stat-heading {
+  font-weight: 500;
+  margin: 0;
+}
+
+.mygroups-content-stat {
+  opacity: .5;
+  margin: 0;
+}
+
+.mygroups-btn {
+  margin-top: 1.25rem;
+  width: 40%;
+  margin-left: .5rem;
+}
+
+
+@media only screen and (min-width: 45rem) {
+  .mygroups-item {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .mygroups-img-container {
+    display: block;
+  }
+  
+  .mygroups-img {
+    min-height: 10rem;
+    max-height: 12rem;
+  }
+
+  .mygroups-item {
+    max-width: 55rem;
+    margin: 1.5rem auto;
+  }
+
+}
+
+@media only screen and (min-width: 60rem) {
+  .mygroups-item {
+    gap: 2rem;
+  }
+}

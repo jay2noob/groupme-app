@@ -1,0 +1,121 @@
+const express = require("express");
+const router = express.Router();
+const { check, validationResult } = require("express-validator");
+const auth = require("../../middleware/auth");
+
+const Group = require("../../models/Group");
+const User = require("../../models/User");
+const upload = require('../../utils/uploader');
+
+// @route   POST api/groups
+// @desc    Create a post
+// @access  Private
+router.post(
+  "/", 
+  upload.single('groupImage'), 
+  [auth, 
+    [
+      check("name", "A group name is required").not().isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const user = await User.findById(req.user.id).select("-password");
+      const avatar = req.file && req.file.filename;
+      const newGroup = new Group({
+        name: req.body.name,
+        admin: req.user.id,
+        description: req.body.description,
+        avatar: avatar || user.avatar,
+      });
+
+      const group = await newGroup.save();
+
+      res.json(group);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
+    }
+  }
+);
+
+
+// @route    PUT api/groups/join/:id
+// @desc     Memeber join
+// @access   Private
+router.put("/join/:id", auth, async (req, res) => {
+  try {
+    const group = await Group.findById(req.params.id);
+    // Check if the post has already been liked
+    if (group.members.filter((one) => one.user.toString() === req.user.id).length > 0) {
+      return res.status(400).json({ msg: "Already a member of the group" });
+    }
+    group.members.unshift({ user: req.user.id });
+    await group.save();
+    res.json(group.members);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    GET api/groups
+// @desc     Get all in the specified range
+// @access   Private
+router.get("/:page", auth, async (req, res) => {
+
+  const pageOptions = {
+    page: parseInt(req.params.page, 10) || 0,
+    limit: global.pageOptions.limit
+  }
+  try {
+    const groups = await Group.find()
+      .sort({ date: -1 })
+      .skip(pageOptions.page * pageOptions.limit)
+      .limit(pageOptions.limit);
+    res.json(groups);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+
+});
+
+// @route    GET api/groups/group/:id
+// @desc     Get group by group id
+// @access   Private
+router.get("/group/:id", auth, async (req, res) => {
+
+  try {
+    let group = await Group.findById(req.params.id)
+          .populate('posts.post')
+          .populate('posts.comment')
+          .populate('events.event');
+    // Check for ObjectId format and group
+    if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !group) {
+      return res.status(404).json({ msg: 'group not found' });
+    }
+
+    // Check if the post has already been liked
+    group = JSON.parse(JSON.stringify(group))
+    if (group.members.filter((one) => one.user.toString() === req.user.id).length > 0) {
+      group.joined = true
+    } else {
+      group.joined = false
+    }
+    res.json(group)
+    
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+
+});
+
+
+module.exports = router;

@@ -1,0 +1,55 @@
+.welcome {
+  background-color: #05386B;
+}
+
+.welcome-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+.welcome-logo {
+  margin: 1rem;
+  padding: .75rem;
+  align-self: center;
+}
+
+.welcome-brand {
+  text-decoration: none;
+  color: #ffffff;
+  align-self: center;
+  font-size: 1.25rem;
+}
+
+
+
+.welcome-item {
+  display: inline-block;
+  padding: .75rem;
+}
+
+.welcome-item:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.welcome-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+  margin: 1rem;
+}
+
+.welcome-link {
+  padding: 1rem .15rem;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 40rem) {
+  .welcome-inner {
+    grid-template-columns: 1fr auto;
+    justify-items: start;
+  }
+}

@@ -1,0 +1,10 @@
+.alert-danger {
+  background: red /*var(--danger-color)*/;
+  color: #fff;
+  text-align: center;
+}
+
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}

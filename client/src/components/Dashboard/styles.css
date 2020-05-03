@@ -1,0 +1,225 @@
+.dashboard-card-container {
+  margin-left: 100px;
+  padding: 1rem;
+}
+
+.dashboard-profile-container {
+  display: grid;
+  margin: 1rem auto;
+}
+/* changed width from 20rem to 100% - Aris */
+.dashboard-profile-card {
+  width: 20rem;
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.dashboard-profile-img-container {
+  width: 168px;
+  height: 168px;
+  margin: 0 auto;
+}
+
+.dashboard-profile-img {
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  width: 168px;
+  height: 168px;
+  object-fit: cover;
+  margin: auto;
+}
+
+.dashboard-profile-heading {
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 35rem) {
+  .dashboard-profile-card {
+    width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 45rem) {
+  .dashboard-profile-card {
+    width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 55rem) {
+  .dashboard-profile-card {
+    width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 65rem) {
+  .dashboard-profile-card {
+    width: 55rem;
+  }
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.dashboard-stat-card {
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  max-width: 30rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.dashboard-stat-content {
+  padding: 1rem;
+}
+
+.dashboard-stat-heading {
+  font-weight: 400;
+}
+
+.dashboard-stat-data {
+  opacity: .5;
+}
+
+@media only screen and (min-width: 30rem) {
+  .grid-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .grid-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.create-event-card-container {
+  display: grid;
+  margin: 1rem auto;
+}
+
+.create-event-card {
+  width: 20rem;
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.create-event-content {
+  padding: 1rem;
+}
+
+.create-event-heading {
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 35rem) {
+  .create-event-card {
+    width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 45rem) {
+  .create-event-card {
+    width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 55rem) {
+  .create-event-card {
+    width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 65rem) {
+  .create-event-card {
+    width: 55rem;
+  }
+}
+
+.create-group-card-container {
+  display: grid;
+  margin: 1rem auto;
+}
+/* changed width from 20rem to 100% - Aris */
+.create-group-card {
+  width: 20rem;
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.create-group-content {
+  padding: 1rem;
+}
+
+.create-group-heading {
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 35rem) {
+  .create-group-card {
+    width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 45rem) {
+  .create-group-card {
+    width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 55rem) {
+  .create-group-card {
+    width: 45rem;
+  }
+}
+
+@media only screen and (min-width: 65rem) {
+  .create-group-card {
+    width: 55rem;
+  }
+}

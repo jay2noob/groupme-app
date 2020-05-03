@@ -1,0 +1,77 @@
+.edit-profile-card-container {
+  margin-left: 100px;
+  padding: 1rem;
+}
+
+.edit-profile-heading {
+  background-color: #EDF2F4;
+  margin: 0;
+}
+
+.edit-profile-card {
+  justify-self: center;
+  text-align: center;
+  display: grid;
+  position: relative;
+  min-width: 10rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 1px 6px 0 rgba(0,0,0,.2);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.edit-profile-gender-label {
+  display: block;
+  margin-bottom: .25rem;
+}
+
+.edit-profile-gender-male {
+  margin-right: .75rem;
+}
+
+.edit-profile-gender-female {
+  margin-right: .75rem;
+}
+
+.edit-profile-img-container {
+  margin: 0 auto;
+  display: grid;
+  padding: .5rem;
+}
+
+.edit-profile-img {
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  justify-self: center;
+  width: 168px;
+  height: 168px;
+  object-fit: cover;
+  margin: 1rem 0;
+}
+
+.edit-profile-list > li {
+  margin-bottom: 1rem;
+}
+
+.form {
+  border: none;
+  max-width: 55em;
+  padding: 1rem;
+}
+
+.edit-profile-buttons {
+  margin: 0 auto;
+}
+
+.edit-profile-buttons > a, button {
+  margin-left: .10rem;
+}
+
