@@ -5,7 +5,7 @@ import Moment from "react-moment";
 import { connect } from "react-redux";
 import { addLike, removeLike, deletePost } from "../../actions/post";
 
-import GroupComment from "./GroupComment";
+//import GroupComment from "./GroupComment";
 // import Spinner from "../Spinner/Spinner";
 import "./styles.css";
 
@@ -47,13 +47,13 @@ function GroupPost({
         </div>
 
         <div className="groups-post-comments">
-          {comments && comments.length === 0 ? (
+          {/*comments && comments.length === 0 ? (
             <h3>No comments to show</h3>
           ) : (
             comments.map((comments) => (
               <GroupComment comment={comments} key={comments._id} />
             ))
-          )}{" "}
+            )*/}{" "}
         </div>
       </div>
     </div>
