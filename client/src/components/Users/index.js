@@ -6,8 +6,9 @@ import { IMAGE_URL } from "../../utils/setAuthToken";
 import UserCard from './UserCard'
 import "./styles.css";
 
-function UsersContainer({ getProfiles, profile: { profiles } }) {
+function UsersContainer({ searchTerm, getProfiles, profile: { profiles } }) {
 
+  console.log('searr==>>', searchTerm)
 
   useEffect(() => {
     getProfiles()
@@ -32,7 +33,8 @@ UsersContainer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  profile: state.profile
+  profile: state.profile,
+  searchTerm: state.profile.searchTerm
 });
 
 export default connect(mapStateToProps, { getProfiles })(UsersContainer);

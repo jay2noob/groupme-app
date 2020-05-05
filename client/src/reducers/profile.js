@@ -4,6 +4,7 @@ import {
   PROFILE_ERROR,
   CLEAR_PROFILE,
   UPDATE_PROFILE,
+  SET_SEARCH_TERM,
 } from "../actions/types";
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   profiles: [],
   loading: true,
   error: {},
+  searchTerm: ''
 };
 
 export default function (state = initialState, action) {
@@ -43,6 +45,12 @@ export default function (state = initialState, action) {
         profile: null,
         loading: false,
         user: null,
+      };
+    case SET_SEARCH_TERM:
+      console.log('juufff==>>>', payload)
+      return {
+        ...state,
+        searchTerm: payload
       };
     default:
       return state;
