@@ -1,6 +1,8 @@
 A. To run on localhost:
 npm i (in server directory)
 npm i (in client directory)
+npm run dev
+--- OR ---
 npm run server (in new terminal window in server directory)
 npm run client (in new terminal window in server directory)
 
