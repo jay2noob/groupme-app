@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { createGroup } from "../../actions/group";
@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import "./styles.css";
 
 function CreateGroupForm({ createGroup, currentGroup }) {
-  let history = useHistory()
+  let history = useHistory();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -39,10 +39,15 @@ function CreateGroupForm({ createGroup, currentGroup }) {
       groupImage: "",
     });
 
-    console.log(currentGroup)
-    history.push(`/groups/${currentGroup}`)
-    console.log(history)
+    console.log(currentGroup);
+    //history.push(`/groups/${currentGroup}`)
+    console.log(history);
   };
+  useEffect(() => {
+    if (currentGroup) {
+      history.push(`/groups/${currentGroup._id}`);
+    }
+  }, [currentGroup]);
 
   return (
     <form onSubmit={(event) => onSubmit(event)}>
@@ -73,11 +78,7 @@ function CreateGroupForm({ createGroup, currentGroup }) {
         </ul>
 
         <div className="create-group-img-container">
-
-          <label
-            className="file-upload btn-secondary"
-            htmlFor="img-upload"
-          >
+          <label className="file-upload btn-secondary" htmlFor="img-upload">
             <i className="fal fa-image" /> Upload Photo
           </label>
           <input
@@ -89,10 +90,10 @@ function CreateGroupForm({ createGroup, currentGroup }) {
             accept=".png, .jpg, .jpeg"
           />
         </div>
-        
-          <button className="btn btn-primary create-group-btn">
-            Create Group
-          </button>
+
+        <button className="btn btn-primary create-group-btn">
+          Create Group
+        </button>
       </fieldset>
     </form>
   );
@@ -106,7 +107,7 @@ CreateGroupForm.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAdmin: state.isAdmin,
-  currentGroup: state.currentGroup,
+  currentGroup: state.group.currentGroup,
 });
 
 export default connect(mapStateToProps, { createGroup })(CreateGroupForm);
