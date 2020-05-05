@@ -26,13 +26,6 @@ post: payload,
 3. npm nun dev not working properly on localhost. I updated Readme file with more reliable installation instructions for localhost.
 
 
-A. To run on localhost:
-npm i (in server directory)
-npm i (in client directory)
-npm run server (in new terminal window in server directory)
-npm run client (in new terminal window in server directory)
-
-
 Note - npm run dev was causing errors and/or not starting the server at times.
 
 Added the ability to search users
