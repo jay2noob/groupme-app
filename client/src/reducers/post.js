@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
     case GET_POSTS:
       return {
         ...state,
-        posts: payload,
+        posts: payload.reverse(),
         loading: false,
       };
 
@@ -37,7 +37,7 @@ export default function (state = initialState, action) {
     case ADD_POST:
       return {
         ...state,
-        post: payload,
+        posts: [payload, ...state.posts],
         loading: false,
       };
 
