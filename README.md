@@ -1,3 +1,24 @@
+# GroupMe 
+
+### Purpose 
+Looking for an app to keep you in touch with friends? Want to connect with people that have similar hobbies? GroupMe has you covered. Create a group using GroupMe to stay connected with friends, family, and chat about your favorite topics. 
+
+### Functionality 
+
+Upon creating a profile, users will be able to create or be invited to certain groups. Those users invited into groups can make post, upload photos and create events that only members of that particular group can view. User functions include: 
+
+*Create Profiles
+*Edit User Bio 
+*Upload Images 
+*Create Groups 
+*Create Events
+*Seach Other Users
+*Invite New Members 
+
+
+
+
+
 A. To run on localhost:
 - npm i (in server directory)
 - npm i (in client directory)
