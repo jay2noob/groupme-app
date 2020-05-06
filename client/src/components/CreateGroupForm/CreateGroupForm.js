@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { createGroup } from "../../actions/group";
 import PropTypes from "prop-types";
@@ -47,7 +47,7 @@ function CreateGroupForm({ createGroup, currentGroup }) {
     if (currentGroup) {
       history.push(`/groups/${currentGroup._id}`);
     }
-  }, [currentGroup]);
+  }, [currentGroup, history]);
 
   return (
     <form onSubmit={(event) => onSubmit(event)}>

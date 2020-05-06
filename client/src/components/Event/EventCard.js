@@ -28,9 +28,9 @@ function EventCard({ currentEvent, joinEvent, isGoing, event }) {
 
         <div className="event-body">
           <div>
-            <h3 className="event-heading"></h3>
+            <h3 className="event-heading">Family Cookout</h3>
             <h5>Garfield Park</h5>
-            <p>A cookout for friends and family</p>
+            <p>My families cookout</p>
             {isGoing ? (
               <button
                 onClick={onJoin}
@@ -41,7 +41,7 @@ function EventCard({ currentEvent, joinEvent, isGoing, event }) {
             ) : null}
           </div>
           <div className="event-time">
-            <p>Sat, May 2 2020</p>
+            <p>Sat, May 9 2020</p>
           </div>
         </div>
       </div>

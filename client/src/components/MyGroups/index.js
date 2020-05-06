@@ -60,6 +60,7 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
     window.addEventListener("scroll", onScroll);
 
     return () => window.removeEventListener("scroll", onScroll);
+    // eslint-disable-next-line
   }, []);
 
   return (

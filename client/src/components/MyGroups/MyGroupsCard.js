@@ -1,18 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { IMAGE_URL } from '../../utils/setAuthToken';
+// import { IMAGE_URL } from '../../utils/setAuthToken';
 import './styles.css'
 
 function MyGroupsCard({ myGroup }) {
 
-  var res = myGroup.avatar.match(/^\/\//g);
-  const url = res == null ? `${IMAGE_URL}${myGroup.avatar}` : myGroup.avatar;
+  // var res = myGroup.avatar.match(/^\/\//g);
+  // const url = res == null ? `${IMAGE_URL}${myGroup.avatar}` : myGroup.avatar;
 
   return (
     <ul className="mygroups-list">
       <li className="mygroups-item">
         <div className="mygroups-img-container">
-          <img className="mygroups-img" src={url} alt=""/>
+          <img className="mygroups-img" src="../images/mygroupimage.jpg" alt=""/>
         </div> 
         <div className="mygroups-content">
           <h3 className="mygroups-content-heading">{myGroup.name}</h3>

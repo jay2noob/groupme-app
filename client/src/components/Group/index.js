@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import GroupPost from "./GroupPost";
 import CreatePostCard from "./CreatePostCard";
 import GroupHero from "./GroupHero";
+import Spinner from '../Spinner/Spinner'
 import "./styles.css";
 
 function GroupsContainer({
@@ -61,6 +62,10 @@ function GroupsContainer({
 
     // eslint-disable-next-line
   }, []);
+
+  if(loading) {
+    return <Spinner />
+  }
 
   return (
     <section className="groups-card-container">
