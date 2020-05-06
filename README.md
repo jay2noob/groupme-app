@@ -7,16 +7,32 @@ Looking for an app to keep you in touch with friends? Want to connect with peopl
 
 Upon creating a profile, users will be able to create or be invited to certain groups. Those users invited into groups can make post, upload photos and create events that only members of that particular group can view. User functions include: 
 
-*Create Profiles
-*Edit User Bio 
-*Upload Images 
-*Create Groups 
-*Create Events
-*Seach Other Users
-*Invite New Members 
+- Create Profiles
+- Edit User Bio 
+- Upload Images 
+- Create Groups 
+- Create Events
+- Seach Other Users
+- Invite New Members 
+
+### Demo
+
+![App Gif Demo](GroupMe-App-Demo.gif)
+
+
+### Technologies Used 
+- React
+- Redux
+- Mongoose
+- Express
+- Gavatar 
+- JavaScript
+- HTML
+- CSS
 
 
 
+# Miscellaneous Comments 
 
 
 A. To run on localhost:
