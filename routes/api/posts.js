@@ -30,11 +30,11 @@ router.post(
 
     try {
       const user = await User.findById(req.user.id).select("-password");
-      let group = await Group.findById(req.body.groupID);
+      // let group = await Group.findById(req.body.groupID);
 
       const avatar = req.file && req.file.filename;
       const newPost = new Post({
-        groupID: req.body.groupID,
+        // groupID: req.body.groupID,
         text: req.body.text,
         name: user.name,
         avatar: avatar || user.avatar,
@@ -43,10 +43,10 @@ router.post(
 
       const post = await newPost.save();
 
-      if (group) {
-        group.posts.unshift({ post: post._id });
-        await group.save();
-      }
+      // if (group) {
+      //   group.posts.unshift({ post: post._id });
+      //   await group.save();
+      // }
 
       res.json(post);
     } catch (err) {
@@ -76,13 +76,14 @@ router.post(
   }
 });*/
 
-router.get("/group/posts/:groupID", auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
-    const posts = await Post.find({
-      groupID: mongoose.Types.ObjectId(req.params.groupID),
-    }).sort({
-      date: -1,
-    });
+    const posts = await Post.find().sort({ date: -1 });
+    // const posts = await Post.find({
+    //   groupID: mongoose.Types.ObjectId(req.params.groupID),
+    // }).sort({
+    //   date: -1,
+    // });
     res.json(posts);
   } catch (err) {
     console.error(err.message);
