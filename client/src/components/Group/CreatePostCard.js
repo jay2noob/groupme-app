@@ -23,10 +23,11 @@ function CreatePostCard({ addPost, getPosts, post: { posts, loading } }) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    addPost({ text });
+    addPost({ groupID, text });
     setFormData({
       text: "",
     });
+    console.log("FORM DATA", groupID, text);
   };
 
   return (

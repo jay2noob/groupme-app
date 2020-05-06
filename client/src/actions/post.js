@@ -50,9 +50,9 @@ export const addPost = ({ groupID, text, name, avatar }) => async (
 };
 
 // Get posts
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (page) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/posts`);
+    const res = await axios.get(`/api/posts/${page}`);
 
     dispatch({
       type: GET_POSTS,

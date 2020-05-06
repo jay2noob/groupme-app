@@ -59,7 +59,7 @@ router.post(
 // @route    GET api/posts/:page
 // @desc     Get all posts in the specified range
 // @access   Private
-/*router.get("/:page", auth, async (req, res) => {
+router.get("/:page", auth, async (req, res) => {
   const pageOptions = {
     page: parseInt(req.params.page, 10) || 0,
     limit: global.pageOptions.limit,
@@ -74,9 +74,9 @@ router.post(
     console.error(err.message);
     res.status(500).send("Server Error");
   }
-});*/
+});
 
-router.get("/group/posts/:groupID", auth, async (req, res) => {
+/*router.get("/group/posts/:groupID", auth, async (req, res) => {
   try {
     const posts = await Post.find({
       groupID: mongoose.Types.ObjectId(req.params.groupID),
@@ -88,7 +88,7 @@ router.get("/group/posts/:groupID", auth, async (req, res) => {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
-});
+});*/
 
 // @route    GET api/posts/:id
 // @desc     Get post by ID
