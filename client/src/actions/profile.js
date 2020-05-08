@@ -8,7 +8,6 @@ import {
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
   LOGOUT,
-  SET_SEARCH_TERM
 } from "./types";
 
 // Get current users profile
@@ -143,9 +142,3 @@ export const deleteAccount = () => async (dispatch) => {
     }
   }
 };
-
-
-export const setSearchTerm = searchTerm => {
-  console.log('juu==>>>', searchTerm)
-  return { type: SET_SEARCH_TERM, payload: searchTerm };
-}

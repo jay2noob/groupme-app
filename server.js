@@ -11,7 +11,7 @@ global.pageOptions = {
 
 // Connect DB
 connectDB.then(() => {
-  console.log('MOngoDB connected')
+  console.log("MOngoDB connected");
 
   // Init Middleware
   app.use(express.json({ extended: false }));
@@ -43,6 +43,4 @@ connectDB.then(() => {
   const PORT = process.env.PORT || 3001;
 
   app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
-
-
 });

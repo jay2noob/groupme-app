@@ -5,9 +5,8 @@ import { getProfiles } from "../../actions/profile";
 import UserCard from './UserCard'
 import "./styles.css";
 
-function UsersContainer({ searchTerm, getProfiles, profile: { profiles } }) {
+function UsersContainer({ getProfiles, profile: { profiles } }) {
 
-  console.log('searr==>>', searchTerm)
 
   useEffect(() => {
     getProfiles()
@@ -33,8 +32,7 @@ UsersContainer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  profile: state.profile,
-  searchTerm: state.profile.searchTerm
+  profile: state.profile
 });
 
 export default connect(mapStateToProps, { getProfiles })(UsersContainer);

@@ -67,13 +67,13 @@ function MyGroupsContainer({ getMyGroups, myGroups }) {
     <section className="mygroups-card-container">
       <h2 className="mygroups-heading">My Groups</h2>
       {loading ? <Spinner /> : null}
-      {myGroups && (myGroups.length ? (
+      {myGroups && myGroups.length === 0 ? (
+        <h3>No Groups to show</h3>
+      ) : (
         myGroups.map((myGroup) => (
           <MyGroupsCard myGroup={myGroup} key={myGroup._id} />
         ))
-      ) : (
-        <h3>No Groups to show</h3>
-      ))}
+      )}
     </section>
   );
 }
