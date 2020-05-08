@@ -1,21 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
-import { IMAGE_URL } from '../../utils/setAuthToken';
+// import { IMAGE_URL } from '../../utils/setAuthToken';
 import { connect } from "react-redux";
 import { joinGroup } from "../../actions/group";
 import PropTypes from "prop-types";
 
 
-function GroupHero({ currentGroup, joinGroup, isJoined }) {
+function GroupHero({ currentGroup, joinGroup }) {
   console.log("currentGroup", currentGroup);
   
-  let res = null;
-  let url = null;
-  if (currentGroup) {
-    res = currentGroup.avatar && currentGroup.avatar.match(/^\/\//g);
-    url = res == null ? `${IMAGE_URL}${currentGroup.avatar}` : currentGroup.avatar
-  }
+  // let res = null;
+  // let url = null;
+  // if (currentGroup) {
+  //   res = currentGroup.avatar && currentGroup.avatar.match(/^\/\//g);
+  //   url = res == null ? `${IMAGE_URL}${currentGroup.avatar}` : currentGroup.avatar
+  // }
 
   const onJoin = (e) => {
     joinGroup({ id: currentGroup._id })
@@ -24,7 +24,7 @@ function GroupHero({ currentGroup, joinGroup, isJoined }) {
     <section className="groups-hero-container">
       <div className="groups-hero-card">
         <div className="groups-hero-img-container">
-          <img className="groups-hero-img" src={url} alt=""/>
+          <img className="groups-hero-img" src="../images/groupcoverimage.jpg" alt=""/>
         </div>
         <h2 className="groups-hero-group-name">{currentGroup.name}</h2>
         <div className="groups-hero-content">
@@ -45,11 +45,9 @@ function GroupHero({ currentGroup, joinGroup, isJoined }) {
           </ul>
           <div className="groups-hero-content-buttons">
             
-            { isJoined ?
               <button onClick={onJoin} className="btn btn-primary group-hero-btn">
                 Join Group
               </button>
-              : null }
               
             <Link to={`/groups/events/${currentGroup._id}}`}>
               <button className="btn btn-secondary group-hero-btn">View Group Events</button>

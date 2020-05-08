@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addPost, getPosts } from "../../actions/post";
+import { useParams } from "react-router-dom";
 import "./styles.css";
 
 function CreatePostCard({ addPost, getPosts, post: { posts, loading } }) {
@@ -10,6 +11,8 @@ function CreatePostCard({ addPost, getPosts, post: { posts, loading } }) {
   });
 
   const { text } = formData;
+
+  const { groupID } = useParams();
 
   const onChange = (event) => {
     setFormData({
@@ -20,10 +23,11 @@ function CreatePostCard({ addPost, getPosts, post: { posts, loading } }) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    addPost({ text });
+    addPost({ groupID, text });
     setFormData({
       text: "",
     });
+    console.log("FORM DATA", groupID, text);
   };
 
   return (

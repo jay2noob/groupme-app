@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getProfiles } from "../../actions/profile";
-import { IMAGE_URL } from "../../utils/setAuthToken";
 import UserCard from './UserCard'
 import "./styles.css";
 
@@ -11,6 +10,7 @@ function UsersContainer({ getProfiles, profile: { profiles } }) {
 
   useEffect(() => {
     getProfiles()
+    // eslint-disable-next-line
   }, [])
 
   return (

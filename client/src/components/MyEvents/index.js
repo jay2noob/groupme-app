@@ -52,6 +52,7 @@ function MyEventsContainer({ getMyGroups, getMyEvents, event: { myEvents } }) {
     window.addEventListener("scroll", onScroll);
 
     return () => window.removeEventListener("scroll", onScroll);
+    // eslint-disable-next-line
   }, []);
 
   return (

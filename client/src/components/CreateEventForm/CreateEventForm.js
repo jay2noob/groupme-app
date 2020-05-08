@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { connect } from "react-redux";
 import { createEvent } from "../../actions/event";
 import PropTypes from "prop-types";
-import { Redirect, useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import './styles.css'
 
 
 
-function CreateEventForm({ createEvent, currentEvent }) {
+function CreateEventForm({ createEvent }) {
   let history = useHistory()
 
   const { groupID } = useParams();
@@ -49,7 +49,6 @@ function CreateEventForm({ createEvent, currentEvent }) {
     })
     history.push(`/groups/events/${groupID}`)
     console.log(history)
-
   }
 
 

@@ -8,9 +8,7 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT,
-  GET_GROUP,
-  USER_LOADED,
+  REMOVE_COMMENT
 } from "./types";
 
 // Add post
@@ -37,10 +35,6 @@ export const addPost = ({ groupID, text, name, avatar }) => async (
       payload: res.data,
     });
 
-    //dispatch(setAlert("Post Created", "success"));
-    //dispatch({ type: USER_LOADED });
-    //dispatch({ type: GET_GROUP });
-    //dispatch({ type: GET_POSTS });
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -50,9 +44,9 @@ export const addPost = ({ groupID, text, name, avatar }) => async (
 };
 
 // Get posts
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (page) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/posts`);
+    const res = await axios.get(`/api/posts/${page}`);
 
     dispatch({
       type: GET_POSTS,
@@ -170,7 +164,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
 
 export const deleteComment = (postId, commentId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+    // const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
     dispatch({
       type: REMOVE_COMMENT,

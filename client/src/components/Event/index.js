@@ -18,6 +18,7 @@ function EventsContainer({ getEvent, currentEvent }) {
     if (currentEvent) {
       console.log(currentEvent);
     }
+    // eslint-disable-next-line
   }, []);
 
   if (loading) {
